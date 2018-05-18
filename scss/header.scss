@@ -3,31 +3,152 @@
     position: fixed;
     z-index: 999;
     background: rgba(0,0,0,0.2);
-    background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(102,102,102,0.12) 40%, rgba(255,255,255,0) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.2)), color-stop(40%, rgba(102,102,102,0.12)), color-stop(100%, rgba(255,255,255,0)));
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(102,102,102,0.12) 40%, rgba(255,255,255,0) 100%);
-    background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(102,102,102,0.12) 40%, rgba(255,255,255,0) 100%);
-    background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(102,102,102,0.12) 40%, rgba(255,255,255,0) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(102,102,102,0.12) 40%, rgba(255,255,255,0) 100%);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.2)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
-    .Header_Content{ 
+    .Header_Content{
         padding:40px;
         position: relative;
         .Header_Logo{
             width: 150px;
             height: 69px;
             position: relative;
-            background: #a00;
+            .Logo_Rayner{
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 400;
+                font-size: 41px;
+                line-height:33px;
+                left:-3px;
+                position: relative;
+                color:#fff;
+                text-transform:uppercase;
+            }
+            .Logo_Lemos{
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 800;
+                font-size: 44px;
+                line-height:33px;
+                left:-3px;
+                top:2px;
+                position: relative;
+                text-transform:uppercase;
+                display: flex;
+                color:#fff;
+                .Logo_Lemos_L{
+                    -webkit-animation: LogoAnimateColor 10s infinite;
+                    -moz-animation: LogoAnimateColor 10s infinite;
+                    -o-animation: LogoAnimateColor 10s infinite;
+                    -ms-animation: LogoAnimateColor 10s infinite;
+                    animation: LogoAnimateColor 10s infinite;
+                }
+                .Logo_Lemos_E{
+                    -webkit-animation: LogoAnimateColor 10.2s infinite;
+                    -moz-animation: LogoAnimateColor 10.2s infinite;
+                    -o-animation: LogoAnimateColor 10.2s infinite;
+                    -ms-animation: LogoAnimateColor 10.2s infinite;
+                    animation: LogoAnimateColor 10.2s infinite;
+                }
+                .Logo_Lemos_M{
+                    -webkit-animation: LogoAnimateColor 10.4s infinite;
+                    -moz-animation: LogoAnimateColor 10.4s infinite;
+                    -o-animation: LogoAnimateColor 10.4s infinite;
+                    -ms-animation: LogoAnimateColor 10.4s infinite;
+                    animation: LogoAnimateColor 10.4s infinite;
+                }
+                .Logo_Lemos_O{
+                    -webkit-animation: LogoAnimateColor 10.6s infinite;
+                    -moz-animation: LogoAnimateColor 10.6s infinite;
+                    -o-animation: LogoAnimateColor 10.6s infinite;
+                    -ms-animation: LogoAnimateColor 10.6s infinite;
+                    animation: LogoAnimateColor 10.6s infinite;
+                }
+                .Logo_Lemos_S{
+                    -webkit-animation: LogoAnimateColor 10.8s infinite;
+                    -moz-animation: LogoAnimateColor 10.8s infinite;
+                    -o-animation: LogoAnimateColor 10.8s infinite;
+                    -ms-animation: LogoAnimateColor 10.8s infinite;
+                    animation: LogoAnimateColor 10.8s infinite;
+                }
+                @-webkit-keyframes LogoAnimateColor {
+                    0% { color: #ff2525; }
+                    10% { color: #ff8005; }
+                    20% { color: #ffe300; }
+                    30% { color: #5cff00; }
+                    40% { color: #00ffbe; }
+                    50% { color: #0049ff; }
+                    60% { color: #8200ff; }
+                    70% { color: #ff00c8; }
+                    80% { color: #ff004d; }
+                    90% { color: #ff0000; }
+                    100% { color: #ff2525; }
+                }
+                @-moz-keyframes LogoAnimateColor {
+                    0% { color: #ff2525; }
+                    10% { color: #ff8005; }
+                    20% { color: #ffe300; }
+                    30% { color: #5cff00; }
+                    40% { color: #00ffbe; }
+                    50% { color: #0049ff; }
+                    60% { color: #8200ff; }
+                    70% { color: #ff00c8; }
+                    80% { color: #ff004d; }
+                    90% { color: #ff0000; }
+                    100% { color: #ff2525; }
+                }
+                @-ms-keyframes LogoAnimateColor {
+                    0% { color: #ff2525; }
+                    10% { color: #ff8005; }
+                    20% { color: #ffe300; }
+                    30% { color: #5cff00; }
+                    40% { color: #00ffbe; }
+                    50% { color: #0049ff; }
+                    60% { color: #8200ff; }
+                    70% { color: #ff00c8; }
+                    80% { color: #ff004d; }
+                    90% { color: #ff0000; }
+                    100% { color: #ff2525; }
+                }
+                @-o-keyframes LogoAnimateColor {
+                    0% { color: #ff2525; }
+                    10% { color: #ff8005; }
+                    20% { color: #ffe300; }
+                    30% { color: #5cff00; }
+                    40% { color: #00ffbe; }
+                    50% { color: #0049ff; }
+                    60% { color: #8200ff; }
+                    70% { color: #ff00c8; }
+                    80% { color: #ff004d; }
+                    90% { color: #ff0000; }
+                    100% { color: #ff2525; }
+                }
+                @keyframes LogoAnimateColor {
+                    0% { color: #ff2525; }
+                    10% { color: #ff8005; }
+                    20% { color: #ffe300; }
+                    30% { color: #5cff00; }
+                    40% { color: #00ffbe; }
+                    50% { color: #0049ff; }
+                    60% { color: #8200ff; }
+                    70% { color: #ff00c8; }
+                    80% { color: #ff004d; }
+                    90% { color: #ff0000; }
+                    100% { color: #ff2525; }
+                }
+            }
         }
         .Header_Menu{
             display: flex;
             justify-content: flex-start;
-            align-items: center; 
+            align-items: center;
             top: 41px;
-            right: 40px; 
+            right: 40px;
             position: absolute;
             .Menu_Item{
-                text-transform: uppercase; 
+                text-transform: uppercase;
                 font-family: 'Open Sans', sans-serif;
                 font-weight: 800;
                 font-size: 15px;
@@ -35,15 +156,80 @@
                 padding:0 5px;
                 margin:0 10px;
                 cursor: pointer;
-                transition: 0.1s linear;
+                transition: 1s linear;
+                color:#fff;
                 &:last-child{
                     margin-right:0;
                     padding-right: 0;
                 }
                 &:hover{
-                    color:#44b5ff;
+                    -webkit-animation: MenuAnimateColor 10s infinite;
+                    -moz-animation: MenuAnimateColor 10s infinite;
+                    -o-animation: MenuAnimateColor 10s infinite;
+                    -ms-animation: MenuAnimateColor 10s infinite;
+                    animation: MenuAnimateColor 10s infinite;
+                    @-webkit-keyframes MenuAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                    }
+                    @-moz-keyframes MenuAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                    }
+                    @-ms-keyframes MenuAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                    }
+                    @-o-keyframes MenuAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                    }
+                    @keyframes MenuAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                    }
                 }
-            } 
+            }
         }
         .Header_Contato{
             display: flex;
@@ -55,7 +241,7 @@
             .Contato_Border{
                 width: 160px;
                 height: 3px;
-                background:#000;
+                background:#fff;
                 position: absolute;
                 top: 50%;
                 left: -175px;
@@ -64,26 +250,29 @@
                 display: flex;
                 align-items: center;
                 margin-right: 30px;
-                &:last-child{ 
+                &:last-child{
                     margin-right: 0px;
                 }
                 .Contato_Item_Icone{
                     position: relative;
                     margin-right: 8px;
+                    color:#fff;
                     i{
                         font-size: 18px;
                         top: 2px;
                         position: relative;
+                        color:#fff;
                     }
                 }
                 .Contato_Item_Label{
-                    text-transform: uppercase; 
+                    text-transform: uppercase;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 400;
                     font-size: 15px;
                     line-height: 15px;
+                    color:#fff;
                     a{
-                        color:#000;
+                        color:#fff;
                         text-decoration: none;
                     }
                 }

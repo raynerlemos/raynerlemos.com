@@ -12,6 +12,10 @@ gulp.task('watch', function() {
     watch('./scss/*.scss', function() { ProcessarEstilos(); });
 });
 
+gulp.task('sass', function() {
+    ProcessarEstilos();
+});
+
 function ProcessarEstilos(){
     gulp.src('./scss/**/*.scss')
         .pipe(sass())

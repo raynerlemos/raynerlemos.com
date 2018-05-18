@@ -11,12 +11,12 @@
     margin: 13px 0; }
     .SocialMedia .SocialMedia_Item a {
       display: block;
-      color: #000;
+      color: #fff;
       text-decoration: none; }
       .SocialMedia .SocialMedia_Item a i {
         font-size: 30px; }
   .SocialMedia .SocialMedia_Border {
     width: 3px;
     height: 160px;
-    background: #000;
+    background: #fff;
     bottom: -175px; }
