@@ -19,8 +19,8 @@
             position: relative;
             .Logo_Rayner{
                 font-family: 'Open Sans', sans-serif;
-                font-weight: 400;
-                font-size: 41px;
+                font-weight: 300;
+                font-size: 42px;
                 line-height:33px;
                 left:-3px;
                 position: relative;
@@ -37,7 +37,10 @@
                 position: relative;
                 text-transform:uppercase;
                 display: flex;
-                color:#fff;
+                background-image: url('../img/animacao-logo-min.gif');
+                background-size: cover;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
                 .Logo_Lemos_L{
                     -webkit-animation: LogoAnimateColor 10s infinite;
                     -moz-animation: LogoAnimateColor 10s infinite;

@@ -24,8 +24,8 @@ body {
       position: relative; }
       .Header .Header_Content .Header_Logo .Logo_Rayner {
         font-family: 'Open Sans', sans-serif;
-        font-weight: 400;
-        font-size: 41px;
+        font-weight: 300;
+        font-size: 42px;
         line-height: 33px;
         left: -3px;
         position: relative;
@@ -41,7 +41,10 @@ body {
         position: relative;
         text-transform: uppercase;
         display: flex;
-        color: #fff; }
+        background-image: url("../img/animacao-logo-min.gif");
+        background-size: cover;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; }
         .Header .Header_Content .Header_Logo .Logo_Lemos .Logo_Lemos_L {
           -webkit-animation: LogoAnimateColor 10s infinite;
           -moz-animation: LogoAnimateColor 10s infinite;
