@@ -3,6 +3,143 @@ body {
   padding: 0;
   width: 100%; }
 
+@-webkit-keyframes LineAnimate {
+  0% {
+    background: #ff2525; }
+  10% {
+    background: #ff8005; }
+  20% {
+    background: #ffe300; }
+  30% {
+    background: #5cff00; }
+  40% {
+    background: #00ffbe; }
+  50% {
+    background: #0049ff; }
+  60% {
+    background: #8200ff; }
+  70% {
+    background: #ff00c8; }
+  80% {
+    background: #ff004d; }
+  90% {
+    background: #ff0000; } }
+
+@-moz-keyframes LineAnimate {
+  0% {
+    background: #ff2525; }
+  10% {
+    background: #ff8005; }
+  20% {
+    background: #ffe300; }
+  30% {
+    background: #5cff00; }
+  40% {
+    background: #00ffbe; }
+  50% {
+    background: #0049ff; }
+  60% {
+    background: #8200ff; }
+  70% {
+    background: #ff00c8; }
+  80% {
+    background: #ff004d; }
+  90% {
+    background: #ff0000; } }
+
+@-ms-keyframes LineAnimate {
+  0% {
+    background: #ff2525; }
+  10% {
+    background: #ff8005; }
+  20% {
+    background: #ffe300; }
+  30% {
+    background: #5cff00; }
+  40% {
+    background: #00ffbe; }
+  50% {
+    background: #0049ff; }
+  60% {
+    background: #8200ff; }
+  70% {
+    background: #ff00c8; }
+  80% {
+    background: #ff004d; }
+  90% {
+    background: #ff0000; } }
+
+@-o-keyframes LineAnimate {
+  0% {
+    background: #ff2525; }
+  10% {
+    background: #ff8005; }
+  20% {
+    background: #ffe300; }
+  30% {
+    background: #5cff00; }
+  40% {
+    background: #00ffbe; }
+  50% {
+    background: #0049ff; }
+  60% {
+    background: #8200ff; }
+  70% {
+    background: #ff00c8; }
+  80% {
+    background: #ff004d; }
+  90% {
+    background: #ff0000; } }
+
+@keyframes LineAnimate {
+  0% {
+    background: #ff2525; }
+  10% {
+    background: #ff8005; }
+  20% {
+    background: #ffe300; }
+  30% {
+    background: #5cff00; }
+  40% {
+    background: #00ffbe; }
+  50% {
+    background: #0049ff; }
+  60% {
+    background: #8200ff; }
+  70% {
+    background: #ff00c8; }
+  80% {
+    background: #ff004d; }
+  90% {
+    background: #ff0000; } }
+
+.PageTitle {
+  position: relative; }
+  .PageTitle .PageTitle_Name {
+    font-size: 80px;
+    font-family: 'Open Sans', 'Hind', sans-serif;
+    font-weight: 300;
+    line-height: 86px;
+    position: relative;
+    z-index: 2; }
+  .PageTitle .PageTitle_Sub {
+    font-size: 20px;
+    font-family: 'Open Sans', 'Hind', sans-serif;
+    font-weight: 200;
+    line-height: 30px;
+    position: relative;
+    z-index: 2;
+    margin-top: 15px; }
+  .PageTitle .PageTitle_Line {
+    width: 50%;
+    height: 1px;
+    animation: LineAnimate 10s infinite;
+    position: absolute;
+    top: 50px;
+    left: -5%;
+    background: #ff0000;
+    opacity: 0.4; }
+
 .Header {
   width: 100%;
   position: fixed;
@@ -21,23 +158,24 @@ body {
     .Header .Header_Content .Header_Logo {
       width: 151px;
       height: 69px;
+      max-width: 190px;
       position: relative; }
       .Header .Header_Content .Header_Logo .Logo_Rayner {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans', 'Hind', sans-serif;
         font-weight: 300;
-        font-size: 42px;
-        line-height: 33px;
+        font-size: 44px;
+        line-height: 44px;
         left: -3px;
         position: relative;
         color: #fff;
         text-transform: uppercase; }
       .Header .Header_Content .Header_Logo .Logo_Lemos {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans', 'Hind', sans-serif;
         font-weight: 800;
-        font-size: 44px;
-        line-height: 33px;
+        font-size: 46px;
+        line-height: 44px;
         left: -3px;
-        top: 2px;
+        top: -7px;
         position: relative;
         text-transform: uppercase;
         display: flex;
@@ -206,7 +344,7 @@ body {
         text-transform: uppercase;
         font-family: 'Open Sans', sans-serif;
         font-weight: 800;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 15px;
         padding: 0 5px;
         margin: 0 10px;
@@ -336,16 +474,17 @@ body {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      top: 80px;
+      top: 75px;
       right: 40px;
       position: absolute; }
       .Header .Header_Content .Header_Contato .Contato_Border {
         width: 160px;
-        height: 3px;
+        height: 1px;
         background: #fff;
         position: absolute;
         top: 50%;
-        left: -175px; }
+        left: -175px;
+        opacity: 0.7; }
       .Header .Header_Content .Header_Contato .Contato_Item {
         display: flex;
         align-items: center;
@@ -365,7 +504,7 @@ body {
           text-transform: uppercase;
           font-family: 'Open Sans', sans-serif;
           font-weight: 400;
-          font-size: 15px;
+          font-size: 14px;
           line-height: 15px;
           color: #fff; }
           .Header .Header_Content .Header_Contato .Contato_Item .Contato_Item_Label a {
@@ -390,10 +529,11 @@ body {
       .SocialMedia .SocialMedia_Item a i {
         font-size: 30px; }
   .SocialMedia .SocialMedia_Border {
-    width: 3px;
+    width: 1px;
     height: 160px;
     background: #fff;
-    bottom: -175px; }
+    bottom: -175px;
+    opacity: 0.7; }
 
 .Home {
   position: relative;
@@ -403,7 +543,7 @@ body {
   align-content: center;
   padding-top: 160px;
   padding-bottom: 160px;
-  background: url("../img/home_content_bg.png") top center no-repeat #111;
+  background-color: #111;
   overflow: hidden; }
   .Home .Home_Content {
     width: 100%;
@@ -414,7 +554,7 @@ body {
       max-width: 700px;
       height: 100%;
       min-height: 100vh;
-      background: #a00;
+      background: #111;
       position: absolute;
       top: 0px;
       right: 0px;
@@ -433,6 +573,20 @@ body {
         background: -ms-linear-gradient(left, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
         background: linear-gradient(to right, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000', GradientType=1 ); }
+        .Home .Home_Content .Home_Content_Bg .Home_Content_Bg_Filter:before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: 3;
+          background: #111111;
+          background: -moz-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -webkit-gradient(top top, top top, color-stop(0%, #111111), color-stop(14%, #0f0f0f), color-stop(54%, rgba(8, 8, 8, 0.69)), color-stop(86%, rgba(2, 2, 2, 0.35)), color-stop(100%, rgba(0, 0, 0, 0.08)));
+          background: -webkit-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -o-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -ms-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: linear-gradient(to top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000', GradientType=1 ); }
       .Home .Home_Content .Home_Content_Bg img {
         position: relative;
         z-index: 1;
@@ -505,3 +659,87 @@ body {
           line-height: 16px;
           margin-top: 20px;
           text-transform: uppercase; }
+
+.About {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #111; }
+  .About .About_Container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    z-index: 2;
+    justify-content: flex-end; }
+    .About .About_Container .About_Content {
+      flex-basis: calc(100% - 210px);
+      padding-top: 160px;
+      padding-bottom: 160px;
+      padding-right: 60px; }
+      .About .About_Container .About_Content .PageTitle .PageTitle_Name {
+        color: #fff; }
+      .About .About_Container .About_Content .PageTitle .PageTitle_Sub {
+        color: #fff; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-19 {
+          font-size: 19px;
+          line-height: 19px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-15 {
+          font-size: 15px;
+          line-height: 15px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-13 {
+          font-size: 13px;
+          line-height: 13px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-11 {
+          font-size: 11px;
+          line-height: 11px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-9 {
+          font-size: 9px;
+          line-height: 9px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-5 {
+          font-size: 5px;
+          line-height: 5px; }
+        .About .About_Container .About_Content .PageTitle .PageTitle_Sub .font-3 {
+          font-size: 3px;
+          line-height: 3px; }
+      .About .About_Container .About_Content .About_Text {
+        font-family: 'Hind';
+        color: #fff;
+        font-size: 16px;
+        font-weight: 200;
+        line-height: 28px;
+        margin-top: 10px; }
+        .About .About_Container .About_Content .About_Text b {
+          font-weight: 600; }
+  .About .About_Album {
+    flex-basis: 400px;
+    background: #333;
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 0; }
+    .About .About_Album .About_Album_Photo {
+      width: 400px;
+      height: 400px;
+      background: #383838;
+      margin-bottom: 10px; }
+
+.Portfolio {
+  position: relative;
+  z-index: 9;
+  background: #fff;
+  min-height: 100vh; }
+  .Portfolio .Portfolio_Content {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    z-index: 2;
+    padding-top: 160px;
+    padding-bottom: 160px; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Name {
+      color: #111; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Sub {
+      color: #111; }

@@ -6,7 +6,7 @@
   align-content: center;
   padding-top: 160px;
   padding-bottom: 160px;
-  background: url("../img/home_content_bg.png") top center no-repeat #111;
+  background-color: #111;
   overflow: hidden; }
   .Home .Home_Content {
     width: 100%;
@@ -17,7 +17,7 @@
       max-width: 700px;
       height: 100%;
       min-height: 100vh;
-      background: #a00;
+      background: #111;
       position: absolute;
       top: 0px;
       right: 0px;
@@ -36,6 +36,20 @@
         background: -ms-linear-gradient(left, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
         background: linear-gradient(to right, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000', GradientType=1 ); }
+        .Home .Home_Content .Home_Content_Bg .Home_Content_Bg_Filter:before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: 3;
+          background: #111111;
+          background: -moz-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -webkit-gradient(top top, top top, color-stop(0%, #111111), color-stop(14%, #0f0f0f), color-stop(54%, rgba(8, 8, 8, 0.69)), color-stop(86%, rgba(2, 2, 2, 0.35)), color-stop(100%, rgba(0, 0, 0, 0.08)));
+          background: -webkit-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -o-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: -ms-linear-gradient(top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          background: linear-gradient(to top, #111111 0%, #0f0f0f 14%, rgba(8, 8, 8, 0.69) 54%, rgba(2, 2, 2, 0.35) 86%, rgba(0, 0, 0, 0.08) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000', GradientType=1 ); }
       .Home .Home_Content .Home_Content_Bg img {
         position: relative;
         z-index: 1;

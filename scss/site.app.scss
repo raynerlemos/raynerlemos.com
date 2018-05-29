@@ -3,9 +3,103 @@
 body{
     margin: 0;
     padding: 0;
-    width: 100%; 
+    width: 100%;
 }
 
-@import 'header.scss';  
-@import 'socialmedia.scss';  
-@import 'home.scss';  
+@-webkit-keyframes LineAnimate {
+    0% { background: #ff2525; }
+    10% { background: #ff8005; }
+    20% { background: #ffe300; }
+    30% { background: #5cff00; }
+    40% { background: #00ffbe; }
+    50% { background: #0049ff; }
+    60% { background: #8200ff; }
+    70% { background: #ff00c8; }
+    80% { background: #ff004d; }
+    90% { background: #ff0000; }
+}
+@-moz-keyframes LineAnimate {
+    0% { background: #ff2525; }
+    10% { background: #ff8005; }
+    20% { background: #ffe300; }
+    30% { background: #5cff00; }
+    40% { background: #00ffbe; }
+    50% { background: #0049ff; }
+    60% { background: #8200ff; }
+    70% { background: #ff00c8; }
+    80% { background: #ff004d; }
+    90% { background: #ff0000; }
+}
+@-ms-keyframes LineAnimate {
+    0% { background: #ff2525; }
+    10% { background: #ff8005; }
+    20% { background: #ffe300; }
+    30% { background: #5cff00; }
+    40% { background: #00ffbe; }
+    50% { background: #0049ff; }
+    60% { background: #8200ff; }
+    70% { background: #ff00c8; }
+    80% { background: #ff004d; }
+    90% { background: #ff0000; }
+}
+@-o-keyframes LineAnimate {
+    0% { background: #ff2525; }
+    10% { background: #ff8005; }
+    20% { background: #ffe300; }
+    30% { background: #5cff00; }
+    40% { background: #00ffbe; }
+    50% { background: #0049ff; }
+    60% { background: #8200ff; }
+    70% { background: #ff00c8; }
+    80% { background: #ff004d; }
+    90% { background: #ff0000; }
+}
+@keyframes LineAnimate {
+    0% { background: #ff2525; }
+    10% { background: #ff8005; }
+    20% { background: #ffe300; }
+    30% { background: #5cff00; }
+    40% { background: #00ffbe; }
+    50% { background: #0049ff; }
+    60% { background: #8200ff; }
+    70% { background: #ff00c8; }
+    80% { background: #ff004d; }
+    90% { background: #ff0000; }
+}
+
+.PageTitle{
+    position: relative;
+    .PageTitle_Name{
+        font-size: 80px;
+        font-family: 'Open Sans', 'Hind', sans-serif;
+        font-weight: 300;
+        line-height: 86px;
+        position: relative;
+        z-index: 2;
+    }
+    .PageTitle_Sub{
+        font-size: 20px;
+        font-family: 'Open Sans', 'Hind', sans-serif;
+        font-weight: 200;
+        line-height: 30px;
+        position: relative;
+        z-index: 2;
+        margin-top:15px;
+    }
+    .PageTitle_Line{
+        width: 50%;
+        height: 1px;
+        animation: LineAnimate 10s infinite;
+        position: absolute;
+        top:50px;
+        left: -5%;
+        background: #ff0000;
+        opacity: 0.4;
+    }
+}
+
+@import 'header.scss';
+@import 'socialmedia.scss';
+@import 'home.scss';
+@import 'about.scss';
+@import 'portfolio.scss';

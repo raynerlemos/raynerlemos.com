@@ -17,269 +17,275 @@
             width: 151px;
             height: 69px;
             position: relative;
-            .Logo_Rayner{
-                font-family: 'Open Sans', sans-serif;
-                font-weight: 300;
-                font-size: 42px;
-                line-height:33px;
-                left:-3px;
+            .Header_Logo{
+                width: max-content;
+                height: 69px;
+                max-width:190px;
                 position: relative;
-                color:#fff;
-                text-transform:uppercase;
-            }
-            .Logo_Lemos{
-                font-family: 'Open Sans', sans-serif;
-                font-weight: 800;
-                font-size: 44px;
-                line-height:33px;
-                left:-3px;
-                top:2px;
-                position: relative;
-                text-transform:uppercase;
-                display: flex;
-                background-image: url('../img/animacao-logo-min.gif');
-                background-size: cover;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                .Logo_Lemos_L{
-                    -webkit-animation: LogoAnimateColor 10s infinite;
-                    -moz-animation: LogoAnimateColor 10s infinite;
-                    -o-animation: LogoAnimateColor 10s infinite;
-                    -ms-animation: LogoAnimateColor 10s infinite;
-                    animation: LogoAnimateColor 10s infinite;
-                }
-                .Logo_Lemos_E{
-                    -webkit-animation: LogoAnimateColor 10.2s infinite;
-                    -moz-animation: LogoAnimateColor 10.2s infinite;
-                    -o-animation: LogoAnimateColor 10.2s infinite;
-                    -ms-animation: LogoAnimateColor 10.2s infinite;
-                    animation: LogoAnimateColor 10.2s infinite;
-                }
-                .Logo_Lemos_M{
-                    -webkit-animation: LogoAnimateColor 10.4s infinite;
-                    -moz-animation: LogoAnimateColor 10.4s infinite;
-                    -o-animation: LogoAnimateColor 10.4s infinite;
-                    -ms-animation: LogoAnimateColor 10.4s infinite;
-                    animation: LogoAnimateColor 10.4s infinite;
-                }
-                .Logo_Lemos_O{
-                    -webkit-animation: LogoAnimateColor 10.6s infinite;
-                    -moz-animation: LogoAnimateColor 10.6s infinite;
-                    -o-animation: LogoAnimateColor 10.6s infinite;
-                    -ms-animation: LogoAnimateColor 10.6s infinite;
-                    animation: LogoAnimateColor 10.6s infinite;
-                }
-                .Logo_Lemos_S{
-                    -webkit-animation: LogoAnimateColor 10.8s infinite;
-                    -moz-animation: LogoAnimateColor 10.8s infinite;
-                    -o-animation: LogoAnimateColor 10.8s infinite;
-                    -ms-animation: LogoAnimateColor 10.8s infinite;
-                    animation: LogoAnimateColor 10.8s infinite;
-                }
-                @-webkit-keyframes LogoAnimateColor {
-                    0% { color: #ff2525; }
-                    10% { color: #ff8005; }
-                    20% { color: #ffe300; }
-                    30% { color: #5cff00; }
-                    40% { color: #00ffbe; }
-                    50% { color: #0049ff; }
-                    60% { color: #8200ff; }
-                    70% { color: #ff00c8; }
-                    80% { color: #ff004d; }
-                    90% { color: #ff0000; }
-                    100% { color: #ff2525; }
-                }
-                @-moz-keyframes LogoAnimateColor {
-                    0% { color: #ff2525; }
-                    10% { color: #ff8005; }
-                    20% { color: #ffe300; }
-                    30% { color: #5cff00; }
-                    40% { color: #00ffbe; }
-                    50% { color: #0049ff; }
-                    60% { color: #8200ff; }
-                    70% { color: #ff00c8; }
-                    80% { color: #ff004d; }
-                    90% { color: #ff0000; }
-                    100% { color: #ff2525; }
-                }
-                @-ms-keyframes LogoAnimateColor {
-                    0% { color: #ff2525; }
-                    10% { color: #ff8005; }
-                    20% { color: #ffe300; }
-                    30% { color: #5cff00; }
-                    40% { color: #00ffbe; }
-                    50% { color: #0049ff; }
-                    60% { color: #8200ff; }
-                    70% { color: #ff00c8; }
-                    80% { color: #ff004d; }
-                    90% { color: #ff0000; }
-                    100% { color: #ff2525; }
-                }
-                @-o-keyframes LogoAnimateColor {
-                    0% { color: #ff2525; }
-                    10% { color: #ff8005; }
-                    20% { color: #ffe300; }
-                    30% { color: #5cff00; }
-                    40% { color: #00ffbe; }
-                    50% { color: #0049ff; }
-                    60% { color: #8200ff; }
-                    70% { color: #ff00c8; }
-                    80% { color: #ff004d; }
-                    90% { color: #ff0000; }
-                    100% { color: #ff2525; }
-                }
-                @keyframes LogoAnimateColor {
-                    0% { color: #ff2525; }
-                    10% { color: #ff8005; }
-                    20% { color: #ffe300; }
-                    30% { color: #5cff00; }
-                    40% { color: #00ffbe; }
-                    50% { color: #0049ff; }
-                    60% { color: #8200ff; }
-                    70% { color: #ff00c8; }
-                    80% { color: #ff004d; }
-                    90% { color: #ff0000; }
-                    100% { color: #ff2525; }
-                }
-            }
-        }
-        .Header_Menu{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            top: 41px;
-            right: 40px;
-            position: absolute;
-            .Menu_Item{
-                text-transform: uppercase;
-                font-family: 'Open Sans', sans-serif;
-                font-weight: 800;
-                font-size: 15px;
-                line-height: 15px;
-                padding:0 5px;
-                margin:0 10px;
-                cursor: pointer;
-                transition: 1s linear;
-                color:#fff;
-                &:last-child{
-                    margin-right:0;
-                    padding-right: 0;
-                }
-                &:hover{
-                    -webkit-animation: MenuAnimateColor 10s infinite;
-                    -moz-animation: MenuAnimateColor 10s infinite;
-                    -o-animation: MenuAnimateColor 10s infinite;
-                    -ms-animation: MenuAnimateColor 10s infinite;
-                    animation: MenuAnimateColor 10s infinite;
-                    @-webkit-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
-                        10% { color: #ff8005; }
-                        20% { color: #ffe300; }
-                        30% { color: #5cff00; }
-                        40% { color: #00ffbe; }
-                        50% { color: #0049ff; }
-                        60% { color: #8200ff; }
-                        70% { color: #ff00c8; }
-                        80% { color: #ff004d; }
-                        90% { color: #ff0000; }
-                    }
-                    @-moz-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
-                        10% { color: #ff8005; }
-                        20% { color: #ffe300; }
-                        30% { color: #5cff00; }
-                        40% { color: #00ffbe; }
-                        50% { color: #0049ff; }
-                        60% { color: #8200ff; }
-                        70% { color: #ff00c8; }
-                        80% { color: #ff004d; }
-                        90% { color: #ff0000; }
-                    }
-                    @-ms-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
-                        10% { color: #ff8005; }
-                        20% { color: #ffe300; }
-                        30% { color: #5cff00; }
-                        40% { color: #00ffbe; }
-                        50% { color: #0049ff; }
-                        60% { color: #8200ff; }
-                        70% { color: #ff00c8; }
-                        80% { color: #ff004d; }
-                        90% { color: #ff0000; }
-                    }
-                    @-o-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
-                        10% { color: #ff8005; }
-                        20% { color: #ffe300; }
-                        30% { color: #5cff00; }
-                        40% { color: #00ffbe; }
-                        50% { color: #0049ff; }
-                        60% { color: #8200ff; }
-                        70% { color: #ff00c8; }
-                        80% { color: #ff004d; }
-                        90% { color: #ff0000; }
-                    }
-                    @keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
-                        10% { color: #ff8005; }
-                        20% { color: #ffe300; }
-                        30% { color: #5cff00; }
-                        40% { color: #00ffbe; }
-                        50% { color: #0049ff; }
-                        60% { color: #8200ff; }
-                        70% { color: #ff00c8; }
-                        80% { color: #ff004d; }
-                        90% { color: #ff0000; }
-                    }
-                }
-            }
-        }
-        .Header_Contato{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            top: 80px;
-            right: 40px;
-            position: absolute;
-            .Contato_Border{
-                width: 160px;
-                height: 3px;
-                background:#fff;
-                position: absolute;
-                top: 50%;
-                left: -175px;
-            }
-            .Contato_Item{
-                display: flex;
-                align-items: center;
-                margin-right: 30px;
-                &:last-child{
-                    margin-right: 0px;
-                }
-                .Contato_Item_Icone{
+                .Logo_Rayner{
+                    font-family: 'Open Sans', 'Hind', sans-serif;
+                    font-weight: 300;
+                    font-size: 44px;
+                    line-height:44px;
+                    left:-3px;
                     position: relative;
-                    margin-right: 8px;
                     color:#fff;
-                    i{
-                        font-size: 18px;
-                        top: 2px;
-                        position: relative;
-                        color:#fff;
+                    text-transform:uppercase;
+                }
+                .Logo_Lemos{
+                    font-family: 'Open Sans', 'Hind', sans-serif;
+                    font-weight: 800;
+                    font-size: 46px;
+                    line-height:44px;
+                    left:-3px;
+                    top:-7px;
+                    position: relative;
+                    text-transform:uppercase;
+                    display: flex;
+                    background-image: url('../img/animacao-logo-min.gif');
+                    background-size: cover;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    .Logo_Lemos_L{
+                        -webkit-animation: LogoAnimateColor 10s infinite;
+                        -moz-animation: LogoAnimateColor 10s infinite;
+                        -o-animation: LogoAnimateColor 10s infinite;
+                        -ms-animation: LogoAnimateColor 10s infinite;
+                        animation: LogoAnimateColor 10s infinite;
+                    }
+                    .Logo_Lemos_E{
+                        -webkit-animation: LogoAnimateColor 10.2s infinite;
+                        -moz-animation: LogoAnimateColor 10.2s infinite;
+                        -o-animation: LogoAnimateColor 10.2s infinite;
+                        -ms-animation: LogoAnimateColor 10.2s infinite;
+                        animation: LogoAnimateColor 10.2s infinite;
+                    }
+                    .Logo_Lemos_M{
+                        -webkit-animation: LogoAnimateColor 10.4s infinite;
+                        -moz-animation: LogoAnimateColor 10.4s infinite;
+                        -o-animation: LogoAnimateColor 10.4s infinite;
+                        -ms-animation: LogoAnimateColor 10.4s infinite;
+                        animation: LogoAnimateColor 10.4s infinite;
+                    }
+                    .Logo_Lemos_O{
+                        -webkit-animation: LogoAnimateColor 10.6s infinite;
+                        -moz-animation: LogoAnimateColor 10.6s infinite;
+                        -o-animation: LogoAnimateColor 10.6s infinite;
+                        -ms-animation: LogoAnimateColor 10.6s infinite;
+                        animation: LogoAnimateColor 10.6s infinite;
+                    }
+                    .Logo_Lemos_S{
+                        -webkit-animation: LogoAnimateColor 10.8s infinite;
+                        -moz-animation: LogoAnimateColor 10.8s infinite;
+                        -o-animation: LogoAnimateColor 10.8s infinite;
+                        -ms-animation: LogoAnimateColor 10.8s infinite;
+                        animation: LogoAnimateColor 10.8s infinite;
+                    }
+                    @-webkit-keyframes LogoAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                        100% { color: #ff2525; }
+                    }
+                    @-moz-keyframes LogoAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                        100% { color: #ff2525; }
+                    }
+                    @-ms-keyframes LogoAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                        100% { color: #ff2525; }
+                    }
+                    @-o-keyframes LogoAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                        100% { color: #ff2525; }
+                    }
+                    @keyframes LogoAnimateColor {
+                        0% { color: #ff2525; }
+                        10% { color: #ff8005; }
+                        20% { color: #ffe300; }
+                        30% { color: #5cff00; }
+                        40% { color: #00ffbe; }
+                        50% { color: #0049ff; }
+                        60% { color: #8200ff; }
+                        70% { color: #ff00c8; }
+                        80% { color: #ff004d; }
+                        90% { color: #ff0000; }
+                        100% { color: #ff2525; }
                     }
                 }
-                .Contato_Item_Label{
+            }
+            .Header_Menu{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                top: 41px;
+                right: 40px;
+                position: absolute;
+                .Menu_Item{
                     text-transform: uppercase;
                     font-family: 'Open Sans', sans-serif;
-                    font-weight: 400;
-                    font-size: 15px;
+                    font-weight: 800;
+                    font-size: 14px;
                     line-height: 15px;
+                    padding:0 5px;
+                    margin:0 10px;
+                    cursor: pointer;
+                    transition: 1s linear;
                     color:#fff;
-                    a{
+                    &:last-child{
+                        margin-right:0;
+                        padding-right: 0;
+                    }
+                    &:hover{
+                        -webkit-animation: MenuAnimateColor 10s infinite;
+                        -moz-animation: MenuAnimateColor 10s infinite;
+                        -o-animation: MenuAnimateColor 10s infinite;
+                        -ms-animation: MenuAnimateColor 10s infinite;
+                        animation: MenuAnimateColor 10s infinite;
+                        @-webkit-keyframes MenuAnimateColor {
+                            0% { color: #ff2525; }
+                            10% { color: #ff8005; }
+                            20% { color: #ffe300; }
+                            30% { color: #5cff00; }
+                            40% { color: #00ffbe; }
+                            50% { color: #0049ff; }
+                            60% { color: #8200ff; }
+                            70% { color: #ff00c8; }
+                            80% { color: #ff004d; }
+                            90% { color: #ff0000; }
+                        }
+                        @-moz-keyframes MenuAnimateColor {
+                            0% { color: #ff2525; }
+                            10% { color: #ff8005; }
+                            20% { color: #ffe300; }
+                            30% { color: #5cff00; }
+                            40% { color: #00ffbe; }
+                            50% { color: #0049ff; }
+                            60% { color: #8200ff; }
+                            70% { color: #ff00c8; }
+                            80% { color: #ff004d; }
+                            90% { color: #ff0000; }
+                        }
+                        @-ms-keyframes MenuAnimateColor {
+                            0% { color: #ff2525; }
+                            10% { color: #ff8005; }
+                            20% { color: #ffe300; }
+                            30% { color: #5cff00; }
+                            40% { color: #00ffbe; }
+                            50% { color: #0049ff; }
+                            60% { color: #8200ff; }
+                            70% { color: #ff00c8; }
+                            80% { color: #ff004d; }
+                            90% { color: #ff0000; }
+                        }
+                        @-o-keyframes MenuAnimateColor {
+                            0% { color: #ff2525; }
+                            10% { color: #ff8005; }
+                            20% { color: #ffe300; }
+                            30% { color: #5cff00; }
+                            40% { color: #00ffbe; }
+                            50% { color: #0049ff; }
+                            60% { color: #8200ff; }
+                            70% { color: #ff00c8; }
+                            80% { color: #ff004d; }
+                            90% { color: #ff0000; }
+                        }
+                        @keyframes MenuAnimateColor {
+                            0% { color: #ff2525; }
+                            10% { color: #ff8005; }
+                            20% { color: #ffe300; }
+                            30% { color: #5cff00; }
+                            40% { color: #00ffbe; }
+                            50% { color: #0049ff; }
+                            60% { color: #8200ff; }
+                            70% { color: #ff00c8; }
+                            80% { color: #ff004d; }
+                            90% { color: #ff0000; }
+                        }
+                    }
+                }
+            }
+            .Header_Contato{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                top: 75px;
+                right: 40px;
+                position: absolute;
+                .Contato_Border{
+                    width: 160px;
+                    height: 1px;
+                    background:#fff;
+                    position: absolute;
+                    top: 50%;
+                    left: -175px;
+                    opacity: 0.7;
+                }
+                .Contato_Item{
+                    display: flex;
+                    align-items: center;
+                    margin-right: 30px;
+                    &:last-child{
+                        margin-right: 0px;
+                    }
+                    .Contato_Item_Icone{
+                        position: relative;
+                        margin-right: 8px;
                         color:#fff;
-                        text-decoration: none;
+                        i{
+                            font-size: 18px;
+                            top: 2px;
+                            position: relative;
+                            color:#fff;
+                        }
+                    }
+                    .Contato_Item_Label{
+                        text-transform: uppercase;
+                        font-family: 'Open Sans', sans-serif;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 15px;
+                        color:#fff;
+                        a{
+                            color:#fff;
+                            text-decoration: none;
+                        }
                     }
                 }
             }
         }
     }
-}

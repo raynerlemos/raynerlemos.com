@@ -1,0 +1,17 @@
+.Portfolio {
+  position: relative;
+  z-index: 9;
+  background: #fff;
+  min-height: 100vh; }
+  .Portfolio .Portfolio_Content {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    z-index: 2;
+    padding-top: 160px;
+    padding-bottom: 160px; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Name {
+      color: #111; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Sub {
+      color: #111; }
