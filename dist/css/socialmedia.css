@@ -16,7 +16,8 @@
       .SocialMedia .SocialMedia_Item a i {
         font-size: 30px; }
   .SocialMedia .SocialMedia_Border {
-    width: 3px;
+    width: 1px;
     height: 160px;
     background: #fff;
-    bottom: -175px; }
+    bottom: -175px;
+    opacity: 0.7; }

@@ -6,7 +6,8 @@
     align-content: center;
     padding-top: 160px;
     padding-bottom: 160px;
-    background: url('../img/home_content_bg.png') top center no-repeat #111;
+    // background: url('../img/home_content_bg.png') top center no-repeat #111;
+    background-color: #111;
     overflow: hidden;
     .Home_Content{
         width:100%;
@@ -17,13 +18,28 @@
             max-width: 700px;
             height: 100%;
             min-height: 100vh;
-            background: #a00;
+            background: #111;
             position: absolute;
             top: 0px;
             right: 0px;
             z-index: 1;
             overflow: hidden;
             .Home_Content_Bg_Filter{
+                &:before{
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 3;
+                    background: rgba(17,17,17,1);
+                    background: -moz-linear-gradient(top, rgba(17,17,17,1) 0%, rgba(15,15,15,1) 14%, rgba(8,8,8,0.69) 54%, rgba(2,2,2,0.35) 86%, rgba(0,0,0,0.08) 100%);
+                    background: -webkit-gradient(top top, top top, color-stop(0%, rgba(17,17,17,1)), color-stop(14%, rgba(15,15,15,1)), color-stop(54%, rgba(8,8,8,0.69)), color-stop(86%, rgba(2,2,2,0.35)), color-stop(100%, rgba(0,0,0,0.08)));
+                    background: -webkit-linear-gradient(top, rgba(17,17,17,1) 0%, rgba(15,15,15,1) 14%, rgba(8,8,8,0.69) 54%, rgba(2,2,2,0.35) 86%, rgba(0,0,0,0.08) 100%);
+                    background: -o-linear-gradient(top, rgba(17,17,17,1) 0%, rgba(15,15,15,1) 14%, rgba(8,8,8,0.69) 54%, rgba(2,2,2,0.35) 86%, rgba(0,0,0,0.08) 100%);
+                    background: -ms-linear-gradient(top, rgba(17,17,17,1) 0%, rgba(15,15,15,1) 14%, rgba(8,8,8,0.69) 54%, rgba(2,2,2,0.35) 86%, rgba(0,0,0,0.08) 100%);
+                    background: linear-gradient(to top, rgba(17,17,17,1) 0%, rgba(15,15,15,1) 14%, rgba(8,8,8,0.69) 54%, rgba(2,2,2,0.35) 86%, rgba(0,0,0,0.08) 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000', GradientType=1 );
+                }
                 width: 100%;
                 height: 100%;
                 position: absolute;
