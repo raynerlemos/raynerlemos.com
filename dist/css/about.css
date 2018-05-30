@@ -3,8 +3,7 @@
   z-index: 9;
   display: flex;
   justify-content: center;
-  align-content: center;
-  background: #111; }
+  align-content: center; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;

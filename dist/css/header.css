@@ -14,7 +14,7 @@
     padding: 40px;
     position: relative; }
     .Header .Header_Content .Header_Logo {
-      width: 151px;
+      width: max-content;
       height: 69px;
       max-width: 190px;
       position: relative; }
