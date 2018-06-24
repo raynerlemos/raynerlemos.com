@@ -201,7 +201,7 @@
       .Header .Header_Content .Header_Menu .Menu_Item {
         text-transform: uppercase;
         font-family: 'Open Sans', sans-serif;
-        font-weight: 800;
+        font-weight: 700;
         font-size: 14px;
         line-height: 15px;
         padding: 0 5px;
@@ -221,7 +221,7 @@
 
 @-webkit-keyframes MenuAnimateColor {
   0% {
-    color: #ff2525; }
+    color: #ffffff; }
   10% {
     color: #ff8005; }
   20% {
@@ -243,7 +243,7 @@
 
 @-moz-keyframes MenuAnimateColor {
   0% {
-    color: #ff2525; }
+    color: #ffffff; }
   10% {
     color: #ff8005; }
   20% {
@@ -265,7 +265,7 @@
 
 @-ms-keyframes MenuAnimateColor {
   .Header .Header_Content .Header_Menu .Menu_Item:hover 0% {
-    color: #ff2525; }
+    color: #ffffff; }
   .Header .Header_Content .Header_Menu .Menu_Item:hover 10% {
     color: #ff8005; }
   .Header .Header_Content .Header_Menu .Menu_Item:hover 20% {
@@ -287,7 +287,7 @@
 
 @-o-keyframes MenuAnimateColor {
   0% {
-    color: #ff2525; }
+    color: #ffffff; }
   10% {
     color: #ff8005; }
   20% {
@@ -309,7 +309,7 @@
 
 @keyframes MenuAnimateColor {
   0% {
-    color: #ff2525; }
+    color: #ffffff; }
   10% {
     color: #ff8005; }
   20% {
@@ -359,10 +359,9 @@
             position: relative;
             color: #fff; }
         .Header .Header_Content .Header_Contato .Contato_Item .Contato_Item_Label {
-          text-transform: uppercase;
           font-family: 'Open Sans', sans-serif;
           font-weight: 400;
-          font-size: 14px;
+          font-size: 13px;
           line-height: 15px;
           color: #fff; }
           .Header .Header_Content .Header_Contato .Contato_Item .Contato_Item_Label a {

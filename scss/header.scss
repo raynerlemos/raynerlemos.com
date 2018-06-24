@@ -154,7 +154,7 @@
             .Menu_Item{
                 text-transform: uppercase;
                 font-family: 'Open Sans', sans-serif;
-                font-weight: 800;
+                font-weight: 700;
                 font-size: 14px;
                 line-height: 15px;
                 padding:0 5px;
@@ -173,7 +173,7 @@
                     -ms-animation: MenuAnimateColor 10s infinite;
                     animation: MenuAnimateColor 10s infinite;
                     @-webkit-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
+                        0% { color: #ffffff; }
                         10% { color: #ff8005; }
                         20% { color: #ffe300; }
                         30% { color: #5cff00; }
@@ -185,7 +185,7 @@
                         90% { color: #ff0000; }
                     }
                     @-moz-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
+                        0% { color: #ffffff; }
                         10% { color: #ff8005; }
                         20% { color: #ffe300; }
                         30% { color: #5cff00; }
@@ -197,7 +197,7 @@
                         90% { color: #ff0000; }
                     }
                     @-ms-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
+                        0% { color: #ffffff; }
                         10% { color: #ff8005; }
                         20% { color: #ffe300; }
                         30% { color: #5cff00; }
@@ -209,7 +209,7 @@
                         90% { color: #ff0000; }
                     }
                     @-o-keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
+                        0% { color: #ffffff; }
                         10% { color: #ff8005; }
                         20% { color: #ffe300; }
                         30% { color: #5cff00; }
@@ -221,7 +221,7 @@
                         90% { color: #ff0000; }
                     }
                     @keyframes MenuAnimateColor {
-                        0% { color: #ff2525; }
+                        0% { color: #ffffff; }
                         10% { color: #ff8005; }
                         20% { color: #ffe300; }
                         30% { color: #5cff00; }
@@ -270,10 +270,9 @@
                     }
                 }
                 .Contato_Item_Label{
-                    text-transform: uppercase;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 400;
-                    font-size: 14px;
+                    font-size: 13px;
                     line-height: 15px;
                     color:#fff;
                     a{
