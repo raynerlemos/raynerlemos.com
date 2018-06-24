@@ -143,7 +143,7 @@ body {
 .AnimationParticle {
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 0;
   background: #111;
   top: 0;
@@ -361,7 +361,7 @@ body {
         padding: 0 5px;
         margin: 0 10px;
         cursor: pointer;
-        transition: 1s linear;
+        transition: 1s ease-in-out;
         color: #fff; }
         .Header .Header_Content .Header_Menu .Menu_Item:last-child {
           margin-right: 0;
@@ -553,7 +553,7 @@ body {
   justify-content: center;
   align-content: flex-start;
   padding-top: 160px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   overflow: hidden;
   height: calc(100vh - 160px); }
   .Home .Home_Content {
@@ -683,7 +683,8 @@ body {
   z-index: 9;
   display: flex;
   justify-content: center;
-  align-content: center; }
+  align-content: center;
+  background: #a0f; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;
@@ -763,5 +764,9 @@ body {
 
 .Lead {
   padding: 20px;
-  background: #a0f;
-  width: 100%; }
+  background: #d7ee00;
+  width: calc(100% - 40px);
+  height: 200px;
+  display: block;
+  position: relative;
+  z-index: 9; }

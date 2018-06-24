@@ -207,7 +207,7 @@
         padding: 0 5px;
         margin: 0 10px;
         cursor: pointer;
-        transition: 1s linear;
+        transition: 1s ease-in-out;
         color: #fff; }
         .Header .Header_Content .Header_Menu .Menu_Item:last-child {
           margin-right: 0;
