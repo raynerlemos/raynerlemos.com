@@ -1,3 +1,5 @@
+@import 'animations.scss';
+
 .Portfolio{
     position: relative;
     z-index: 9;
@@ -7,16 +9,102 @@
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
-        display: flex;
         z-index: 2;
         padding-top: 160px;
-        padding-bottom: 160px;
+        padding-bottom: 0px;
         .PageTitle{
             .PageTitle_Name{
                 color:#111;
             }
             .PageTitle_Sub{
                 color:#111;
+            }
+        }
+        .Portfolio_Text{
+            font-family: 'Hind';
+            color: #111;
+            font-size: 16px;
+            font-weight: 200;
+            line-height: 28px;
+            margin-top: 10px;
+            b{
+                font-weight: 600;
+            }
+        }
+        .Portfolio_Nav{
+            width:100%;
+            margin-top:40px;
+            .Portfolio_Nav_Title{
+                font-family: 'Open Sans', 'Hind', sans-serif;
+                color: #111;
+                font-size: 17px;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            .Portfolio_Nav_Content{
+                margin-top: 20px;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                .Portfolio_Nav_Item{
+                    border-right: 1px solid #767676;
+                    padding:10px 20px;
+                    font-family: 'Open Sans', 'Hind', sans-serif;
+                    color: #111;
+                    font-size: 20px;
+                    font-weight: 300;
+                    cursor: pointer;
+                    &:last-child{
+                        border-right: none;
+                    }
+                    &.Portfolio_Nav_Item__is-active{
+                        font-weight: 600;
+                        @extend %MulticolorEffect;
+                    }
+                    &:hover{
+                        @extend %MulticolorEffect;
+                    }
+                }
+            }
+        }
+    }
+    .Portfolio_Album{
+        display: flex;
+        background: #f1f1f1;
+        flex-wrap: wrap;
+        margin-top:30px;
+        .Portfolio_Album_Item{
+            width: 50%;
+            height: 560px;
+            background: #ccc;
+            position: relative;
+            &:hover{
+                .Portfolio_Album_Item_Content{
+                    opacity: 1;
+                }
+            }
+            .Portfolio_Album_Item_Bg{
+                width:100%;
+                height:100%;
+                position: absolute;
+                top:0px;
+                left:0px;
+                z-index:0;
+                overflow: hidden;
+                img{
+                    width:100%;
+                }
+            }
+            .Portfolio_Album_Item_Content{
+                transition: .25 ease-in-out;
+                position: relative;
+                z-index:1;
+                padding:40px;
+                width: calc(100% - 80px);
+                height: calc(100% - 80px);
+                background: rgba(0,0,0,0.8);
+                opacity: 0;
             }
         }
     }

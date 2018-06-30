@@ -1,0 +1,67 @@
+%MulticolorEffect{
+    -webkit-animation: MulticolorEffect 10s infinite;
+    -moz-animation: MulticolorEffect 10s infinite;
+    -o-animation: MulticolorEffect 10s infinite;
+    -ms-animation: MulticolorEffect 10s infinite;
+    animation: MulticolorEffect 10s infinite;
+    @-webkit-keyframes MulticolorEffect {
+        0% { color: #333; }
+        10% { color: #ff8005; }
+        20% { color: #ffe300; }
+        30% { color: #5cff00; }
+        40% { color: #00ffbe; }
+        50% { color: #0049ff; }
+        60% { color: #8200ff; }
+        70% { color: #ff00c8; }
+        80% { color: #ff0000; }
+        90% { color: #333; }
+    }
+    @-moz-keyframes MulticolorEffect {
+        0% { color: #333; }
+        10% { color: #ff8005; }
+        20% { color: #ffe300; }
+        30% { color: #5cff00; }
+        40% { color: #00ffbe; }
+        50% { color: #0049ff; }
+        60% { color: #8200ff; }
+        70% { color: #ff00c8; }
+        80% { color: #ff0000; }
+        90% { color: #333; }
+    }
+    @-ms-keyframes MulticolorEffect {
+        0% { color: #333; }
+        10% { color: #ff8005; }
+        20% { color: #ffe300; }
+        30% { color: #5cff00; }
+        40% { color: #00ffbe; }
+        50% { color: #0049ff; }
+        60% { color: #8200ff; }
+        70% { color: #ff00c8; }
+        80% { color: #ff0000; }
+        90% { color: #333; }
+    }
+    @-o-keyframes MulticolorEffect {
+        0% { color: #333; }
+        10% { color: #ff8005; }
+        20% { color: #ffe300; }
+        30% { color: #5cff00; }
+        40% { color: #00ffbe; }
+        50% { color: #0049ff; }
+        60% { color: #8200ff; }
+        70% { color: #ff00c8; }
+        80% { color: #ff0000; }
+        90% { color: #333; }
+    }
+    @keyframes MulticolorEffect {
+        0% { color: #333; }
+        10% { color: #ff8005; }
+        20% { color: #ffe300; }
+        30% { color: #5cff00; }
+        40% { color: #00ffbe; }
+        50% { color: #0049ff; }
+        60% { color: #8200ff; }
+        70% { color: #ff00c8; }
+        80% { color: #ff0000; }
+        90% { color: #333; }
+    }
+}

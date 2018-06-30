@@ -14,7 +14,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start; }
+    align-items: center; }
     .Home .Home_Content .Home_Content_Bg {
       width: 70%;
       max-width: 700px;
@@ -62,8 +62,7 @@
       position: relative;
       z-index: 2;
       max-width: 740px;
-      padding: 55px 0 55px 55px;
-      margin-top: 20px; }
+      padding: 55px 0 55px 55px; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_Border {
         width: calc(80%);
         height: calc(100%);
@@ -104,7 +103,8 @@
           font-weight: 800;
           line-height: 60px;
           display: flex;
-          align-items: center; }
+          align-items: center;
+          font-style: italic; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
           font-family: 'Open Sans', 'Hind',sans-serif;
           font-size: 16px;
