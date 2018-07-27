@@ -9,14 +9,15 @@
     padding-top: 160px;
     padding-bottom: 100px;
     overflow: hidden;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 260px);
     .Home_Content{
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
+        height: calc(100%);
         .Home_Content_Bg{
             width: 70%;
             max-width: 700px;
@@ -106,22 +107,55 @@
                 position: relative;
                 .TxtBanner_TextBox_Title{
                     font-family: 'Open Sans',sans-serif;
-                    font-size: 48px;
+                    font-size: 68px;
                     text-transform: uppercase;
                     color: #fff;
                     font-weight: 800;
                     line-height: 60px;
-                    display: flex;
-                    align-items: center; 
+                    align-items: center;
                     font-style: italic;
+                    span{
+                        display:inline;
+                        animation: AnimacaoDestaqueBanner 15s ease-in-out;
+                        animation-iteration-count: infinite;
+                    }
+                    @keyframes AnimacaoDestaqueBanner {
+                        10%{
+                            color:#dd3131;
+                        }
+                        20%{
+                            color:#ffea00;
+                        }
+                        30%{
+                            color:#06ff00;
+                        }
+                        40%{
+                            color:#00fffd;
+                        }
+                        50%{
+                            color:#004dff;
+                        }
+                        60%{
+                            color:#8800ff;
+                        }
+                        70%{
+                            color:#ff00c2;
+                        }
+                        80%{
+                            color:#ffaecf;
+                        }
+                        90%{
+                            color:#ffffff;
+                        }
+                    }
                 }
                 .TxtBanner_TextBox_Descript{
-                    font-family: 'Open Sans', 'Hind',sans-serif;
-                    font-size: 16px;
+                    font-family: 'Open Sans',Hind,sans-serif;
+                    font-size: 20px;
                     color: #fff;
-                    font-weight: 400;
-                    line-height: 27px;
-                    margin-top: 10px;
+                    font-weight: 300;
+                    line-height: 30px;
+                    margin-top: 15px;
                 }
                 .TxtBanner_TextBox_Button{
                     border-radius: 50px;
@@ -129,7 +163,7 @@
                     -moz-border-radius: 50px;
                     -ms-border-radius: 50px;
                     -o-border-radius: 50px;
-                    background: #3ca0e1;
+                    background: #1470ff;
                     text-align: center;
                     padding:20px;
                     font-family: 'Open Sans', sans-serif;

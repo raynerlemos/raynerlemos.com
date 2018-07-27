@@ -150,7 +150,8 @@ body {
   left: 0; }
   .AnimationParticle #particles-js {
     height: 100vh;
-    width: 100%; }
+    width: 100%;
+    opacity: 0.5; }
 
 .Header {
   width: 100%;
@@ -555,14 +556,15 @@ body {
   padding-top: 160px;
   padding-bottom: 100px;
   overflow: hidden;
-  height: calc(100vh - 160px); }
+  height: calc(100vh - 260px); }
   .Home .Home_Content {
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
-    align-items: center; }
+    justify-content: center;
+    align-items: center;
+    height: calc(100%); }
     .Home .Home_Content .Home_Content_Bg {
       width: 70%;
       max-width: 700px;
@@ -645,28 +647,51 @@ body {
         position: relative; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
           font-family: 'Open Sans',sans-serif;
-          font-size: 48px;
+          font-size: 68px;
           text-transform: uppercase;
           color: #fff;
           font-weight: 800;
           line-height: 60px;
-          display: flex;
           align-items: center;
           font-style: italic; }
+          .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title span {
+            display: inline;
+            animation: AnimacaoDestaqueBanner 15s ease-in-out;
+            animation-iteration-count: infinite; }
+
+@keyframes AnimacaoDestaqueBanner {
+  10% {
+    color: #dd3131; }
+  20% {
+    color: #ffea00; }
+  30% {
+    color: #06ff00; }
+  40% {
+    color: #00fffd; }
+  50% {
+    color: #004dff; }
+  60% {
+    color: #8800ff; }
+  70% {
+    color: #ff00c2; }
+  80% {
+    color: #ffaecf; }
+  90% {
+    color: #ffffff; } }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
-          font-family: 'Open Sans', 'Hind',sans-serif;
-          font-size: 16px;
+          font-family: 'Open Sans',Hind,sans-serif;
+          font-size: 20px;
           color: #fff;
-          font-weight: 400;
-          line-height: 27px;
-          margin-top: 10px; }
+          font-weight: 300;
+          line-height: 30px;
+          margin-top: 15px; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
           border-radius: 50px;
           -webkit-border-radius: 50px;
           -moz-border-radius: 50px;
           -ms-border-radius: 50px;
           -o-border-radius: 50px;
-          background: #3ca0e1;
+          background: #1470ff;
           text-align: center;
           padding: 20px;
           font-family: 'Open Sans', sans-serif;
@@ -684,7 +709,8 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  background: #a0f; }
+  background: #a0f;
+  min-height: 100vh; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;
@@ -912,7 +938,7 @@ body {
           .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:last-child {
             border-right: none; }
           .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active {
-            font-weight: 600; }
+            font-weight: 800; }
   .Portfolio .Portfolio_Album {
     display: flex;
     background: #f1f1f1;
@@ -922,7 +948,9 @@ body {
       width: 50%;
       height: 560px;
       background: #ccc;
-      position: relative; }
+      position: relative;
+      overflow: hidden;
+      transition: all .2s ease; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item:hover .Portfolio_Album_Item_Content {
         opacity: 1; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg {
@@ -934,22 +962,22 @@ body {
         z-index: 0;
         overflow: hidden; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
-          width: 100%; }
+          height: 100%; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content {
-        transition: .25 ease-in-out;
         position: relative;
         z-index: 1;
         padding: 40px;
         width: calc(100% - 80px);
         height: calc(100% - 80px);
         background: rgba(0, 0, 0, 0.8);
-        opacity: 0; }
+        opacity: 0;
+        transition: .2s ease; }
 
 .Lead {
   padding: 20px;
   background: #d7ee00;
   width: calc(100% - 40px);
   height: 200px;
-  display: block;
+  display: none;
   position: relative;
   z-index: 9; }

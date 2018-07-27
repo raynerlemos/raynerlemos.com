@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  background: #a0f; }
+  background: #a0f;
+  min-height: 100vh; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;
