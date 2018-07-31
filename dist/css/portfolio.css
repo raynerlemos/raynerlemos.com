@@ -178,8 +178,12 @@
       background: #ccc;
       position: relative;
       overflow: hidden;
-      transition: all .2s ease; }
+      transition: all .2s ease;
+      display: flex;
+      justify-content: center; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item:hover .Portfolio_Album_Item_Content {
+        opacity: 1; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item:hover .Portfolio_Album_Item_Bg:before {
         opacity: 1; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg {
         width: 100%;
@@ -189,14 +193,79 @@
         left: 0px;
         z-index: 0;
         overflow: hidden; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg:before {
+          background: rgba(0, 0, 0, 0.8);
+          width: 100%;
+          height: 100%;
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: 0px;
+          opacity: 0;
+          transition: .25s ease; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
           height: 100%; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left {
+        justify-content: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left .Portfolio_Album_Item_Content {
+          text-align: center;
+          align-items: center; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Right {
+        justify-content: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Right .Portfolio_Album_Item_Content {
+          text-align: center;
+          align-items: center; }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content {
         position: relative;
         z-index: 1;
         padding: 40px;
-        width: calc(100% - 80px);
+        width: calc(100% - 180px);
         height: calc(100% - 80px);
-        background: rgba(0, 0, 0, 0.8);
         opacity: 0;
-        transition: .2s ease; }
+        transition: .2s ease;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Title {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 32px;
+          font-weight: 800;
+          text-transform: uppercase; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Category {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin-top: 8px; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Url {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 300;
+          font-style: italic;
+          margin-top: 8px; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Descrption {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 8px; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Button {
+          display: block;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-align: center;
+          margin-top: 15px; }
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Button a {
+            display: block;
+            padding: 15px;
+            width: 70px;
+            background: #fff;
+            text-decoration: none;
+            color: #333; }
