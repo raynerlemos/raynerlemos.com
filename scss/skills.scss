@@ -9,6 +9,7 @@
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
     // background: -webkit-linear-gradient(to left, #095bd6, #710694);  /* Chrome 10-25, Safari 5.1-6 */
     // background: linear-gradient(to left, #095bd6, #710694); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     // background: rgba(170,0,255,1);
@@ -158,7 +159,7 @@
                     }
                     &[data-item="JS"]{
                         .Skills_Item_Bar{
-                            border-color:#000;
+                            border-color:#555;
                             .Skills_Item_Bar_Content{
                                 background-color:#f7df1e;
                                 width:81%;

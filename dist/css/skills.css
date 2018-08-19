@@ -97,7 +97,8 @@
   background-image: url("../img/skills_bg.png");
   background-position: top center;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  overflow: hidden; }
   .Skills .Skills_Content {
     width: 100%;
     max-width: 1024px;
@@ -182,7 +183,7 @@
   100% {
     width: 95%; } }
         .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar {
-          border-color: #000; }
+          border-color: #555; }
           .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
             background-color: #f7df1e;
             width: 81%;

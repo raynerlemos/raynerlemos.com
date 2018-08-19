@@ -5,7 +5,8 @@
   justify-content: center;
   align-content: center;
   background: #a0f;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: hidden; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;

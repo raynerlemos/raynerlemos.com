@@ -9,7 +9,8 @@
   justify-content: center;
   align-items: center;
   padding-top: 160px;
-  padding-bottom: 90px; }
+  padding-bottom: 90px;
+  overflow: hidden; }
   .Contact .Contact_Content {
     width: 100%;
     max-width: 1024px;

@@ -716,7 +716,8 @@ body {
   justify-content: center;
   align-content: center;
   background: #a0f;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: hidden; }
   .About .About_Container {
     width: 100%;
     max-width: 1024px;
@@ -870,7 +871,8 @@ body {
   position: relative;
   z-index: 9;
   background: rgba(111, 38, 167, 0.64);
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: hidden; }
   .Portfolio .Portfolio_Content {
     width: 100%;
     max-width: 1024px;
@@ -1132,7 +1134,8 @@ body {
   background-image: url("../img/skills_bg.png");
   background-position: top center;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  overflow: hidden; }
   .Skills .Skills_Content {
     width: 100%;
     max-width: 1024px;
@@ -1217,7 +1220,7 @@ body {
   100% {
     width: 95%; } }
         .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar {
-          border-color: #000; }
+          border-color: #555; }
           .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
             background-color: #f7df1e;
             width: 81%;
@@ -1296,7 +1299,8 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 160px;
-  padding-bottom: 90px; }
+  padding-bottom: 90px;
+  overflow: hidden; }
   .Contact .Contact_Content {
     width: 100%;
     max-width: 1024px;
