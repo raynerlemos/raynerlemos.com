@@ -4,13 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Rayner Lemos | Art Director - UX/UI - Frontendr</title>
+        <!-- STYLES -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700|Open+Sans:300,400,600,700,800">
         <link rel="stylesheet" href="dist/lib/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css">
-        <!-- <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700|Open+Sans:300,400,600,700,800" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="dist/lib/slick/slick.css"/>
         <link rel="stylesheet" href="dist/css/site.app.min.css?qs=1">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <!-- SCRIPTS -->
         <script src="dist/js/jquery-3.1.0.min.js" charset="utf-8"></script>
-        <script src="dist/lib/particles.js-master/particles.js"></script>
-        <script src="assets-js/app.js" charset="utf-8"></script>
-        <script src="dist/lib/particles.js-master/particles.js"></script>
+        <script type="text/javascript" src="dist/lib/particles.js-master/particles.js"></script>
+        <script type="text/javascript" src="dist/lib/slick/slick.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script type="text/javascript" src="assets-js/app.js" charset="utf-8"></script>
     </head>
     <body>
         <header class="Header">
@@ -94,13 +99,14 @@
                     <div class="Home_Content_Bg_Filter"></div>
                     <img src="dist/img/home_bg_1.jpg" alt="RaynerLemos.com">
                 </div> -->
-                <div class="Home_TxtBanner">
+                <div class="Home_TxtBanner" data-aos="fade-right">
                     <!-- <div class="TxtBanner_Border"></div> -->
                     <div class="TxtBanner_TextBox">
                         <!-- <div class="TxtBanner_TextBox_Title">Creativity, User Experience & Personality</div> -->
                         <div class="TxtBanner_TextBox_Title">Transformando idéias em experiencias visuais <span class="TxtBanner_TextBox_Title__is-destaque">incríveis</span></div>
                         <div class="TxtBanner_TextBox_Descript">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
+                            <span>Olá humano, seja bem vindo ao meu site!</span>
+                            Aqui você vai encontrar algumas informações sobre a mim, minha carreira, projetos e atuações, além de experimentar algumas maluquices visuais que eu prefiro chamar de inovação.
                         </div>
                         <div class="TxtBanner_TextBox_Button">Conheça um pouco do meu trabalho</div>
                     </div>
@@ -108,14 +114,12 @@
             </div>
         </div>
 
-        <div class="Lead">
+        <div class="Lead"></div>
 
-        </div>
-
-        <div class="About">
+        <div class="About" data-aos="fade-up">
             <div class="About_Container">
                 <div class="About_Content">
-                    <div class="PageTitle">
+                    <div class="PageTitle" data-aos="fade-up">
                         <div class="PageTitle_Line"></div>
                         <div class="PageTitle_Name">Experiência</div>
                         <div class="PageTitle_Sub">Diretor de arte, Head of UX/UI, Frontend Dev,
@@ -128,28 +132,109 @@
                             <font class=""></font>
                         </div>
                     </div>
-                    <div class="About_Text">
+                    <div class="About_Text" data-aos="fade-up">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
                 </div>
             </div>
-            <div class="About_Album">
+            <div class="About_Album" data-aos="fade-left">
                 <div class="About_Album_Photo"></div>
                 <div class="About_Album_Photo"></div>
             </div>
         </div>
 
+        <div class="Skills">
+            <div class="Skills_Content">
+                <div class="PageTitle" data-aos="fade-up">
+                    <div class="PageTitle_Line"></div>
+                    <div class="PageTitle_Name">Skills</div>
+                    <div class="PageTitle_Sub">Projetos, experimentações, idéias, tudo mais...</div>
+                </div>
+                <div class="Skills_List">
+                    <div class="Skills_Item" data-item="HTML" data-aos="fade-right">
+                        <div class="Skills_Item_Title">HTML</div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                    <div class="Skills_Item" data-item="CSS" data-aos="fade-left">
+                        <div class="Skills_Item_Title">CSS</div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                    <div class="Skills_Item" data-item="PS" data-aos="fade-right">
+                        <div class="Skills_Item_Title">Photoshop</div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                    <div class="Skills_Item" data-item="JS" data-aos="fade-left">
+                        <div class="Skills_Item_Title">Javascript</div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                    <div class="Skills_Item" data-item="PHP" data-aos="fade-right">
+                        <div class="Skills_Item_Title">PHP</div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                    <div class="Skills_Item" data-item="UXUI" data-aos="fade-left">
+                        <div class="Skills_Item_Title"> UX/UI <i class="fas fa-heart"> </i></div>
+                        <div class="Skills_Item_Bar">
+                            <div class="Skills_Item_Bar_Content"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="Skills_Ferramentas">
+                    <div class="PageTitle" data-aos="fade-up">
+                        <div class="PageTitle_Line"></div>
+                        <div class="PageTitle_Name">Tecnologias</div>
+                        <div class="PageTitle_Sub">Projetos, experimentações, idéias, tudo mais...</div>
+                    </div>
+                    <div class="Skills_Ferramentas_Content" data-aos="fade-up">
+                        <div class="Skills_Ferramentas_List">
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_ionic.png" alt="Ionic Framework">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_angular.png" alt="AngularJS">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_photoshop.png" alt="Photoshop">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_adobexd.png" alt="Adobe Experience Design">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_illustrator.png" alt="skills_item_illustrator">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_sass.png" alt="Sass">
+                            </div>
+                            <div class="Skills_Ferramentas_List_Item">
+                                <img src="dist/img/skills_item_less.png" alt="Less">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="Portfolio">
             <div class="Portfolio_Content">
-                <div class="PageTitle">
+                <div class="PageTitle" data-aos="fade-up">
                     <div class="PageTitle_Line"></div>
                     <div class="PageTitle_Name">Portifólio</div>
                     <div class="PageTitle_Sub">Projetos, experimentações, idéias, tudo mais...</div>
                 </div>
-                <div class="Portfolio_Text">
+                <div class="Portfolio_Text" data-aos="fade-up">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
-                <div class="Portfolio_Nav">
+                <div class="Portfolio_Nav" data-aos="fade-up">
                     <div class="Portfolio_Nav_Title">O que você deseja ver?</div>
                     <div class="Portfolio_Nav_Content">
                         <div class="Portfolio_Nav_Item Portfolio_Nav_Item__is-active">TODOS</div>
@@ -160,7 +245,7 @@
                 </div>
             </div>
             <div class="Portfolio_Album">
-                <div class="Portfolio_Album_Item Portfolio_Album_Item_Left">
+                <div class="Portfolio_Album_Item Portfolio_Album_Item_Left" data-aos="fade-right">
                     <div class="Portfolio_Album_Item_Content">
                         <div class="Portfolio_Album_Item_Title">Health For Pet</div>
                         <div class="Portfolio_Album_Item_Category">Web</div>
@@ -178,7 +263,7 @@
                         <img src="dist/img/portfolio_1.png" alt="Rayner Lemos - Portfolio">
                     </div>
                 </div>
-                <div class="Portfolio_Album_Item Portfolio_Album_Item_Right">
+                <div class="Portfolio_Album_Item Portfolio_Album_Item_Right" data-aos="fade-left">
                     <div class="Portfolio_Album_Item_Content">
                         <div class="Portfolio_Album_Item_Title">Health For Pet</div>
                         <div class="Portfolio_Album_Item_Category">Web</div>
@@ -196,7 +281,7 @@
                         <img src="dist/img/portfolio_2.png" alt="Rayner Lemos - Portfolio">
                     </div>
                 </div>
-                <div class="Portfolio_Album_Item Portfolio_Album_Item_Left">
+                <div class="Portfolio_Album_Item Portfolio_Album_Item_Left" data-aos="fade-right">
                     <div class="Portfolio_Album_Item_Content">
                         <div class="Portfolio_Album_Item_Title">Health For Pet</div>
                         <div class="Portfolio_Album_Item_Category">Web</div>
@@ -214,7 +299,7 @@
                         <img src="dist/img/portfolio_3.png" alt="Rayner Lemos - Portfolio">
                     </div>
                 </div>
-                <div class="Portfolio_Album_Item Portfolio_Album_Item_Right">
+                <div class="Portfolio_Album_Item Portfolio_Album_Item_Right" data-aos="fade-left">
                     <div class="Portfolio_Album_Item_Content">
                         <div class="Portfolio_Album_Item_Title">Health For Pet</div>
                         <div class="Portfolio_Album_Item_Category">Web</div>
@@ -235,81 +320,52 @@
             </div>
         </div>
 
-        <div class="Skills">
-            <div class="Skills_Content">
-                <div class="PageTitle">
-                    <div class="PageTitle_Line"></div>
-                    <div class="PageTitle_Name">Skills</div>
-                    <div class="PageTitle_Sub">Projetos, experimentações, idéias, tudo mais...</div>
-                </div>
-                <div class="Skills_List">
-                    <div class="Skills_Item" data-item="HTML">
-                        <div class="Skills_Item_Title">HTML</div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
+        <div class="Contact">
+            <div class="Contact_Content">
+                <div class="Contact_Title" data-aos="fade-left">RAYNER <span>LEMOS</span></div>
+                <div class="Contact_Subtitle" data-aos="fade-right">Art Director | UX/UI | Frontend Dev</div>
+                <div class="Contact_CallTxt">Tem pressa em falar comigo?<span>Escolhe um dos canais abaixo e manda bala!</span></div>
+                <div class="Contact_Boxes" data-aos="fade-up">
+                    <div class="Contact_Box">
+                        <div class="Contact_Box_Title">Corporativo</div>
+                        <div class="Contact_Box_Item">
+                            <div class="Contact_Box_Item_Icone"><i class="far fa-envelope"></i></div>
+                            <div class="Contact_Box_Item_Txt">rayner.lemos@grminternet.com.br</div>
+                        </div>
+                        <div class="Contact_Box_Item">
+                            <div class="Contact_Box_Item_Icone"><i class="fas fa-phone"></i></div>
+                            <div class="Contact_Box_Item_Txt">21 3883-8494</div>
                         </div>
                     </div>
-                    <div class="Skills_Item" data-item="CSS">
-                        <div class="Skills_Item_Title">CSS</div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
+                    <div class="Contact_Box">
+                        <div class="Contact_Box_Title">Pessoal / Freelancer</div>
+                        <div class="Contact_Box_Item">
+                            <div class="Contact_Box_Item_Icone"><i class="far fa-envelope"></i></div>
+                            <div class="Contact_Box_Item_Txt">contato@raynerlemos.com.br</div>
                         </div>
-                    </div>
-                    <div class="Skills_Item" data-item="PS">
-                        <div class="Skills_Item_Title">Photoshop</div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
-                        </div>
-                    </div>
-                    <div class="Skills_Item" data-item="JS">
-                        <div class="Skills_Item_Title">Javascript</div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
-                        </div>
-                    </div>
-                    <div class="Skills_Item" data-item="PHP">
-                        <div class="Skills_Item_Title">PHP</div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
-                        </div>
-                    </div>
-                    <div class="Skills_Item" data-item="UXUI">
-                        <div class="Skills_Item_Title"> UX/UI <i class="fas fa-heart"> </i></div>
-                        <div class="Skills_Item_Bar">
-                            <div class="Skills_Item_Bar_Content"></div>
+                        <div class="Contact_Box_Item">
+                            <div class="Contact_Box_Item_Icone"><i class="fas fa-phone"></i></div>
+                            <div class="Contact_Box_Item_Txt">21 9 9612-0436</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="Skills_Ferramentas">
-                    <div class="PageTitle">
-                        <div class="PageTitle_Line"></div>
-                        <div class="PageTitle_Name">Tecnologias</div>
-                        <div class="PageTitle_Sub">Projetos, experimentações, idéias, tudo mais...</div>
+                <div class="Contact_Thx" data-aos="fade-in">
+                    <div class="Contact_Thx_Icone">
+                        <i class="far fa-thumbs-up"></i>
                     </div>
-                    <div class="Skills_Ferramentas_Content">
-                        <div class="Skills_Ferramentas_List_Animation">
-                            <div class="Skills_Ferramentas_List">
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                            </div>
-                            <div class="Skills_Ferramentas_List">
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                            </div>
-                            <div class="Skills_Ferramentas_List">
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                                <div class="Skills_Ferramentas_List_Item"></div>
-                            </div>
-                        </div>
+                    <div class="Contact_Thx_Msg">
+                        Thx for visit.
+                        <span>
+                            I'll hope your comeback.
+                        </span>
                     </div>
                 </div>
+            </div>
+            <div class="Contact_Copy">
+                2018 RAYNERLEMOS.COM | Todos os direitos reservados
+            </div>
+            <div class="Contact_Development">
+                Desenvolvido por mim mesmo, correria, é isso aí!
             </div>
         </div>
     </body>

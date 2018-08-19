@@ -3,7 +3,7 @@
 .Portfolio{
     position: relative;
     z-index: 9;
-    background: #fff;
+    background: rgba(111, 38, 167, 0.64);
     min-height: 100vh;
     .Portfolio_Content{
         width: 100%;
@@ -14,15 +14,15 @@
         padding-bottom: 0px;
         .PageTitle{
             .PageTitle_Name{
-                color:#111;
+                color:#fff;
             }
             .PageTitle_Sub{
-                color:#111;
+                color:#fff;
             }
         }
         .Portfolio_Text{
             font-family: 'Hind';
-            color: #111;
+            color: #fff;
             font-size: 16px;
             font-weight: 200;
             line-height: 28px;
@@ -32,11 +32,13 @@
             }
         }
         .Portfolio_Nav{
-            width:100%;
-            margin-top:40px;
+            width: 100%;
+            margin-top: 40px;
+            padding: 15px;
+            background: #5a2a7d;
             .Portfolio_Nav_Title{
                 font-family: 'Open Sans', 'Hind', sans-serif;
-                color: #111;
+                color: #ffff;
                 font-size: 17px;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -49,21 +51,22 @@
                 justify-content: center;
                 .Portfolio_Nav_Item{
                     border-right: 1px solid #767676;
-                    padding:10px 20px;
-                    font-family: 'Open Sans', 'Hind', sans-serif;
-                    color: #111;
-                    font-size: 20px;
-                    font-weight: 300;
+                    padding: 3px 20px;
+                    font-family: 'Open Sans','Hind',sans-serif;
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 600;
                     cursor: pointer;
+                    text-transform: uppercase;
                     &:last-child{
                         border-right: none;
                     }
                     &.Portfolio_Nav_Item__is-active{
                         font-weight: 800;
-                        @extend %MulticolorEffect;
+                        color:#fff707;
                     }
                     &:hover{
-                        @extend %MulticolorEffect;
+                        color:#fff707;
                     }
                 }
             }
@@ -73,7 +76,7 @@
         display: flex;
         background: #f1f1f1;
         flex-wrap: wrap;
-        margin-top:30px;
+        margin-top:20px;
         .Portfolio_Album_Item{
             width: 50%;
             height: 560px;
@@ -152,11 +155,13 @@
                 }
                 .Portfolio_Album_Item_Category{
                     font-family: 'Open Sans', 'Hind', sans-serif;
-                    color: #fff;
-                    font-size: 14px;
-                    font-weight: 700; 
+                    color: #333;
+                    font-size: 13px;
+                    font-weight: 600; 
                     text-transform: uppercase;
                     margin-top: 8px;
+                    background:#fff;
+                    padding: 5px 8px;
                 }
                 .Portfolio_Album_Item_Url{
                     font-family: 'Open Sans', 'Hind', sans-serif;
@@ -165,6 +170,11 @@
                     font-weight: 300;
                     font-style: italic;
                     margin-top: 8px;
+                    a{
+                        color:#fff;
+                        text-decoration: none;
+                        outline: none;
+                    }
                 }
                 .Portfolio_Album_Item_Descrption{
                     font-family: 'Open Sans', 'Hind', sans-serif;

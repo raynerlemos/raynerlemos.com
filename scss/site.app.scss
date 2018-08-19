@@ -88,7 +88,7 @@ body{
     }
     .PageTitle_Line{
         width: 50%;
-        height: 1px;
+        height: 2px;
         animation: LineAnimate 10s infinite;
         position: absolute;
         top:50px;
@@ -121,4 +121,5 @@ body{
 @import 'about.scss';
 @import 'portfolio.scss';
 @import 'skills.scss';
+@import 'contact.scss';
 @import 'lead.scss';

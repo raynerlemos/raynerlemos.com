@@ -132,7 +132,7 @@ body {
     margin-top: 15px; }
   .PageTitle .PageTitle_Line {
     width: 50%;
-    height: 1px;
+    height: 2px;
     animation: LineAnimate 10s infinite;
     position: absolute;
     top: 50px;
@@ -554,7 +554,7 @@ body {
   justify-content: center;
   align-content: flex-start;
   padding-top: 160px;
-  padding-bottom: 100px;
+  padding-bottom: 160px;
   overflow: hidden;
   height: calc(100vh - 260px); }
   .Home .Home_Content {
@@ -611,8 +611,9 @@ body {
       width: 100%;
       position: relative;
       z-index: 2;
-      max-width: 740px;
-      padding: 55px 0 55px 55px; }
+      max-width: 860px;
+      padding: 55px 0 55px 0px;
+      text-align: center; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_Border {
         width: calc(80%);
         height: calc(100%);
@@ -647,7 +648,7 @@ body {
         position: relative; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
           font-family: 'Open Sans',sans-serif;
-          font-size: 68px;
+          font-size: 66px;
           text-transform: uppercase;
           color: #fff;
           font-weight: 800;
@@ -680,18 +681,22 @@ body {
     color: #ffffff; } }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
           font-family: 'Open Sans',Hind,sans-serif;
-          font-size: 20px;
+          font-size: 19px;
           color: #fff;
           font-weight: 300;
           line-height: 30px;
-          margin-top: 15px; }
+          margin-top: 30px; }
+          .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript span {
+            font-weight: 700;
+            display: block;
+            text-transform: uppercase; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
           border-radius: 50px;
           -webkit-border-radius: 50px;
           -moz-border-radius: 50px;
           -ms-border-radius: 50px;
           -o-border-radius: 50px;
-          background: #1470ff;
+          background: #a0f;
           text-align: center;
           padding: 20px;
           font-family: 'Open Sans', sans-serif;
@@ -699,7 +704,8 @@ body {
           color: #fff;
           font-weight: 700;
           line-height: 16px;
-          margin-top: 25px;
+          margin: 0 auto;
+          margin-top: 30px;
           text-transform: uppercase;
           max-width: 450px; }
 
@@ -770,13 +776,6 @@ body {
       background: #383838;
       margin-bottom: 10px; }
 
-.Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover {
-  -webkit-animation: MulticolorEffect 10s infinite;
-  -moz-animation: MulticolorEffect 10s infinite;
-  -o-animation: MulticolorEffect 10s infinite;
-  -ms-animation: MulticolorEffect 10s infinite;
-  animation: MulticolorEffect 10s infinite; }
-
 @-webkit-keyframes MulticolorEffect {
   0% {
     color: #333; }
@@ -821,27 +820,7 @@ body {
   90% {
     color: #333; } }
 
-@-ms-keyframes MulticolorEffect {
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 0%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 0% {
-    color: #333; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 10%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 10% {
-    color: #ff8005; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 20%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 20% {
-    color: #ffe300; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 30%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 30% {
-    color: #5cff00; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 40%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 40% {
-    color: #00ffbe; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 50%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 50% {
-    color: #0049ff; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 60%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 60% {
-    color: #8200ff; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 70%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 70% {
-    color: #ff00c8; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 80%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 80% {
-    color: #ff0000; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 90%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 90% {
-    color: #333; } }
+@-ms-keyframes MulticolorEffect { }
 
 @-o-keyframes MulticolorEffect {
   0% {
@@ -890,7 +869,7 @@ body {
 .Portfolio {
   position: relative;
   z-index: 9;
-  background: #fff;
+  background: rgba(111, 38, 167, 0.64);
   min-height: 100vh; }
   .Portfolio .Portfolio_Content {
     width: 100%;
@@ -900,12 +879,12 @@ body {
     padding-top: 160px;
     padding-bottom: 0px; }
     .Portfolio .Portfolio_Content .PageTitle .PageTitle_Name {
-      color: #111; }
+      color: #fff; }
     .Portfolio .Portfolio_Content .PageTitle .PageTitle_Sub {
-      color: #111; }
+      color: #fff; }
     .Portfolio .Portfolio_Content .Portfolio_Text {
       font-family: 'Hind';
-      color: #111;
+      color: #fff;
       font-size: 16px;
       font-weight: 200;
       line-height: 28px;
@@ -914,10 +893,12 @@ body {
         font-weight: 600; }
     .Portfolio .Portfolio_Content .Portfolio_Nav {
       width: 100%;
-      margin-top: 40px; }
+      margin-top: 40px;
+      padding: 15px;
+      background: #5a2a7d; }
       .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Title {
         font-family: 'Open Sans', 'Hind', sans-serif;
-        color: #111;
+        color: #ffff;
         font-size: 17px;
         font-weight: 700;
         text-transform: uppercase;
@@ -929,21 +910,25 @@ body {
         justify-content: center; }
         .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item {
           border-right: 1px solid #767676;
-          padding: 10px 20px;
-          font-family: 'Open Sans', 'Hind', sans-serif;
-          color: #111;
-          font-size: 20px;
-          font-weight: 300;
-          cursor: pointer; }
+          padding: 3px 20px;
+          font-family: 'Open Sans','Hind',sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          text-transform: uppercase; }
           .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:last-child {
             border-right: none; }
           .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active {
-            font-weight: 800; }
+            font-weight: 800;
+            color: #fff707; }
+          .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover {
+            color: #fff707; }
   .Portfolio .Portfolio_Album {
     display: flex;
     background: #f1f1f1;
     flex-wrap: wrap;
-    margin-top: 30px; }
+    margin-top: 20px; }
     .Portfolio .Portfolio_Album .Portfolio_Album_Item {
       width: 50%;
       height: 560px;
@@ -1008,11 +993,13 @@ body {
           text-transform: uppercase; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Category {
           font-family: 'Open Sans', 'Hind', sans-serif;
-          color: #fff;
-          font-size: 14px;
-          font-weight: 700;
+          color: #333;
+          font-size: 13px;
+          font-weight: 600;
           text-transform: uppercase;
-          margin-top: 8px; }
+          margin-top: 8px;
+          background: #fff;
+          padding: 5px 8px; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Url {
           font-family: 'Open Sans', 'Hind', sans-serif;
           color: #fff;
@@ -1020,6 +1007,10 @@ body {
           font-weight: 300;
           font-style: italic;
           margin-top: 8px; }
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Url a {
+            color: #fff;
+            text-decoration: none;
+            outline: none; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Descrption {
           font-family: 'Open Sans', 'Hind', sans-serif;
           color: #fff;
@@ -1041,13 +1032,6 @@ body {
             background: #fff;
             text-decoration: none;
             color: #333; }
-
-.Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover {
-  -webkit-animation: MulticolorEffect 10s infinite;
-  -moz-animation: MulticolorEffect 10s infinite;
-  -o-animation: MulticolorEffect 10s infinite;
-  -ms-animation: MulticolorEffect 10s infinite;
-  animation: MulticolorEffect 10s infinite; }
 
 @-webkit-keyframes MulticolorEffect {
   0% {
@@ -1093,27 +1077,7 @@ body {
   90% {
     color: #333; } }
 
-@-ms-keyframes MulticolorEffect {
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 0%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 0% {
-    color: #333; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 10%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 10% {
-    color: #ff8005; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 20%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 20% {
-    color: #ffe300; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 30%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 30% {
-    color: #5cff00; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 40%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 40% {
-    color: #00ffbe; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 50%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 50% {
-    color: #0049ff; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 60%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 60% {
-    color: #8200ff; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 70%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 70% {
-    color: #ff00c8; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 80%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 80% {
-    color: #ff0000; }
-  .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active 90%, .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover 90% {
-    color: #333; } }
+@-ms-keyframes MulticolorEffect { }
 
 @-o-keyframes MulticolorEffect {
   0% {
@@ -1163,31 +1127,19 @@ body {
   position: relative;
   z-index: 9;
   min-height: 100vh;
-  background: #03001e;
+  background: #111;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #095bd6, #710694);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #095bd6, #710694);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
-  .Skills:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-image: url("../img/skills_bg.png");
-    background-position: top center;
-    background-size: 100%; }
+  background-image: url("../img/skills_bg.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat; }
   .Skills .Skills_Content {
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     z-index: 2;
     padding-top: 160px;
-    padding-bottom: 0px; }
+    padding-bottom: 350px; }
     .Skills .Skills_Content .PageTitle .PageTitle_Name {
       color: #fff; }
     .Skills .Skills_Content .PageTitle .PageTitle_Sub {
@@ -1221,67 +1173,80 @@ body {
         .Skills .Skills_Content .Skills_List .Skills_Item .Skills_Item_Bar {
           width: calc(100% - 4px);
           height: 13px;
-          border: 2px solid #fff;
+          border: 1px solid #fff;
           position: relative; }
           .Skills .Skills_Content .Skills_List .Skills_Item .Skills_Item_Bar .Skills_Item_Bar_Content {
             width: 100%;
             height: 13px;
             background: #ccc;
-            transition: .25s ease; }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="HTML"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #e87520;
-          width: 97%;
-          animation: SkillBarHTML 1s ease; }
+            transition: 1s ease-in-out; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="HTML"] .Skills_Item_Bar {
+          border-color: #ff9120; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="HTML"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-color: #e44d26;
+            width: 97%;
+            animation: SkillBarHTML 2s ease-in-out; }
 
 @keyframes SkillBarHTML {
   0% {
     width: 0%; }
   100% {
     width: 97%; } }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="CSS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #2a76d3;
-          width: 98%;
-          animation: SkillBarCSS 1s ease; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="CSS"] .Skills_Item_Bar {
+          border-color: #2cb1d4; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="CSS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-color: #0073c3;
+            width: 98%;
+            animation: SkillBarCSS 2s ease-in-out; }
 
 @keyframes SkillBarCSS {
   0% {
     width: 0%; }
   100% {
     width: 98%; } }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="PS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #1111c9;
-          width: 95%;
-          animation: SkillBarPS 1s ease; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="PS"] .Skills_Item_Bar {
+          border-color: #00e0ff; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="PS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-color: #023646;
+            width: 95%;
+            animation: SkillBarPS 2s ease-in-out; }
 
 @keyframes SkillBarPS {
   0% {
     width: 0%; }
   100% {
     width: 95%; } }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="JS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #f0e02f;
-          width: 81%;
-          animation: SkillBarJS 1s ease; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar {
+          border-color: #000; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="JS"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-color: #f7df1e;
+            width: 81%;
+            animation: SkillBarJS 2s ease-in-out; }
 
 @keyframes SkillBarJS {
   0% {
     width: 0%; }
   100% {
     width: 81%; } }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="PHP"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #b187f3;
-          width: 68%;
-          animation: SkillBarPHP 1s ease; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="PHP"] .Skills_Item_Bar {
+          border-color: #777bb3; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="PHP"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-color: #b272ec;
+            width: 68%;
+            animation: SkillBarPHP 2s ease-in-out; }
 
 @keyframes SkillBarPHP {
   0% {
     width: 0%; }
   100% {
     width: 68%; } }
-        .Skills .Skills_Content .Skills_List .Skills_Item[data-item="UXUI"] .Skills_Item_Bar .Skills_Item_Bar_Content {
-          background-color: #a00;
-          width: 100%;
-          animation: SkillBarUXUI 1s ease; }
+        .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="UXUI"] .Skills_Item_Bar {
+          border-color: #fff; }
+          .Skills .Skills_Content .Skills_List .Skills_Item.aos-animate[data-item="UXUI"] .Skills_Item_Bar .Skills_Item_Bar_Content {
+            background-image: url("../img/animacao-logo-min.gif");
+            background-size: cover;
+            width: 100%;
+            animation: SkillBarUXUI 2s ease-in-out; }
 
 @keyframes SkillBarUXUI {
   0% {
@@ -1302,41 +1267,148 @@ body {
         display: flex;
         align-items: center;
         overflow: hidden; }
-        .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content:before, .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content:after {
-          position: absolute;
-          top: 0;
-          width: 100px;
-          height: 100%;
-          content: "";
-          z-index: 1; }
-        .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content:before {
-          left: 0;
-          background: linear-gradient(to right, #fff 5%, transparent 100%); }
-        .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content:after {
-          right: 0;
-          background: linear-gradient(to left, #fff 5%, transparent 100%); }
-        .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List_Animation {
-          animation: marquee 10s linear infinite forwards;
+        .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List {
           position: relative;
-          width: 300% !important;
-          display: flex; }
-          .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List_Animation:hover {
-            animation-play-state: paused; }
-          .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List_Animation .Skills_Ferramentas_List {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%; }
+          .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List .slick-track {
+            left: 0px;
+            position: relative;
             display: flex;
-            justify-content: space-around;
-            width: 33.33%; }
-            .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List_Animation .Skills_Ferramentas_List .Skills_Ferramentas_List_Item {
-              width: 170px;
-              height: 170px;
-              background: #a00;
-              margin: 0 10px; }
+            align-items: center; }
+          .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List .slick-list {
+            padding: 0px; }
+          .Skills .Skills_Content .Skills_Ferramentas .Skills_Ferramentas_Content .Skills_Ferramentas_List .Skills_Ferramentas_List_Item {
+            width: auto;
+            height: auto;
+            margin: 0 40px; }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0); }
-  100% {
-    transform: translateX(-35%); } }
+.Contact {
+  position: relative;
+  z-index: 9;
+  min-height: calc(100vh - 220px);
+  background: #222;
+  background-image: url("../img/contact_bg.png") top center no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 160px;
+  padding-bottom: 90px; }
+  .Contact .Contact_Content {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    z-index: 2;
+    text-align: center; }
+    .Contact .Contact_Content .Contact_Title {
+      font-family: 'Hind',sans-serif;
+      font-size: 81px;
+      line-height: 81px;
+      color: #fff;
+      font-weight: 400;
+      text-align: center; }
+      .Contact .Contact_Content .Contact_Title span {
+        font-weight: 700; }
+    .Contact .Contact_Content .Contact_Subtitle {
+      font-family: 'Hind',sans-serif;
+      font-size: 36px;
+      line-height: 36px;
+      color: #fff;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 10px; }
+    .Contact .Contact_Content .Contact_CallTxt {
+      font-family: 'Hind',sans-serif;
+      font-size: 26px;
+      color: #fff;
+      font-weight: 300;
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 60px; }
+      .Contact .Contact_Content .Contact_CallTxt span {
+        display: block;
+        font-weight: 700; }
+    .Contact .Contact_Content .Contact_Boxes {
+      display: flex;
+      margin-top: 15px; }
+      .Contact .Contact_Content .Contact_Boxes .Contact_Box {
+        border: 1px solid #f0e318;
+        padding: 25px;
+        margin: 20px;
+        position: relative;
+        flex: 1; }
+        .Contact .Contact_Content .Contact_Boxes .Contact_Box .Contact_Box_Title {
+          font-family: 'Hind',sans-serif;
+          font-size: 10px;
+          line-height: 10px;
+          color: #111;
+          font-weight: 700;
+          text-align: center;
+          position: absolute;
+          text-transform: uppercase;
+          padding: 5px 10px 4px 10px;
+          background: #f0e318;
+          top: -9px;
+          left: 25px; }
+        .Contact .Contact_Content .Contact_Boxes .Contact_Box .Contact_Box_Item {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-bottom: 15px; }
+          .Contact .Contact_Content .Contact_Boxes .Contact_Box .Contact_Box_Item:last-child {
+            margin-bottom: 0px; }
+          .Contact .Contact_Content .Contact_Boxes .Contact_Box .Contact_Box_Item .Contact_Box_Item_Icone i {
+            font-size: 25px;
+            color: #fff; }
+          .Contact .Contact_Content .Contact_Boxes .Contact_Box .Contact_Box_Item .Contact_Box_Item_Txt {
+            font-size: 22px;
+            color: #fff;
+            font-family: 'Open Sans', 'Hind', sans-serif;
+            font-weight: 300;
+            margin-left: 10px; }
+    .Contact .Contact_Content .Contact_Thx {
+      position: relative;
+      margin: 0 auto;
+      margin-top: 70px;
+      margin-bottom: 40px;
+      width: 460px;
+      text-align: center; }
+      .Contact .Contact_Content .Contact_Thx .Contact_Thx_Icone i {
+        font-size: 90px;
+        color: #f0e318; }
+      .Contact .Contact_Content .Contact_Thx .Contact_Thx_Msg {
+        margin-top: -15px;
+        color: #fff;
+        font-family: 'Open Sans', 'Hind', sans-serif;
+        font-size: 70px;
+        font-weight: 800;
+        line-height: 35px; }
+        .Contact .Contact_Content .Contact_Thx .Contact_Thx_Msg span {
+          font-size: 22px;
+          line-height: 22px;
+          font-weight: 700;
+          margin-top: 1px; }
+  .Contact .Contact_Copy {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #999;
+    font-family: 'Open Sans', 'Hind', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px; }
+  .Contact .Contact_Development {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #999;
+    font-family: 'Open Sans', 'Hind', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px; }
 
 .Lead {
   padding: 20px;

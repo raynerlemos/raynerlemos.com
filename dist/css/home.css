@@ -5,7 +5,7 @@
   justify-content: center;
   align-content: flex-start;
   padding-top: 160px;
-  padding-bottom: 100px;
+  padding-bottom: 160px;
   overflow: hidden;
   height: calc(100vh - 260px); }
   .Home .Home_Content {
@@ -62,8 +62,9 @@
       width: 100%;
       position: relative;
       z-index: 2;
-      max-width: 740px;
-      padding: 55px 0 55px 55px; }
+      max-width: 860px;
+      padding: 55px 0 55px 0px;
+      text-align: center; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_Border {
         width: calc(80%);
         height: calc(100%);
@@ -98,7 +99,7 @@
         position: relative; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
           font-family: 'Open Sans',sans-serif;
-          font-size: 68px;
+          font-size: 66px;
           text-transform: uppercase;
           color: #fff;
           font-weight: 800;
@@ -131,18 +132,22 @@
     color: #ffffff; } }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
           font-family: 'Open Sans',Hind,sans-serif;
-          font-size: 20px;
+          font-size: 19px;
           color: #fff;
           font-weight: 300;
           line-height: 30px;
-          margin-top: 15px; }
+          margin-top: 30px; }
+          .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript span {
+            font-weight: 700;
+            display: block;
+            text-transform: uppercase; }
         .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
           border-radius: 50px;
           -webkit-border-radius: 50px;
           -moz-border-radius: 50px;
           -ms-border-radius: 50px;
           -o-border-radius: 50px;
-          background: #1470ff;
+          background: #a0f;
           text-align: center;
           padding: 20px;
           font-family: 'Open Sans', sans-serif;
@@ -150,6 +155,7 @@
           color: #fff;
           font-weight: 700;
           line-height: 16px;
-          margin-top: 25px;
+          margin: 0 auto;
+          margin-top: 30px;
           text-transform: uppercase;
           max-width: 450px; }
