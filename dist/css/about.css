@@ -2,18 +2,19 @@
   position: relative;
   z-index: 9;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   background: #a0f;
   min-height: 100vh;
   overflow: hidden; }
   .About .About_Container {
-    width: 100%;
+    width: calc(100% - 400px);
     max-width: 1024px;
-    margin: 0 auto;
     display: flex;
     z-index: 2;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    position: relative;
+    left: 0px; }
     .About .About_Container .About_Content {
       flex-basis: calc(100% - 210px);
       padding-top: 160px;
@@ -53,15 +54,54 @@
         margin-top: 10px; }
         .About .About_Container .About_Content .About_Text b {
           font-weight: 600; }
+      .About .About_Container .About_Content .About_Curriculo {
+        margin-top: 50px;
+        position: relative; }
+        .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Title {
+          font-family: 'Hind';
+          color: #fff;
+          font-size: 20px;
+          font-weight: 300;
+          line-height: 28px;
+          text-transform: uppercase; }
+          .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Title span {
+            font-weight: 700;
+            display: block; }
+        .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Bt {
+          margin-top: 10px;
+          background: white;
+          transition: .25s ease-in-out;
+          border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          -ms-border-radius: 50px;
+          -o-border-radius: 50px;
+          max-width: max-content;
+          text-align: center; }
+          .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Bt a {
+            text-transform: uppercase;
+            font-family: 'Hind';
+            color: #a0f;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 28px;
+            padding: 15px 40px;
+            display: block;
+            text-decoration: none; }
+          .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Bt:hover {
+            background: #fff707;
+            transition: .25s ease-in-out; }
   .About .About_Album {
     flex-basis: 400px;
     background: #333;
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     z-index: 0; }
     .About .About_Album .About_Album_Photo {
       width: 400px;
       height: 400px;
-      background: #383838;
-      margin-bottom: 10px; }
+      background: #383838; }
+      .About .About_Album .About_Album_Photo img {
+        width: 100%;
+        height: 100%; }
