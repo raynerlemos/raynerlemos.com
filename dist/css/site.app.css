@@ -796,7 +796,7 @@ body {
         max-width: 380px; } }
   @media screen and (max-width: 680px) {
     .Home {
-      padding: 160px 60px 160px 60px; }
+      padding: 130px 60px 130px 60px; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
         font-size: 38px;
         line-height: 32px; }
