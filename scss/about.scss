@@ -108,4 +108,66 @@
             }
         }
     }
+    @media screen and (max-width:1024px) {
+        .About_Container{
+            width:calc(100% - 300px);
+            .About_Content{
+                width:calc(100% - 170px);
+                padding: 100px 60px 100px 0;
+            }
+        }
+        .About_Album{
+            .About_Album_Photo{
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+    @media screen and (max-width:865px) {
+        flex-direction: column;
+        .About_Container{
+            width:calc(100%);
+            .About_Content{
+                width: calc(100% - 170px);
+                padding: 100px 80px 100px 0;
+            }
+        }
+        .About_Album{
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            overflow-x: scroll;
+            flex-basis: auto;
+            .About_Album_Photo{
+                flex-shrink: 0;
+            }
+        }
+    }
+    @media screen and (max-width:680px) {
+        .About_Container{
+            justify-content: center;
+            .About_Content{
+                padding: 100px 60px;
+                width: 100%;
+                flex-basis: auto;
+                .About_Curriculo{
+                    .About_Curriculo_Title{
+                        text-align:center;
+                    }
+                    .About_Curriculo_Bt{
+                        text-align:center;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:450px) {
+        .About_Container{
+            .About_Content{
+                padding:100px 30px;
+            }
+        }
+    }
 }

@@ -6,8 +6,7 @@
     display: flex;
     justify-content: center;
     align-content: flex-start;
-    padding-top: 160px;
-    padding-bottom: 160px;
+    padding:160px 40px 160px 85px;
     overflow: hidden;
     height: calc(100vh - 260px);
     .Home_Content{
@@ -185,5 +184,89 @@
                 }
             }
         }
+    }
+    @media screen and (max-width:768px) {
+        padding: 160px 100px 160px 115px;
+        .Home_Content{
+            .Home_TxtBanner{
+                .TxtBanner_TextBox{
+                    .TxtBanner_TextBox_Title{
+                        font-size: 48px;
+                        line-height: 42px;
+                    }
+                    .TxtBanner_TextBox_Descript{
+                        font-size: 17px;
+                        line-height: 25px;
+                        margin-top:20px;
+                    }
+                    .TxtBanner_TextBox_Button{
+                        font-size: 15px;
+                        max-width:380px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:680px) {
+        padding:160px 60px 160px 60px;
+        .Home_Content{
+            .Home_TxtBanner{
+                .TxtBanner_TextBox{
+                    .TxtBanner_TextBox_Title{
+                        font-size: 38px;
+                        line-height: 32px;
+                    }
+                    .TxtBanner_TextBox_Descript{
+                        font-size: 17px;
+                        line-height: 25px;
+                        margin-top:20px;
+                    }
+                    .TxtBanner_TextBox_Button{
+                        font-size: 15px;
+                        max-width:380px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:600px) {
+        .Home_Content{
+            .Home_TxtBanner{
+                .TxtBanner_TextBox{
+                    .TxtBanner_TextBox_Title{
+                        font-size: 26px;
+                        line-height: 23px;
+                    }
+                    .TxtBanner_TextBox_Descript{
+                        font-size: 15px;
+                        line-height: 22px;
+                    }
+                    .TxtBanner_TextBox_Button{
+                        font-size: 12px;
+                        max-width: 280px;
+                        padding:17px 15px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:450px) {
+        padding: 140px 30px 130px 30px;
+        .Home_Content{
+            .Home_TxtBanner{
+                .TxtBanner_TextBox{
+                    .TxtBanner_TextBox_Title{
+                        font-size: 31px;
+                        line-height: 32px;
+                    }
+                    .TxtBanner_TextBox_Descript{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:450px) {
+        padding:140px 15px 130px;
     }
 }

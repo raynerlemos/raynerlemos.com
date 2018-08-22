@@ -96,6 +96,17 @@ body{
         background: #ff0000;
         opacity: 0.4;
     }
+    @media screen and (max-width:680px) {
+        .PageTitle_Name{
+            font-weight: 600;
+            font-size: 45px;
+        }
+        .PageTitle_Sub{
+            margin-top:0px;
+            font-size: 16px;
+            line-height: 25px;
+        }
+    }
 }
 
 .AnimationParticle{

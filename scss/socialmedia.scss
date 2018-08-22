@@ -25,4 +25,31 @@
         bottom: -175px;
         opacity: 0.7;
     }
+    @media screen and (max-width:680px) {
+        flex-direction: row;
+        position: fixed;
+        top: auto;
+        bottom: 30px;
+        left: 50%;
+        height: 20px;
+        justify-content: space-between;
+        width: calc(100% - 40px);
+        max-width: 400px;
+        margin: 0 auto;
+        transform: translate(-50%,0);
+        .SocialMedia_Item{
+            margin:0 15px;
+        }
+        .SocialMedia_Border{
+            width: 160px;
+            height: 1px;
+            background: #fff;
+            bottom: auto;
+            opacity: .7;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+            top: -20px;
+        }
+    }
 }

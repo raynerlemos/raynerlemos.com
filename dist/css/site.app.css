@@ -139,6 +139,14 @@ body {
     left: -5%;
     background: #ff0000;
     opacity: 0.4; }
+  @media screen and (max-width: 680px) {
+    .PageTitle .PageTitle_Name {
+      font-weight: 600;
+      font-size: 45px; }
+    .PageTitle .PageTitle_Sub {
+      margin-top: 0px;
+      font-size: 16px;
+      line-height: 25px; } }
 
 .AnimationParticle {
   position: fixed;
@@ -170,9 +178,10 @@ body {
     position: relative; }
     .Header .Header_Content .Header_Logo {
       width: max-content;
-      height: 69px;
+      height: 77px;
       max-width: 190px;
-      position: relative; }
+      position: relative;
+      top: -10px; }
       .Header .Header_Content .Header_Logo .Logo_Rayner {
         font-family: 'Open Sans', 'Hind', sans-serif;
         font-weight: 300;
@@ -484,6 +493,14 @@ body {
     color: #ff004d; }
   90% {
     color: #ff0000; } }
+    .Header .Header_Content .Header_MenuHamburger {
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      position: absolute;
+      right: 30px;
+      top: 42px;
+      display: none; }
     .Header .Header_Content .Header_Contato {
       display: flex;
       justify-content: flex-start;
@@ -523,6 +540,36 @@ body {
           .Header .Header_Content .Header_Contato .Contato_Item .Contato_Item_Label a {
             color: #fff;
             text-decoration: none; }
+  @media screen and (max-width: 1000px) {
+    .Header .Header_Content .Header_Contato .Contato_Border {
+      width: 40px;
+      left: -60px; } }
+  @media screen and (max-width: 850px) {
+    .Header .Header_Content .Header_Menu {
+      display: none; }
+    .Header .Header_Content .Header_Contato {
+      display: none; }
+    .Header .Header_Content .Header_MenuHamburger {
+      display: block; } }
+  @media screen and (max-width: 600px) {
+    .Header .Header_Content .Header_Logo {
+      height: 56px; }
+      .Header .Header_Content .Header_Logo .Logo_Rayner {
+        font-size: 31px;
+        line-height: 31px; }
+      .Header .Header_Content .Header_Logo .Logo_Lemos {
+        font-size: 32px;
+        line-height: 32px;
+        background-position: 0px 0px; }
+    .Header .Header_Content .Header_MenuHamburger {
+      width: 40px;
+      height: 40px;
+      top: 37px; } }
+  @media screen and (max-width: 450px) {
+    .Header .Header_Content {
+      padding: 30px; }
+      .Header .Header_Content .Header_MenuHamburger {
+        top: 28px; } }
 
 .SocialMedia {
   position: fixed;
@@ -547,6 +594,31 @@ body {
     background: #fff;
     bottom: -175px;
     opacity: 0.7; }
+  @media screen and (max-width: 680px) {
+    .SocialMedia {
+      flex-direction: row;
+      position: fixed;
+      top: auto;
+      bottom: 30px;
+      left: 50%;
+      height: 20px;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+      max-width: 400px;
+      margin: 0 auto;
+      transform: translate(-50%, 0); }
+      .SocialMedia .SocialMedia_Item {
+        margin: 0 15px; }
+      .SocialMedia .SocialMedia_Border {
+        width: 160px;
+        height: 1px;
+        background: #fff;
+        bottom: auto;
+        opacity: .7;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: -20px; } }
 
 .Home {
   position: relative;
@@ -554,8 +626,7 @@ body {
   display: flex;
   justify-content: center;
   align-content: flex-start;
-  padding-top: 160px;
-  padding-bottom: 160px;
+  padding: 160px 40px 160px 85px;
   overflow: hidden;
   height: calc(100vh - 260px); }
   .Home .Home_Content {
@@ -710,6 +781,54 @@ body {
           text-transform: uppercase;
           max-width: 450px;
           cursor: pointer; }
+  @media screen and (max-width: 768px) {
+    .Home {
+      padding: 160px 100px 160px 115px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
+        font-size: 48px;
+        line-height: 42px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 20px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
+        font-size: 15px;
+        max-width: 380px; } }
+  @media screen and (max-width: 680px) {
+    .Home {
+      padding: 160px 60px 160px 60px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
+        font-size: 38px;
+        line-height: 32px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 20px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
+        font-size: 15px;
+        max-width: 380px; } }
+  @media screen and (max-width: 600px) {
+    .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
+      font-size: 26px;
+      line-height: 23px; }
+    .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
+      font-size: 15px;
+      line-height: 22px; }
+    .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Button {
+      font-size: 12px;
+      max-width: 280px;
+      padding: 17px 15px; } }
+  @media screen and (max-width: 450px) {
+    .Home {
+      padding: 140px 30px 130px 30px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
+        font-size: 31px;
+        line-height: 32px; }
+      .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
+        display: none; } }
+  @media screen and (max-width: 450px) {
+    .Home {
+      padding: 140px 15px 130px; } }
 
 .About {
   position: relative;
@@ -818,6 +937,47 @@ body {
       .About .About_Album .About_Album_Photo img {
         width: 100%;
         height: 100%; }
+  @media screen and (max-width: 1024px) {
+    .About .About_Container {
+      width: calc(100% - 300px); }
+      .About .About_Container .About_Content {
+        width: calc(100% - 170px);
+        padding: 100px 60px 100px 0; }
+    .About .About_Album .About_Album_Photo {
+      width: 300px;
+      height: 300px; } }
+  @media screen and (max-width: 865px) {
+    .About {
+      flex-direction: column; }
+      .About .About_Container {
+        width: calc(100%); }
+        .About .About_Container .About_Content {
+          width: calc(100% - 170px);
+          padding: 100px 80px 100px 0; }
+      .About .About_Album {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+        flex-basis: auto; }
+        .About .About_Album .About_Album_Photo {
+          flex-shrink: 0; } }
+  @media screen and (max-width: 680px) {
+    .About .About_Container {
+      justify-content: center; }
+      .About .About_Container .About_Content {
+        padding: 100px 60px;
+        width: 100%;
+        flex-basis: auto; }
+        .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Title {
+          text-align: center; }
+        .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Bt {
+          text-align: center;
+          margin: 0 auto;
+          margin-top: 10px; } }
+  @media screen and (max-width: 450px) {
+    .About .About_Container .About_Content {
+      padding: 100px 30px; } }
 
 @-webkit-keyframes MulticolorEffect {
   0% {
@@ -1179,12 +1339,11 @@ body {
   background-repeat: no-repeat;
   overflow: hidden; }
   .Skills .Skills_Content {
-    width: 100%;
-    max-width: 1024px;
+    width: calc(100% - 200px);
     margin: 0 auto;
     z-index: 2;
-    padding-top: 160px;
-    padding-bottom: 350px; }
+    padding: 160px 70px 350px 130px;
+    flex-basis: auto; }
     .Skills .Skills_Content .PageTitle .PageTitle_Name {
       color: #fff; }
     .Skills .Skills_Content .PageTitle .PageTitle_Sub {
@@ -1329,6 +1488,19 @@ body {
             width: auto;
             height: auto;
             margin: 0 40px; }
+  @media screen and (max-width: 680px) {
+    .Skills .Skills_Content {
+      width: calc(100% - 120px);
+      padding: 160px 60px 250px 60px; } }
+  @media screen and (max-width: 500px) {
+    .Skills .Skills_Content .Skills_List {
+      flex-direction: column; }
+      .Skills .Skills_Content .Skills_List .Skills_Item {
+        width: calc(100%); } }
+  @media screen and (max-width: 450px) {
+    .Skills .Skills_Content {
+      width: calc(100% - 60px);
+      padding: 160px 30px 330px; } }
 
 .Contact {
   position: relative;

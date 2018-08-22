@@ -46,12 +46,11 @@
     //     box-shadow: 0px 0px 23px 8px #a0f;
     // }
     .Skills_Content{
-        width: 100%;
-        max-width: 1024px;
+        width: calc(100% - 200px);
         margin: 0 auto;
         z-index: 2;
-        padding-top: 160px;
-        padding-bottom: 350px;
+        padding: 160px 70px 350px 130px;
+        flex-basis: auto;
         .PageTitle{
             .PageTitle_Name{
                 color:#fff;
@@ -267,6 +266,28 @@
                     }
                 }
             }
+        }
+    }
+    @media screen and (max-width:680px) {
+        .Skills_Content{
+            width: calc(100% - 120px);
+            padding: 160px 60px 250px 60px;
+        }
+    }
+    @media screen and (max-width:500px) {
+        .Skills_Content{
+            .Skills_List{
+                flex-direction: column;
+                .Skills_Item{
+                    width: calc(100%);
+                }
+            }
+        }
+    }
+    @media screen and (max-width:450px) {
+        .Skills_Content{
+            width: calc(100% - 60px);
+            padding: 160px 30px 330px;
         }
     }
 } 

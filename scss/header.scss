@@ -15,9 +15,10 @@
         position: relative;
         .Header_Logo{
             width: max-content;
-            height: 69px;
+            height: 77px;
             max-width:190px;
             position: relative;
+            top:-10px;
             .Logo_Rayner{
                 font-family: 'Open Sans', 'Hind', sans-serif;
                 font-weight: 300;
@@ -236,6 +237,15 @@
                 }
             }
         }
+        .Header_MenuHamburger{
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            position: absolute;
+            right: 30px;
+            top: 42px;
+            display:none;
+        }
         .Header_Contato{
             display: flex;
             justify-content: flex-start;
@@ -281,6 +291,58 @@
                         text-decoration: none;
                     }
                 }
+            }
+        }
+    }
+    @media screen and (max-width:1000px) {
+        .Header_Content{
+            .Header_Contato{
+                .Contato_Border{
+                    width: 40px;
+                    left: -60px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:850px) {
+        .Header_Content{
+            .Header_Menu{
+                display:none;
+            }
+            .Header_Contato{
+                display:none;
+            }
+            .Header_MenuHamburger{
+                display:block;
+            }
+        }
+    }
+    @media screen and (max-width:600px) {
+        .Header_Content{
+            .Header_Logo{
+                height: 56px;
+                .Logo_Rayner{
+                    font-size:31px;
+                    line-height:31px;
+                }
+                .Logo_Lemos{
+                    font-size:32px;
+                    line-height:32px;
+                    background-position:0px 0px;
+                }
+            }
+            .Header_MenuHamburger{
+                width: 40px;
+                height: 40px;
+                top: 37px;
+            }
+        }
+    }
+    @media screen and (max-width:450px) {
+        .Header_Content{
+            padding: 30px;
+            .Header_MenuHamburger{
+                top: 28px;
             }
         }
     }
