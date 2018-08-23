@@ -206,5 +206,5 @@
         display: none; } }
   @media screen and (max-width: 450px) {
     .Home {
-      padding: 110px 15px 110px;
-      height: calc(100vh - 220px); } }
+      padding: 80px 15px;
+      height: calc(100vh - 150px); } }
