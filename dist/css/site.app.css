@@ -820,15 +820,16 @@ body {
       padding: 17px 15px; } }
   @media screen and (max-width: 450px) {
     .Home {
-      padding: 140px 30px 130px 30px; }
+      padding: 130px 30px 130px 30px; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Title {
-        font-size: 31px;
-        line-height: 32px; }
+        font-size: 29px;
+        line-height: 31px; }
       .Home .Home_Content .Home_TxtBanner .TxtBanner_TextBox .TxtBanner_TextBox_Descript {
         display: none; } }
   @media screen and (max-width: 450px) {
     .Home {
-      padding: 140px 15px 130px; } }
+      padding: 110px 15px 110px;
+      height: calc(100vh - 220px); } }
 
 .About {
   position: relative;
