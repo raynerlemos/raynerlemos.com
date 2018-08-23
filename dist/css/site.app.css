@@ -1500,7 +1500,7 @@ body {
   @media screen and (max-width: 450px) {
     .Skills .Skills_Content {
       width: calc(100% - 60px);
-      padding: 160px 30px 330px; } }
+      padding: 100px 30px 320px; } }
 
 .Contact {
   position: relative;
