@@ -251,9 +251,11 @@
         }
     }
     @media screen and (max-width:450px) {
-        padding: 130px 30px 130px 30px;
+        padding: 80px 15px;
+        height: calc(100vh - 180px);
         .Home_Content{
             .Home_TxtBanner{
+                padding: 0;
                 .TxtBanner_TextBox{
                     .TxtBanner_TextBox_Title{
                         font-size: 29px;
@@ -265,9 +267,5 @@
                 }
             }
         }
-    }
-    @media screen and (max-width:450px) {
-        padding: 80px 15px;
-        height: calc(100vh - 150px);
     }
 }
