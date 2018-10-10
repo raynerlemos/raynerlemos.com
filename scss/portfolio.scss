@@ -79,8 +79,7 @@
         flex-wrap: wrap;
         margin-top:20px;
         .Portfolio_Album_Item{
-            width: 50%;
-            height: 560px;
+            flex-basis: 50%;
             background: #ccc;
             position: relative;
             overflow: hidden;
@@ -98,12 +97,12 @@
                 }
             }
             .Portfolio_Album_Item_Bg{
-                width:100%;
-                height:100%;
+                width: 100%;
+                height: 100%;
                 position: absolute;
-                top:0px;
-                left:0px;
-                z-index:0;
+                top: 0;
+                left: 0;
+                z-index: 0;
                 overflow: hidden;
                 &:before{
                     background: rgba(0,0,0,0.8);
@@ -117,7 +116,13 @@
                     transition: .25s ease;
                 }
                 img{
-                    height:100%;
+                    width:100%;
+                }
+                @media screen and (max-width:960px){
+                    img{
+                        height: 100%;
+                        width: auto;
+                    }
                 }
             }
             &.Portfolio_Album_Item_Left{
@@ -202,6 +207,9 @@
                     }
                 }
             }
+        }
+        @media screen and (max-width:768px){
+            flex-direction: column;
         }
     }
 }

@@ -1134,8 +1134,7 @@ body {
     flex-wrap: wrap;
     margin-top: 20px; }
     .Portfolio .Portfolio_Album .Portfolio_Album_Item {
-      width: 50%;
-      height: 560px;
+      flex-basis: 50%;
       background: #ccc;
       position: relative;
       overflow: hidden;
@@ -1150,8 +1149,8 @@ body {
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         z-index: 0;
         overflow: hidden; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg:before {
@@ -1165,7 +1164,11 @@ body {
           opacity: 0;
           transition: .25s ease; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
-          height: 100%; }
+          width: 100%; }
+        @media screen and (max-width: 960px) {
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
+            height: 100%;
+            width: auto; } }
       .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left {
         justify-content: center; }
         .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left .Portfolio_Album_Item_Content {
@@ -1236,6 +1239,9 @@ body {
             background: #fff;
             text-decoration: none;
             color: #333; }
+    @media screen and (max-width: 768px) {
+      .Portfolio .Portfolio_Album {
+        flex-direction: column; } }
 
 @-webkit-keyframes MulticolorEffect {
   0% {
