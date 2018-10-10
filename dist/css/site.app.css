@@ -200,7 +200,6 @@ body {
         top: -7px;
         position: relative;
         text-transform: uppercase;
-        display: flex;
         background-image: url("../img/animacao-logo-min.gif");
         background-size: 200%;
         -webkit-background-clip: text;
@@ -1541,12 +1540,13 @@ body {
       font-size: 36px;
       line-height: 36px;
       color: #fff;
-      font-weight: 400;
+      font-weight: 300;
       text-align: center;
       margin-top: 10px; }
     .Contact .Contact_Content .Contact_CallTxt {
       font-family: 'Hind',sans-serif;
-      font-size: 26px;
+      font-size: 24px;
+      line-height: 34px;
       color: #fff;
       font-weight: 300;
       text-align: center;

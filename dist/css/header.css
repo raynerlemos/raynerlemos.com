@@ -37,7 +37,6 @@
         top: -7px;
         position: relative;
         text-transform: uppercase;
-        display: flex;
         background-image: url("../img/animacao-logo-min.gif");
         background-size: 200%;
         -webkit-background-clip: text;
