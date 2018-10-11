@@ -7,12 +7,16 @@
     min-height: 100vh;
     overflow: hidden;
     .Portfolio_Content{
-        width: 100%;
-        max-width: 1024px;
+        // width: 100%;
+        // max-width: 1024px;
+        // margin: 0 auto;
+        // z-index: 2;
+        // padding-top: 160px;
+        // padding-bottom: 0px;
+        width: calc(100% - 200px);
         margin: 0 auto;
         z-index: 2;
-        padding-top: 160px;
-        padding-bottom: 0px;
+        padding: 160px 70px 0px 130px;
         .PageTitle{
             .PageTitle_Name{
                 color:#fff;
@@ -118,6 +122,12 @@
                 img{
                     width:100%;
                 }
+                .__is-desktop{
+                    display: block;
+                }
+                .__is-mobile{
+                    display: none;
+                }
                 @media screen and (max-width:960px){
                     img{
                         height: 100%;
@@ -208,8 +218,32 @@
                 }
             }
         }
-        @media screen and (max-width:768px){
+    }
+    @media screen and (max-width:768px){
+        .Portfolio_Album{
             flex-direction: column;
+            .Portfolio_Album_Item{
+                .Portfolio_Album_Item_Bg{
+                    .__is-desktop{
+                        display: none;
+                    }
+                    .__is-mobile{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:680px){
+        .Portfolio_Content{
+            width: calc(100% - 80px);
+            padding: 160px 40px 0px 40px;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .Portfolio_Content{
+            width: calc(100% - 60px);
+            padding: 100px 30px 320px;
         }
     }
 }

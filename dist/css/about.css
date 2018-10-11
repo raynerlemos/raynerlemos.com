@@ -134,7 +134,7 @@
     .About .About_Container {
       justify-content: center; }
       .About .About_Container .About_Content {
-        padding: 100px 60px;
+        padding: 100px 40px;
         width: 100%;
         flex-basis: auto; }
         .About .About_Container .About_Content .About_Curriculo .About_Curriculo_Title {

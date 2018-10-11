@@ -12,11 +12,10 @@
   padding-bottom: 90px;
   overflow: hidden; }
   .Contact .Contact_Content {
-    width: 100%;
-    max-width: 1024px;
+    width: calc(100% - 200px);
     margin: 0 auto;
     z-index: 2;
-    text-align: center; }
+    padding: 160px 70px 0px 130px; }
     .Contact .Contact_Content .Contact_Title {
       font-family: 'Hind',sans-serif;
       font-size: 81px;
@@ -48,7 +47,8 @@
         font-weight: 700; }
     .Contact .Contact_Content .Contact_Boxes {
       display: flex;
-      margin-top: 15px; }
+      margin-top: 15px;
+      flex-wrap: wrap; }
       .Contact .Contact_Content .Contact_Boxes .Contact_Box {
         border: 1px solid #f0e318;
         padding: 25px;
@@ -124,3 +124,11 @@
     font-size: 12px;
     font-weight: 300;
     line-height: 14px; }
+  @media screen and (max-width: 680px) {
+    .Contact .Contact_Content {
+      width: calc(100% - 80px);
+      padding: 0px 40px 0px 40px; } }
+  @media screen and (max-width: 450px) {
+    .Contact .Contact_Content {
+      width: calc(100% - 60px);
+      padding: 0px 30px; } }

@@ -251,8 +251,8 @@
             margin: 0 40px; }
   @media screen and (max-width: 680px) {
     .Skills .Skills_Content {
-      width: calc(100% - 120px);
-      padding: 160px 60px 250px 60px; } }
+      width: calc(100% - 80px);
+      padding: 160px 40px 250px 40px; } }
   @media screen and (max-width: 500px) {
     .Skills .Skills_Content .Skills_List {
       flex-direction: column; }
