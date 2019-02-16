@@ -27,6 +27,10 @@ $(function(){
         // }, 1000);
     });
 
+    /// CONFIGURA SCROLL DOS MENUS
+    $( ".scrollLink" ).click(function() {
+        $("html, body").animate({ scrollTop: $($(this).attr("data-scrollto")).offset().top - 64}, 500);
+    });
 
     $('.Skills_Ferramentas_List').slick({
         dots: false,
