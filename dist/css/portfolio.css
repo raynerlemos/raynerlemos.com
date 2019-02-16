@@ -1,0 +1,277 @@
+@-webkit-keyframes MulticolorEffect {
+  0% {
+    color: #333; }
+  10% {
+    color: #ff8005; }
+  20% {
+    color: #ffe300; }
+  30% {
+    color: #5cff00; }
+  40% {
+    color: #00ffbe; }
+  50% {
+    color: #0049ff; }
+  60% {
+    color: #8200ff; }
+  70% {
+    color: #ff00c8; }
+  80% {
+    color: #ff0000; }
+  90% {
+    color: #333; } }
+
+@-moz-keyframes MulticolorEffect {
+  0% {
+    color: #333; }
+  10% {
+    color: #ff8005; }
+  20% {
+    color: #ffe300; }
+  30% {
+    color: #5cff00; }
+  40% {
+    color: #00ffbe; }
+  50% {
+    color: #0049ff; }
+  60% {
+    color: #8200ff; }
+  70% {
+    color: #ff00c8; }
+  80% {
+    color: #ff0000; }
+  90% {
+    color: #333; } }
+
+@-ms-keyframes MulticolorEffect { }
+
+@-o-keyframes MulticolorEffect {
+  0% {
+    color: #333; }
+  10% {
+    color: #ff8005; }
+  20% {
+    color: #ffe300; }
+  30% {
+    color: #5cff00; }
+  40% {
+    color: #00ffbe; }
+  50% {
+    color: #0049ff; }
+  60% {
+    color: #8200ff; }
+  70% {
+    color: #ff00c8; }
+  80% {
+    color: #ff0000; }
+  90% {
+    color: #333; } }
+
+@keyframes MulticolorEffect {
+  0% {
+    color: #333; }
+  10% {
+    color: #ff8005; }
+  20% {
+    color: #ffe300; }
+  30% {
+    color: #5cff00; }
+  40% {
+    color: #00ffbe; }
+  50% {
+    color: #0049ff; }
+  60% {
+    color: #8200ff; }
+  70% {
+    color: #ff00c8; }
+  80% {
+    color: #ff0000; }
+  90% {
+    color: #333; } }
+
+.Portfolio {
+  position: relative;
+  z-index: 9;
+  background: rgba(111, 38, 167, 0.64);
+  min-height: 100vh;
+  overflow: hidden; }
+  .Portfolio .Portfolio_Content {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    z-index: 2;
+    padding: 100px 70px 0px 130px; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Name {
+      color: #fff; }
+    .Portfolio .Portfolio_Content .PageTitle .PageTitle_Sub {
+      color: #fff; }
+    .Portfolio .Portfolio_Content .Portfolio_Text {
+      font-family: 'Hind';
+      color: #fff;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 28px;
+      margin-top: 10px;
+      text-align: center; }
+      .Portfolio .Portfolio_Content .Portfolio_Text b {
+        font-weight: 600; }
+    .Portfolio .Portfolio_Content .Portfolio_Nav {
+      width: 100%;
+      margin-top: 40px;
+      padding: 15px;
+      background: #5a2a7d; }
+      .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Title {
+        font-family: 'Open Sans', 'Hind', sans-serif;
+        color: #ffff;
+        font-size: 17px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center; }
+      .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content {
+        margin-top: 20px;
+        display: flex;
+        position: relative;
+        justify-content: center; }
+        .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item {
+          border-right: 1px solid #767676;
+          padding: 3px 20px;
+          font-family: 'Open Sans','Hind',sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          text-transform: uppercase; }
+          .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:last-child {
+            border-right: none; }
+          .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item.Portfolio_Nav_Item__is-active {
+            font-weight: 800;
+            color: #fff707; }
+          .Portfolio .Portfolio_Content .Portfolio_Nav .Portfolio_Nav_Content .Portfolio_Nav_Item:hover {
+            color: #fff707; }
+  .Portfolio .Portfolio_Album {
+    display: flex;
+    background: #f1f1f1;
+    flex-wrap: wrap;
+    margin-top: 40px; }
+    .Portfolio .Portfolio_Album .Portfolio_Album_Item {
+      flex-basis: 50%;
+      background: #ccc;
+      position: relative;
+      overflow: hidden;
+      transition: all .2s ease;
+      display: flex;
+      justify-content: center; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg:before {
+          background: rgba(0, 0, 0, 0.8);
+          width: 100%;
+          height: 100%;
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: 0px;
+          opacity: 0;
+          transition: .25s ease; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
+          width: 100%; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg .__is-desktop {
+          display: block; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg .__is-mobile {
+          display: none; }
+        @media screen and (max-width: 960px) {
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg img {
+            height: 100%;
+            width: auto; } }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left {
+        justify-content: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Left .Portfolio_Album_Item_Content {
+          text-align: center;
+          align-items: center; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Right {
+        justify-content: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item.Portfolio_Album_Item_Right .Portfolio_Album_Item_Content {
+          text-align: center;
+          align-items: center; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content {
+        position: relative;
+        z-index: 1;
+        padding: 40px;
+        width: calc(100% - 180px);
+        height: calc(100% - 80px);
+        opacity: 0;
+        transition: .2s ease;
+        display: none;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Title {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 32px;
+          font-weight: 800;
+          text-transform: uppercase; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Category {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #333;
+          font-size: 13px;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-top: 8px;
+          background: #fff;
+          padding: 5px 8px; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Url {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 300;
+          font-style: italic;
+          margin-top: 8px; }
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Url a {
+            color: #fff;
+            text-decoration: none;
+            outline: none; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Descrption {
+          font-family: 'Open Sans', 'Hind', sans-serif;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 8px; }
+        .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Button {
+          display: block;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-align: center;
+          margin-top: 15px; }
+          .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Content .Portfolio_Album_Item_Button a {
+            display: block;
+            padding: 15px;
+            width: 70px;
+            background: #fff;
+            text-decoration: none;
+            color: #333; }
+  @media screen and (max-width: 768px) {
+    .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg .__is-desktop {
+      display: none; }
+    .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg .__is-mobile {
+      display: block; } }
+  @media screen and (max-width: 680px) {
+    .Portfolio .Portfolio_Album {
+      flex-direction: column; }
+      .Portfolio .Portfolio_Album .Portfolio_Album_Item .Portfolio_Album_Item_Bg .__is-mobile {
+        width: 100%;
+        height: auto; }
+    .Portfolio .Portfolio_Content {
+      width: calc(100% - 80px);
+      padding: 100px 40px 0px 40px; } }
+  @media screen and (max-width: 450px) {
+    .Portfolio .Portfolio_Content {
+      width: calc(100% - 60px);
+      padding: 64px 30px 64px; } }

@@ -29,7 +29,21 @@ $(function(){
 
     /// CONFIGURA SCROLL DOS MENUS
     $( ".scrollLink" ).click(function() {
-        $("html, body").animate({ scrollTop: $($(this).attr("data-scrollto")).offset().top - 64}, 500);
+        $("html, body").animate({ scrollTop: $($(this).attr("data-scrollto")).offset().top}, 500);
+    });
+
+    $('.toogleMenu').click(function(){
+        if( $('.Header_MenuHamburger').attr('data-menu-status') == 'open' ){
+
+            $('.Header_Menu').removeClass("__is_active_mobile");
+            $('.Header_MenuHamburger').attr('data-menu-status', 'closed');
+
+        }else if( $('.Header_MenuHamburger').attr('data-menu-status') == 'closed' ){
+            
+            $('.Header_Menu').addClass("__is_active_mobile");
+            $('.Header_MenuHamburger').attr('data-menu-status', 'open');
+
+        }
     });
 
     $('.Skills_Ferramentas_List').slick({

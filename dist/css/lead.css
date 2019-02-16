@@ -1,0 +1,8 @@
+.Lead {
+  padding: 20px;
+  background: #d7ee00;
+  width: calc(100% - 40px);
+  height: 200px;
+  display: none;
+  position: relative;
+  z-index: 9; }

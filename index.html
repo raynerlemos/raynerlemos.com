@@ -45,14 +45,16 @@
                     </div>
                 </div>
                 <div class="Header_Menu">
-                    <div class="Menu_Item scrollLink" data-scrollTo="#Home">Início</div>
-                    <div class="Menu_Item scrollLink" data-scrollTo="#Experiencia">Experiência</div>
-                    <div class="Menu_Item scrollLink" data-scrollTo="#Skills">Skills</div>
-                    <div class="Menu_Item scrollLink" data-scrollTo="#Portifolio">Portifólio</div>
-                    <!-- <div class="Menu_Item scrollLink" data-scrollTo="#Clientes">Clientes</div> -->
-                    <div class="Menu_Item scrollLink" data-scrollTo="#Contato">Contato</div>
+                    <div class="Menu_Content">
+                        <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Home">Início</div>
+                        <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Experiencia">Experiência</div>
+                        <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Skills">Skills</div>
+                        <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Portifolio">Portifólio</div>
+                        <!-- <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Clientes">Clientes</div> -->
+                        <div class="Menu_Item scrollLink toogleMenu" data-scrollTo="#Contato">Contato</div>
+                    </div>
                 </div>
-                <div class="Header_MenuHamburger"></div>
+                <div class="Header_MenuHamburger toogleMenu" data-menu-status="closed"></div>
                 <div class="Header_Contato">
                     <div class="Contato_Border"></div>
                     <div class="Contato_Item">
@@ -208,8 +210,8 @@
             </div>
         </div>
 
-        <div class="Skills" id="Skills" data-aos="fade-up">
-            <div class="Skills_Content">
+        <div class="Skills" id="Skills">
+            <div class="Skills_Content" data-aos="fade-up">
                 <div class="PageTitle" data-aos="fade-up">
                     <div class="PageTitle_Line"></div>
                     <div class="PageTitle_Name">Skills</div>
@@ -291,8 +293,8 @@
             </div>
         </div>
 
-        <div class="Portfolio" id="Portifolio" data-aos="fade-up">
-            <div class="Portfolio_Content">
+        <div class="Portfolio" id="Portifolio">
+            <div class="Portfolio_Content" data-aos="fade-up">
                 <div class="PageTitle" data-aos="fade-up">
                     <div class="PageTitle_Line"></div>
                     <div class="PageTitle_Name">Portifólio</div>
@@ -391,8 +393,8 @@
             </div>
         </div>
 
-        <div class="Contact" id="Contato" data-aos="fade-up">
-            <div class="Contact_Content">
+        <div class="Contact" id="Contato">
+            <div class="Contact_Content" data-aos="fade-up">
                 <div class="Contact_Title" data-aos="fade-left">RAYNER <span>LEMOS</span></div>
                 <div class="Contact_Subtitle" data-aos="fade-right">Art Director | UX/UI | Frontend Dev</div>
                 <div class="Contact_CallTxt">Tem pressa em falar comigo?<span>Escolhe um dos canais abaixo e manda bala!</span></div>
