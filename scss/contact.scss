@@ -2,20 +2,20 @@
     position: relative;
     z-index: 9;
     min-height: calc(100vh - 220px);
-    background: #222;
-    background-image: url('../img/contact_bg.png') top center no-repeat;
+    // background: #222;
+    // background-image: url('../img/contact_bg.png') top center no-repeat;
     background-size:100%;
     display:flex;
     justify-content: center;
     align-items: center;
-    padding-top: 160px;
-    padding-bottom: 90px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     overflow: hidden;
     .Contact_Content{
         width: calc(100% - 200px);
         margin: 0 auto;
         z-index: 2;
-        padding: 160px 70px 0px 130px;
+        padding: 100px 70px 0px 100px;
         .Contact_Title{
             font-family: 'Hind',sans-serif;
             font-size: 81px;
@@ -154,12 +154,133 @@
         .Contact_Content{
             width: calc(100% - 80px);
             padding: 0px 40px 0px 40px;
+            .Contact_Title{
+                font-size: 64px;
+                line-height: 64px;
+            }
+            .Contact_Subtitle{
+                font-size: 32px;
+                line-height: 32px;
+            }
+            .Contact_CallTxt{
+                margin-top:40px;
+            }
+        }
+    }
+    @media screen and (max-width:620px){
+        flex-wrap:wrap;
+        .Contact_Copy, .Contact_Development{
+            position:relative;
+            left:auto;
+            bottom:auto;
+            right:auto;
+            width:100%;
+            text-align:center;
+            margin-bottom:5px;
+            padding: 0 10px;
+        }
+    }
+    @media screen and (max-width:580px){
+        .Contact_Content{
+            .Contact_Title{
+                font-size: 48px;
+                line-height: 48px;
+            }
+            .Contact_Subtitle{
+                font-size: 24px;
+                line-height: 24px;
+            }
+            .Contact_Boxes{
+                .Contact_Box{
+                    .Contact_Box_Item{
+                        .Contact_Box_Item_Txt{
+                            font-size:16px;
+                        }
+                    }
+                }
+            }
+            .Contact_Thx{
+                width:100%;
+                margin-top:40px;
+                .Contact_Thx_Msg{
+                    margin-top:-25px;
+                    font-size: 40px;
+                    line-height: 48px;
+                    span{
+                        display:block;
+                    }
+                }
+            }
         }
     }
     @media screen and (max-width:450px) {
+        padding:64px 0;
         .Contact_Content{
             width: calc(100% - 60px);
             padding: 0px 30px;
+            .Contact_Title{
+                font-size: 40px;
+                line-height: 40px;
+            }
+            .Contact_Subtitle{
+                font-size: 16px;
+                line-height: 16px;
+            }
+            .Contact_CallTxt{
+                 font-size:16px;
+                 line-height:24px;
+                 margin-bottom:32px;
+            }
+            .Contact_Boxes{
+                .Contact_Box{
+                    margin:0;
+                    margin-bottom:24px;
+                    .Contact_Box_Title{
+                        left:50%;
+                        transform:translate(-50%,0);
+                    }
+                    .Contact_Box_Item{
+                        flex-direction:column;
+                        .Contact_Box_Item_Icone{
+                            border-radius: 100px;
+                            background: #f0e318;
+                            padding: 10px 11px;
+                            margin-bottom: 8px;
+                        }
+                        .Contact_Box_Item_Txt{
+                            margin: 0;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
         }
     }
+    @media screen and (max-width:410px) {
+        .Contact_Content{
+            .Contact_Boxes{
+                .Contact_Box{
+                    padding:32px 16px;
+                    .Contact_Box_Item{
+                        .Contact_Box_Item_Txt{
+                            font-size:14px;
+                            line-height: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // @media screen and (max-width:380px){
+    //     .Contact_Content{
+    //         .Contact_Title{
+    //             font-size: 48px;
+    //             line-height: 48px;
+    //         }
+    //         .Contact_Subtitle{
+    //             font-size: 24px;
+    //             line-height: 24px;
+    //         }
+    //     }
+    // }
 }

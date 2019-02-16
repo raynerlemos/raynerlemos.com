@@ -14,6 +14,20 @@ $(function(){
         easing: 'ease-in-out'
     });
 
+    var lastScroll = 0;
+    $(window).scroll(function(){
+        // setTimeout(function() { //give them a second to finish scrolling before doing a check
+            var scroll = $(window).scrollTop();
+            if (scroll > lastScroll + 30) {
+                $(".Header").addClass("inScroll");
+            } else if (scroll < lastScroll - 30) {
+                $(".Header").removeClass("inScroll");
+            }
+            lastScroll = scroll;
+        // }, 1000);
+    });
+
+
     $('.Skills_Ferramentas_List').slick({
         dots: false,
         arrows: false,
@@ -28,3 +42,5 @@ $(function(){
     });
 
 });
+
+

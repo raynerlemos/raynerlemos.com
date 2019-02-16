@@ -23,9 +23,15 @@
             .PageTitle{
                 .PageTitle_Name{
                     color:#fff;
+                    text-align:left;
+                }
+                .PageTitle_Line{
+                    left:-5%;
+                    transform: translate(0,0);
                 }
                 .PageTitle_Sub{
                     color:#fff;
+                    text-align:left;
                     .font-19{font-size:19px; line-height: 19px;}
                     .font-15{font-size:15px; line-height: 15px;}
                     .font-13{font-size:13px; line-height: 13px;}
@@ -62,7 +68,7 @@
                     }
                 }
                 .About_Curriculo_Bt{
-                    margin-top: 10px;
+                    margin-top: 16px;
                     background: rgba(255,255,255,1);
                     transition: .25s ease-in-out;
                     border-radius: 50px;
@@ -78,8 +84,8 @@
                         color: #a0f;
                         font-size: 16px;
                         font-weight: 700;
-                        line-height: 28px;
-                        padding:15px 40px;
+                        line-height: 24px;
+                        padding:16px 40px;
                         display: block;
                         text-decoration: none;
                     }
@@ -147,6 +153,7 @@
         .About_Container{
             justify-content: center;
             .About_Content{
+                box-sizing:border-box;
                 padding: 100px 40px;
                 width: 100%;
                 flex-basis: auto;
@@ -166,7 +173,7 @@
     @media screen and (max-width:450px) {
         .About_Container{
             .About_Content{
-                padding:100px 30px;
+                padding:64px 30px;
             }
         }
     }

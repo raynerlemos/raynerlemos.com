@@ -70,12 +70,14 @@ body{
 .PageTitle{
     position: relative;
     .PageTitle_Name{
-        font-size: 80px;
+        font-size: 48px;
         font-family: 'Open Sans', 'Hind', sans-serif;
-        font-weight: 300;
-        line-height: 86px;
+        font-weight: 800;
+        line-height: 48px;
         position: relative;
         z-index: 2;
+        text-transform: uppercase;
+        text-align:center;
     }
     .PageTitle_Sub{
         font-size: 20px;
@@ -85,26 +87,35 @@ body{
         position: relative;
         z-index: 2;
         margin-top:15px;
+        text-align:center;
     }
     .PageTitle_Line{
-        width: 50%;
-        height: 2px;
+        width: 35%;
+        height: 1px;
         animation: LineAnimate 10s infinite;
         position: absolute;
-        top:50px;
-        left: -5%;
+        top:25px;
+        left: 50%;
+        transform: translate(-50%,0);
         background: #ff0000;
         opacity: 0.4;
+        text-align:center;
     }
     @media screen and (max-width:680px) {
         .PageTitle_Name{
-            font-weight: 600;
+            font-weight: 700;
             font-size: 45px;
         }
         .PageTitle_Sub{
             margin-top:0px;
             font-size: 16px;
-            line-height: 25px;
+            line-height: 24px;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .PageTitle_Name{
+            font-weight: 700;
+            font-size: 32px;
         }
     }
 }
