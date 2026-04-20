@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rayner Lemos — UX Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f9fb;--surface:#ffffff;--surface2:#f0f3f7;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.18);
+  --accent:oklch(50% 0.20 280);
+  --green:oklch(48% 0.22 158);
+  --text:#0d1117;--text2:#4a5868;--text3:#94a3b8;
+  --fd:'Unbounded',sans-serif;
+  --fb:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:oklch(50% 0.20 280 / 0.2)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--text3)}
+
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:60px 60px}
+#root{position:relative;z-index:1}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-bottom .4s}
+.nav.scrolled{background:rgba(248,249,251,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-cta{font-size:11px;font-weight:600;background:transparent;border:1px solid var(--border2);color:var(--accent);padding:8px 20px;border-radius:2px;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:oklch(50% 0.20 280 / 0.08);border-color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 48px;border-bottom:2px solid var(--text)}
+.hero-content{padding-top:100px;padding-bottom:80px;max-width:1200px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:40px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-headline{font-family:'Unbounded',sans-serif;font-size:clamp(42px,6.5vw,100px);font-weight:900;line-height:1.0;letter-spacing:-.02em}
+.hero-headline em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:17px;font-weight:300;color:var(--text2);max-width:680px;line-height:1.7;margin:32px 0 40px;padding-top:32px;border-top:1px solid var(--border)}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-actions{display:flex;gap:16px;align-items:center}
+.btn-primary{background:var(--text);color:var(--bg);padding:14px 32px;border-radius:2px;font-family:var(--fd);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
+.btn-ghost{color:var(--text2);padding:14px 28px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.btn-ghost:hover{color:var(--text)}
+.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:32px;border-top:2px solid var(--text)}
+.stat-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;line-height:1;color:var(--text)}
+.stat-num span{color:var(--accent)}
+.stat-label{font-size:10px;color:var(--text3);margin-top:6px;letter-spacing:.08em;text-transform:uppercase}
+
+/* SECTIONS */
+section{padding:100px 48px}
+.section-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.section-title{font-family:'Unbounded',sans-serif;font-size:clamp(28px,3.5vw,48px);font-weight:900;line-height:1.1;letter-spacing:-.02em;max-width:720px}
+.section-title em{font-style:normal;color:var(--text2)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:start}
+.about-text p{font-size:16px;font-weight:300;line-height:1.8;color:var(--text2);margin-bottom:20px}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-text p em{font-style:normal;color:var(--accent);border-bottom:1px solid oklch(50% 0.20 280 / 0.4)}
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:100px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--border)}
+.tl-item:last-child{border-bottom:none}
+.tl-year{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.04em;padding-top:3px}
+.tl-role{font-size:15px;font-weight:600;color:var(--text)}
+.tl-company{font-size:13px;color:var(--text2);margin-top:2px}
+.tl-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:8px;vertical-align:middle}
+
+/* HOW I THINK */
+.think-section{background:#f0f3f7;border-top:2px solid var(--text);border-bottom:2px solid var(--text)}
+.think-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:64px}
+.think-card{padding:48px;background:var(--surface);position:relative;overflow:hidden;transition:background .3s}
+.think-card:hover{background:#fafbfc}
+.think-card::before{content:attr(data-num);position:absolute;right:24px;top:16px;font-family:'Unbounded',sans-serif;font-size:72px;font-weight:900;color:rgba(0,0,0,0.04);line-height:1;pointer-events:none}
+.think-icon{width:36px;height:36px;border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:16px}
+.think-card-title{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.2}
+.think-card-body{font-size:14px;font-weight:300;line-height:1.7;color:var(--text2)}
+.think-card-tag{display:inline-block;margin-top:20px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:64px}
+.project-card{background:var(--surface);padding:40px;cursor:pointer;transition:background .3s;position:relative;overflow:hidden;border-left:3px solid transparent}
+.project-card:hover,.project-card.open{background:var(--surface2)}
+.project-card[data-accent="cyan"]:hover,.project-card[data-accent="cyan"].open{border-left-color:var(--accent)}
+.project-card[data-accent="purple"]:hover,.project-card[data-accent="purple"].open{border-left-color:var(--accent)}
+.project-card[data-accent="green"]:hover,.project-card[data-accent="green"].open{border-left-color:var(--green)}
+.project-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;display:inline-block;margin-bottom:20px}
+.project-title{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;line-height:1.15;margin-bottom:12px}
+.project-subtitle{font-size:14px;color:var(--text2);line-height:1.6}
+.project-meta{display:flex;gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.project-meta-item{font-size:12px;color:var(--text3)}
+.project-meta-item strong{color:var(--text2);font-weight:500;display:block}
+.project-expand{margin-top:28px;padding-top:28px;border-top:1px solid var(--border);overflow:hidden;transition:max-height .5s ease,opacity .4s;max-height:0;opacity:0}
+.project-expand.open{max-height:600px;opacity:1}
+.expand-section{margin-bottom:20px}
+.expand-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.expand-text{font-size:14px;font-weight:300;line-height:1.7;color:var(--text2)}
+.expand-kpis{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
+.kpi{background:var(--bg);border:1px solid var(--border);padding:14px 20px;border-radius:2px;text-align:center;min-width:90px}
+.kpi-num{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900}
+.kpi-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.toggle-arrow{position:absolute;top:40px;right:40px;width:32px;height:32px;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;color:var(--text3);font-size:14px}
+.toggle-arrow:hover{border-color:var(--border2);color:var(--text)}
+.project-card.open .toggle-arrow{transform:rotate(180deg)}
+
+/* LAB */
+.lab-section{border-top:1px solid var(--border)}
+.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.lab-card{border:1px solid var(--border);padding:32px;border-radius:0;background:var(--surface);transition:border-color .3s,transform .3s,box-shadow .3s;border-left:3px solid transparent}
+.lab-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08);border-left-color:var(--accent)}
+.lab-status{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.lab-status.live{color:var(--green)}
+.lab-status.wip{color:oklch(55% 0.18 60)}
+.lab-title{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;margin-bottom:10px;line-height:1.3}
+.lab-desc{font-size:14px;font-weight:300;color:var(--text2);line-height:1.6}
+.lab-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.lab-tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border:1px solid var(--border);padding:4px 10px}
+
+/* AUTORAL */
+.autoral-section{background:var(--text);color:var(--bg)}
+.autoral-section .section-tag{color:oklch(50% 0.20 280)}
+.autoral-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:center}
+.autoral-quote{font-family:'Unbounded',sans-serif;font-size:clamp(20px,2.5vw,32px);font-weight:700;line-height:1.3;color:var(--bg)}
+.autoral-quote em{font-style:normal;color:oklch(50% 0.20 280)}
+.autoral-body{font-size:15px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.8}
+.autoral-body p{margin-bottom:16px}
+.autoral-body strong{color:rgba(255,255,255,0.9);font-weight:500}
+
+/* CONTACT */
+.contact-section{text-align:center;padding:120px 48px 80px;border-top:2px solid var(--text)}
+.contact-headline{font-family:'Unbounded',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+.contact-headline em{font-style:normal;color:var(--accent)}
+.contact-sub{font-size:17px;color:var(--text2);max-width:520px;margin:0 auto 48px;line-height:1.7}
+.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:10px;padding:14px 32px;border:1px solid var(--border2);font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;background:var(--surface)}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer{text-align:center;padding:28px 48px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}
+
+/* TWEAKS */
+.tweaks-panel{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--surface);border:1px solid var(--border2);border-radius:0;padding:20px;width:260px;box-shadow:0 8px 40px rgba(0,0,0,0.12);display:none}
+.tweaks-panel.show{display:block}
+.tweaks-title{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.tweak-row{margin-bottom:14px}
+.tweak-label{font-size:11px;color:var(--text3);margin-bottom:6px;letter-spacing:.04em}
+.tweak-options{display:flex;gap:8px;flex-wrap:wrap}
+.tweak-opt{font-size:11px;padding:5px 12px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s}
+.tweak-opt.active{border-color:var(--accent);color:var(--accent)}
+.tweak-swatch{width:28px;height:28px;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.tweak-swatch.active{border-color:var(--text)}
+
+@media(max-width:900px){.hero{padding:0 24px}section{padding:70px 24px}.nav{padding:16px 24px}.nav-links{display:none}.about-grid,.autoral-inner{grid-template-columns:1fr;gap:40px}.think-grid,.projects-grid{grid-template-columns:1fr}.lab-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="root"></div>
+<script type="text/babel">
+
+
+
+
+const { useState, useEffect } = React;
+
+function Nav({ active }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {const fn = () => setScrolled(window.scrollY > 60);window.addEventListener('scroll', fn);return () => window.removeEventListener('scroll', fn);}, []);
+  const items = [['sobre', 'Sobre'], ['penso', 'Como Penso'], ['projetos', 'Projetos'], ['lab', 'Lab'], ['contato', 'Contato']];
+  return (
+    <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+      <a href="#" className="nav-logo">Rayner<span>.</span></a>
+      <ul className="nav-links">{items.map(([id, l]) => <li key={id}><a href={`#${id}`} className={active === id ? 'active' : ''}>{l}</a></li>)}</ul>
+      <a href="#contato" className="nav-cta">Falar comigo</a>
+    </nav>);
+
+}
+
+function Hero() {
+  return (
+    <section className="hero" id="hero">
+      <div className="hero-content" style={{ padding: "100px 0px 80px" }}>
+        <div className="hero-badge">UX SPECIALIST · TIM BRASIL · 10+ ANOS DE EXP</div>
+        <h1 className="hero-headline">Design que<br />pensa como<br /><em>sistema.</em></h1>
+        <p className="hero-sub" style={{ padding: "0px" }}>Construindo produtos digitais com <strong>negócio, tecnologia e experiência</strong>.</p>
+        <div className="hero-actions">
+          <a href="#projetos" className="btn-primary">Ver Projetos</a>
+          <a href="#sobre" className="btn-ghost">Sobre mim →</a>
+        </div>
+        <div className="hero-stats">
+          <div><div className="stat-num">10<span>+</span></div><div className="stat-label">Anos de experiência</div></div>
+          <div><div className="stat-num">4<span>+</span></div><div className="stat-label">Empresas lideradas</div></div>
+          <div><div className="stat-num">1<span>DS</span></div><div className="stat-label">EXP COM DESIGN SYSTEMS</div></div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+function About() {
+  const tl = [
+  { year: '2021 - Hoje', role: 'UX Specialist · DesignOps', company: 'TIM Brasil', a: 'accent' },
+  { year: '2019', role: 'Senior Product Designer', company: 'YDUQS — App Educacional', a: 'accent' },
+  { year: '2017', role: 'Líder de Design', company: 'Marlin — Gestão e Estratégia', a: 'green' },
+  { year: '2015', role: 'Frontend Developer → Designer', company: 'Início da transição', a: 'accent' },
+  { year: '2012', role: 'Backend Developer', company: 'GRM Internet — Software House', a: 'green' }];
+
+  const ac = { accent: 'var(--accent)', green: 'var(--green)' };
+  return (
+    <section id="sobre">
+      <span className="section-tag">Trajetória</span>
+      <h2 className="section-title">De Japeri ao produto digital <em>que o Brasil usa.</em></h2>
+      <div className="about-grid">
+        <div className="about-text reveal">
+          <p>Comecei como desenvolvedor frontend porque precisava <strong>entender como as coisas funcionam por dentro</strong>. Aprendi código antes de aprender design — e isso mudou tudo.</p>
+          <p>Nasci em <em>Japeri</em>, cresci na Baixada Fluminense e moro na <em>Rocinha</em> desde 2018 — lugar onde encontrei uma combinação rara de cultura, qualidade de vida, inovação e calor humano que me apaixonou de vez. Essa trajetória moldou meu olhar sobre o que realmente importa.</p>
+          <p>Hoje atuo como <strong>UX Specialist na TIM Brasil</strong>, liderando iniciativas de Design System e DesignOps. Também participei do lançamento do App Meu TIM em 2024, construindo jornadas e experiências orientadas a KPIs reais da companhia.</p>
+          <p>Ao longo de mais de 10 anos, a inovação sempre foi um fio condutor, não somente por curiosidade criativa, mas como necessidade real de quem precisou <strong>criar caminhos onde não havia mapa</strong>. Meu perfil híbrido de <em>design + código + estratégia + IA</em> nasceu dessa mesma lógica e experiência de vida.</p>
+        </div>
+        <div className="timeline reveal reveal-delay-1">
+          {tl.map((t) =>
+          <div className="tl-item" key={t.year + t.role}>
+              <div className="tl-year" style={{ fontSize: "11px" }}>{t.year}</div>
+              <div><div className="tl-role"><span className="tl-dot" style={{ background: ac[t.a] }}></span>{t.role}</div><div className="tl-company">{t.company}</div></div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+function HowIThink() {
+  const pillars = [
+  { num: '01', icon: '◈', color: 'var(--accent)', bg: 'oklch(50% 0.20 280 / 0.08)', title: 'Design como sistema', body: 'Mais que projetar telas, projetamos relações. Cada componente deve existir dentro de uma lógica maior de consistência, escalabilidade e intencionalidade estratégica.', tag: 'Design Systems · Escalabilidade' },
+  { num: '02', icon: '◎', color: 'var(--accent)', bg: 'oklch(50% 0.20 280 / 0.06)', title: 'Decisão orientada a negócio', body: 'Discovery sem intenção é curiosidade disfarçada de processo. Cada decisão precisa ser rastreável até um resultado, de negócio, produto ou experiência.', tag: 'KPIs · Strategy · OKRs' },
+  { num: '03', icon: '⬡', color: 'var(--green)', bg: 'oklch(48% 0.22 158 / 0.08)', title: 'Colaboração e cultura', body: 'Time de design ruim em empresa boa ainda entrega produto ruim. Construir cultura é parte do trabalho. Liderança de design é liderança de contexto.', tag: 'DesignOps · Liderança' },
+  { num: '04', icon: '⬟', color: 'var(--accent)', bg: 'oklch(50% 0.20 280 / 0.06)', title: 'IA como amplificador', body: 'A nova onda de IA serviu para acelerar a compilação de resultados dos processos que aprendi e refinei ao longo de muitos anos: ter escuta ativa, saber observar e ter empatia. O designer que entende IA como ferramenta vai muito além.', tag: 'AI · Automação · Produtividade' }];
+
+  return (
+    <section className="think-section" id="penso">
+      <span className="section-tag">Filosofia</span>
+      <h2 className="section-title">Como eu <em>penso produto.</em></h2>
+      <div className="think-grid">
+        {pillars.map((p) =>
+        <div className="think-card reveal" data-num={p.num} key={p.num}>
+            <div className="think-icon" style={{ background: p.bg, color: p.color }}>{p.icon}</div>
+            <div className="think-card-title">{p.title}</div>
+            <div className="think-card-body">{p.body}</div>
+            <div className="think-card-tag">{p.tag}</div>
+          </div>
+        )}
+      </div>
+    </section>);
+
+}
+
+function Projects() {
+  const [open, setOpen] = useState(null);
+  const projects = [
+  { id: 'tim-ds', accent: 'cyan', tagColor: 'oklch(50% 0.20 280 / 0.1)', tagText: 'oklch(50% 0.20 280)', tag: 'Design System', title: 'TIM Design System', year: '2021–hoje', company: 'TIM Brasil', subtitle: 'Construção e evolução de um sistema de design para os maiores apps de telecomunicação do país.', problem: 'A TIM operava com múltiplos times de produto sem consistência visual ou de interação. Cada equipe recriava componentes do zero, gerando retrabalho e lentidade no ciclo de entrega.', strategy: 'Design System modular, documentado e governado — tokens semânticos, biblioteca no Figma, integração com engenharia e processo de adoption gradual.', impact: [{ num: '40%', label: 'Redução de retrabalho' }, { num: '3×', label: 'Velocidade de entrega' }, { num: '100%', label: 'WCAG AA' }] },
+  { id: 'meutim', accent: 'purple', tagColor: 'oklch(50% 0.20 280 / 0.1)', tagText: 'oklch(50% 0.20 280)', tag: 'Product Launch', title: 'App Meu TIM', year: '2024', company: 'TIM Brasil', subtitle: 'Lançamento e evolução de jornadas críticas do principal app de autoatendimento da TIM com foco em KPIs.', problem: 'O app precisava de jornadas mais eficientes para reduzir volume no SAC e aumentar o NPS, equilibrando complexidade com simplicidade.', strategy: 'Discovery com usuários reais, mapeamento de jornadas críticas, hipóteses priorizadas por impacto x esforço, ciclos curtos de validação.', impact: [{ num: '18%', label: 'Redução no SAC' }, { num: '+12pts', label: 'NPS' }, { num: '2M+', label: 'Usuários ativos' }] },
+  { id: 'yduqs', accent: 'green', tagColor: 'oklch(48% 0.22 158 / 0.1)', tagText: 'oklch(48% 0.22 158)', tag: 'EdTech Product', title: 'App Educacional YDUQS', year: '2019–2021', company: 'YDUQS', subtitle: 'Redesenho da experiência de aprendizado mobile para um dos maiores grupos educacionais do Brasil.', problem: 'Alta taxa de abandono nas primeiras semanas. Estudantes não encontravam valor nos primeiros acessos e o onboarding gerava confusão.', strategy: 'Research qualitativo com estudantes de diferentes regiões, redesenho do onboarding, fluxos de engajamento baseados em progresso.', impact: [{ num: '35%', label: 'Queda no churn' }, { num: '2,4×', label: 'Retenção D7' }, { num: '500k+', label: 'Alunos' }] },
+  { id: 'marlin', accent: 'cyan', tagColor: 'oklch(55% 0.18 40 / 0.1)', tagText: 'oklch(48% 0.18 40)', tag: 'Leadership', title: 'Liderança em Design', year: '2017–2019', company: 'Marlin', subtitle: 'Construção de time, cultura de design e visão estratégica para produto B2B de médio porte.', problem: 'Design inexistente como disciplina. Produto crescendo sem coerência de experiência, sem processo e sem cultura que valorizasse as decisões de design.', strategy: 'Estruturação do time, criação de processo integrado ao produto e à engenharia, construção de narrativa interna sobre o valor do design.', impact: [{ num: '4×', label: 'Time cresceu' }, { num: '60%', label: 'Satisfação' }, { num: '1ª', label: 'Cultura de design' }] }];
+
+  return (
+    <section id="projetos">
+      <span className="section-tag">Trabalho</span>
+      <h2 className="section-title">Projetos que <em>deixaram marca.</em></h2>
+      <div className="projects-grid">
+        {projects.map((p) =>
+        <div key={p.id} className={`project-card reveal${open === p.id ? ' open' : ''}`} data-accent={p.accent} onClick={() => setOpen(open === p.id ? null : p.id)}>
+            <button className="toggle-arrow" onClick={(e) => {e.stopPropagation();setOpen(open === p.id ? null : p.id);}}>{open === p.id ? '↑' : '↓'}</button>
+            <div className="project-tag" style={{ background: p.tagColor, color: p.tagText }}>{p.tag}</div>
+            <div className="project-title">{p.title}</div>
+            <div className="project-subtitle">{p.subtitle}</div>
+            <div className="project-meta">
+              <div className="project-meta-item"><strong>{p.year}</strong>Período</div>
+              <div className="project-meta-item"><strong>{p.company}</strong>Empresa</div>
+            </div>
+            <div className={`project-expand${open === p.id ? ' open' : ''}`}>
+              <div className="expand-section"><div className="expand-label">Problema</div><div className="expand-text">{p.problem}</div></div>
+              <div className="expand-section"><div className="expand-label">Estratégia</div><div className="expand-text">{p.strategy}</div></div>
+              <div className="expand-label">Impacto</div>
+              <div className="expand-kpis">{p.impact.map((k) => <div className="kpi" key={k.label}><div className="kpi-num" style={{ color: p.tagText }}>{k.num}</div><div className="kpi-label">{k.label}</div></div>)}</div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>);
+
+}
+
+function Lab() {
+  const items = [
+  { status: 'live', label: 'Em produção', title: 'Design Tokens com IA', desc: 'Pipeline que gera tokens semânticos a partir de um briefing em linguagem natural. Reduz de dias para minutos o setup inicial de um design system.', tags: ['GPT-4', 'Figma API', 'Design Tokens'] },
+  { status: 'wip', label: 'Em desenvolvimento', title: 'Documentação Viva', desc: 'Sistema que mantém documentação de componentes sincronizada com o código automaticamente — sem update manual, sem defasagem.', tags: ['IA', 'Storybook', 'GitHub Actions'] },
+  { status: 'wip', label: 'Em desenvolvimento', title: 'User Insight Synthesizer', desc: 'Ferramenta que agrega dados de pesquisas qualitativas e gera clusters de insight automaticamente, reduzindo tempo de análise de 3 dias para 2 horas.', tags: ['NLP', 'Research', 'Automação'] }];
+
+  return (
+    <section className="lab-section" id="lab">
+      <span className="section-tag">Experimentação</span>
+      <h2 className="section-title">O que estou <em>construindo agora.</em></h2>
+      <div className="lab-grid">
+        {items.map((item) =>
+        <div className="lab-card reveal" key={item.title}>
+            <div className={`lab-status ${item.status}`}>● {item.label}</div>
+            <div className="lab-title">{item.title}</div>
+            <div className="lab-desc">{item.desc}</div>
+            <div className="lab-tags">{item.tags.map((t) => <span className="lab-tag" key={t}>{t}</span>)}</div>
+          </div>
+        )}
+      </div>
+    </section>);
+
+}
+
+function Autoral() {
+  return (
+    <section className="autoral-section" id="autoral">
+      <span className="section-tag">Perspectiva</span>
+      <div className="autoral-inner">
+        <div className="reveal">
+          <div className="autoral-quote">"Design sem contexto <em>histórico</em> é decoração sem propósito."</div>
+        </div>
+        <div className="autoral-body reveal reveal-delay-1">
+          <p>Cresci na Baixada Fluminense e escolhi a Rocinha como lar. Num lugar assim, você aprende que inovação não é exclusividade de quem teve a melhor formação — é uma resposta natural de quem precisou criar soluções com o que tinha.</p>
+          <p>Essa trajetória não é um detalhe biográfico. É a <strong>lente</strong> com que leio cada brief, cada pesquisa, cada decisão de produto. Design que não considera <strong>quem ficou de fora</strong> ainda está incompleto.</p>
+          <p>O melhor design que já fiz não saiu dos melhores escritórios. Saiu de perguntas difíceis feitas em contextos reais — com pessoas que dependiam de que a solução funcionasse de verdade.</p>
+        </div>
+      </div>
+    </section>);
+
+}
+
+function Contact() {
+  return (
+    <section className="contact-section" id="contato">
+      <h2 className="contact-headline reveal">Próximo produto?<br /><em>Vamos construir juntos.</em></h2>
+      <p className="contact-sub reveal reveal-delay-1">Não estou procurando qualquer oportunidade. Estou procurando o problema certo — com o time certo.</p>
+      <div className="contact-links reveal reveal-delay-2">
+        <a href="mailto:raynerlemos@gmail.com" className="contact-link">✉ Email</a>
+        <a href="https://linkedin.com/in/raynerlemos" target="_blank" className="contact-link">in LinkedIn</a>
+      </div>
+    </section>);
+
+}
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "purple",
+  "density": "compact"
+}/*EDITMODE-END*/;
+
+function applyTweaks(vals) {
+  const root = document.documentElement;
+  const map = { cyan: '52% 0.22 198', purple: '50% 0.20 280', green: '48% 0.22 158' };
+  if (map[vals.accentColor]) root.style.setProperty('--accent', `oklch(${map[vals.accentColor]})`);
+  const padMap = { compact: '70px', comfortable: '100px', spacious: '140px' };
+  document.querySelectorAll('section').forEach((s) => {s.style.paddingTop = padMap[vals.density] || '100px';s.style.paddingBottom = padMap[vals.density] || '100px';});
+}
+
+function TweaksPanel({ show }) {
+  const [vals, setVals] = useState(TWEAK_DEFAULTS);
+  const set = (k, v) => {const next = { ...vals, [k]: v };setVals(next);window.parent.postMessage({ type: '__edit_mode_set_keys', edits: next }, '*');applyTweaks(next);};
+  return (
+    <div className={`tweaks-panel${show ? ' show' : ''}`}>
+      <div className="tweaks-title">Tweaks</div>
+      <div className="tweak-row">
+        <div className="tweak-label">Acento principal</div>
+        <div className="tweak-options">
+          {[{ id: 'cyan', c: 'oklch(52% 0.22 198)' }, { id: 'purple', c: 'oklch(50% 0.20 280)' }, { id: 'green', c: 'oklch(48% 0.22 158)' }].map((a) =>
+          <div key={a.id} className={`tweak-swatch${vals.accentColor === a.id ? ' active' : ''}`} style={{ background: a.c }} onClick={() => set('accentColor', a.id)} />
+          )}
+        </div>
+      </div>
+      <div className="tweak-row">
+        <div className="tweak-label">Densidade</div>
+        <div className="tweak-options">
+          {['compact', 'comfortable', 'spacious'].map((d) =>
+          <button key={d} className={`tweak-opt${vals.density === d ? ' active' : ''}`} onClick={() => set('density', d)}>{d}</button>
+          )}
+        </div>
+      </div>
+    </div>);
+
+}
+
+function App() {
+  const [active, setActive] = useState('hero');
+  const [showTweaks, setShowTweaks] = useState(false);
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.data?.type === '__activate_edit_mode') setShowTweaks(true);
+      if (e.data?.type === '__deactivate_edit_mode') setShowTweaks(false);
+    };
+    window.addEventListener('message', handler);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', handler);
+  }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {if (e.isIntersecting) e.target.classList.add('visible');}), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => entries.forEach((e) => {if (e.isIntersecting) setActive(e.target.id);}), { threshold: 0.35 });
+    ['hero', 'sobre', 'penso', 'projetos', 'lab', 'contato'].forEach((id) => {const el = document.getElementById(id);if (el) obs.observe(el);});
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <>
+      <Nav active={active} />
+      <main><Hero /><About /><HowIThink /><Projects /><Lab /><Autoral /><Contact /></main>
+      <footer className="footer">© 2025 Rayner Lemos Guimarães · UX Specialist · Rio de Janeiro</footer>
+      <TweaksPanel show={showTweaks} />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
