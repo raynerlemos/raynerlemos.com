@@ -112,6 +112,13 @@ section{padding:100px 48px}
 .project-expand.open{max-height:600px;opacity:1}
 .expand-section{margin-bottom:20px}
 .expand-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.expand-section .expand-label{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none;padding:4px 0;transition:color .2s;margin-bottom:0}
+.expand-section .expand-label:hover{color:var(--text2)}
+.expand-section .expand-label::after{content:'+';font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--text3);flex-shrink:0;transition:color .2s}
+.expand-section.expanded .expand-label::after{content:'−'}
+.expand-section.expanded .expand-label{color:var(--text2)}
+.expand-text{overflow:hidden;max-height:0;opacity:0;transition:max-height .4s ease,opacity .3s ease}
+.expand-section.expanded .expand-text{max-height:600px;opacity:1;margin-top:6px}
 .expand-text{font-size:14px;font-weight:300;line-height:1.7;color:var(--text2)}
 .expand-kpis{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
 .kpi{background:var(--bg);border:1px solid var(--border);padding:14px 20px;border-radius:2px;text-align:center;min-width:90px}
@@ -120,6 +127,13 @@ section{padding:100px 48px}
 .toggle-arrow{position:absolute;top:40px;right:40px;width:32px;height:32px;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;color:var(--text3);font-size:14px}
 .toggle-arrow:hover{border-color:var(--border2);color:var(--text)}
 .project-card.open .toggle-arrow{transform:rotate(180deg)}
+.case-link-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;padding:18px 24px;background:oklch(50% 0.20 280 / 0.06);border:1px solid oklch(50% 0.20 280 / 0.3);text-decoration:none;transition:all .25s}
+.case-link-cta:hover{background:oklch(50% 0.20 280 / 0.12);border-color:var(--accent);transform:translateX(4px)}
+.case-link-cta-text{display:flex;flex-direction:column;gap:2px}
+.case-link-cta-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.case-link-cta-title{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:var(--text)}
+.case-link-cta-arrow{width:36px;height:36px;border:1px solid oklch(50% 0.20 280 / 0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:16px;flex-shrink:0;transition:transform .25s}
+.case-link-cta:hover .case-link-cta-arrow{transform:translateX(4px)}
 
 /* LAB */
 .lab-section{border-top:1px solid var(--border)}

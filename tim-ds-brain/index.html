@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIM DS Brain · Case · Rayner Lemos</title>
+<meta name="description" content="TIM DS Brain — como transformei o conhecimento operacional de dois Design Systems em infraestrutura que máquinas conseguem operar.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.raynerlemos.com.br/tim-ds-brain/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.raynerlemos.com.br/tim-ds-brain/">
+<meta property="og:title" content="TIM DS Brain · Rayner Lemos">
+<meta property="og:description" content="Como transformei o conhecimento operacional de dois Design Systems em infraestrutura que máquinas conseguem operar. ~90% menos esforço por handoff.">
+<meta property="og:image" content="https://www.raynerlemos.com.br/public/img/og-tim-ds-brain.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TIM DS Brain — case de DesignSystemOps de Rayner Lemos">
+<meta name="twitter:image" content="https://www.raynerlemos.com.br/public/img/og-tim-ds-brain.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rayner Lemos">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TIM DS Brain · Rayner Lemos">
+<meta name="twitter:description" content="Conhecimento operacional de dois Design Systems como infraestrutura operável por máquina.">
+<link rel="icon" type="image/svg+xml" href="/public/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f9fb;--surface:#ffffff;--surface2:#f0f3f7;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.18);
+  --accent:oklch(50% 0.20 280);
+  --text:#0d1117;--text2:#4a5868;--text3:#94a3b8;
+  --fd:'Unbounded',sans-serif;
+  --fb:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:oklch(50% 0.20 280 / 0.2)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--text3)}
+a{color:var(--accent);text-decoration:none}a:hover{color:var(--text)}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:60px 60px}
+#root{position:relative;z-index:1}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(248,249,251,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:11px;font-weight:600;background:transparent;border:1px solid var(--border2);color:var(--accent);padding:8px 20px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:oklch(50% 0.20 280 / 0.08);border-color:var(--accent)}
+
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;margin-bottom:32px}
+.back-link:hover{color:var(--accent)}
+
+.case-hero{padding:160px 48px 0}
+.case-meta-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.chip{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border2);padding:6px 14px;border-radius:100px}
+.case-title{font-family:var(--fd);font-size:clamp(36px,6vw,88px);font-weight:900;line-height:1.0;letter-spacing:-.02em;margin-bottom:24px}
+.case-subtitle{font-size:clamp(18px,2.2vw,23px);font-weight:300;color:var(--text2);max-width:820px;line-height:1.55}
+.case-subtitle strong{color:var(--text);font-weight:500}
+.case-role{font-size:13px;font-weight:600;color:var(--text2);margin-top:36px;letter-spacing:.02em}
+.case-role b{color:var(--text);font-weight:600}
+
+/* METRICS */
+.metrics-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;border-top:2px solid var(--text);border-bottom:2px solid var(--text)}
+.metric-card{padding:36px 28px 34px;background:var(--surface)}
+.metric-num{font-family:var(--fd);font-size:clamp(26px,3.4vw,42px);font-weight:900;color:var(--accent);line-height:1.0;margin-bottom:12px;letter-spacing:-.02em}
+.metric-label{font-size:13px;font-weight:400;color:var(--text2);line-height:1.5;max-width:260px}
+
+/* SECTIONS */
+.case-section{padding:80px 48px;max-width:960px}
+.case-section.wide{max-width:none}
+.case-section-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.case-section-title{font-family:var(--fd);font-size:clamp(26px,3.2vw,42px);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:32px;max-width:760px}
+.case-body p{font-size:17px;font-weight:300;line-height:1.8;color:var(--text2);margin-bottom:20px;max-width:760px;text-wrap:pretty}
+.case-body p:last-child{margin-bottom:0}
+.case-body strong{color:var(--text);font-weight:500}
+.case-body em{font-style:normal;color:var(--accent)}
+.divider-section{border-top:2px solid var(--text)}
+
+.callout{border-left:3px solid var(--accent);padding:28px 36px;margin:40px 0 0;background:var(--surface2);max-width:820px}
+.callout-text{font-family:var(--fd);font-size:clamp(19px,2.2vw,28px);font-weight:700;line-height:1.35;color:var(--text)}
+
+/* SHAPE DIAGRAM */
+.shape{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:clamp(28px,3.4vw,48px);margin-top:48px}
+.shape-tier{display:grid;gap:12px}
+.shape-row{display:grid;gap:12px}
+.shape-row.two{grid-template-columns:repeat(2,1fr)}
+.shape-box{border:1px solid var(--border2);border-radius:2px;padding:20px 22px;display:flex;flex-direction:column;gap:7px;background:var(--surface)}
+.shape-box.accent{border-color:var(--accent);background:oklch(50% 0.20 280 / 0.05)}
+.shape-box.solid{background:var(--text);border-color:var(--text)}
+.shape-box.solid .shape-name{color:#fff}
+.shape-box.solid .shape-sub{color:rgba(255,255,255,.6)}
+.shape-name{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.shape-sub{font-size:12px;font-weight:300;line-height:1.5;color:var(--text2)}
+.shape-link{height:34px;position:relative;display:flex;align-items:center;justify-content:center}
+.shape-link::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border2)}
+.shape-link::after{content:'';position:absolute;left:50%;bottom:0;width:5px;height:5px;border-right:1px solid var(--border2);border-bottom:1px solid var(--border2);transform:translateX(-50%) rotate(45deg)}
+.shape-caption{margin-top:24px;padding-top:16px;border-top:1px dashed var(--border2);font-size:12px;font-weight:300;color:var(--text2);line-height:1.6;display:flex;gap:10px;align-items:baseline}
+.shape-caption b{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+
+/* SYMMETRY */
+.sym{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sym-col{border:1px solid var(--text);border-radius:2px;padding:22px 24px;display:flex;flex-direction:column;gap:8px}
+.sym-name{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text)}
+.sym-sub{font-size:12px;font-weight:300;color:var(--text2);line-height:1.5}
+.sym-bars{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+.sym-bar{height:7px;background:var(--surface2);border:1px solid var(--border)}
+.sym-shared{margin-top:14px;border:1px solid var(--accent);border-radius:2px;background:oklch(50% 0.20 280 / 0.05);padding:22px 24px}
+
+/* DECISIONS */
+.dec-list{border-top:1px solid var(--border);margin-top:8px}
+.dec-item{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--border)}
+.dec-num{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text3);letter-spacing:.04em;padding-top:4px}
+.dec-title{font-family:var(--fd);font-size:clamp(16px,1.7vw,20px);font-weight:700;color:var(--text);line-height:1.3;margin-bottom:10px}
+.dec-conseq{font-size:15px;font-weight:300;color:var(--text2);line-height:1.7;max-width:640px}
+.dec-conseq b{font-weight:500;color:var(--text)}
+
+/* HOOK */
+.hook{margin-top:48px;border:1px solid var(--text);border-radius:2px;background:var(--surface);padding:clamp(28px,3vw,44px);max-width:820px}
+.hook-text{font-family:var(--fd);font-size:clamp(17px,1.9vw,23px);font-weight:700;line-height:1.4;color:var(--text);margin-bottom:22px}
+.hook-sub{font-size:14px;font-weight:300;color:var(--text2);line-height:1.7;margin-bottom:26px}
+.hook-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:var(--text);color:var(--bg);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;transition:background .2s}
+.hook-cta:hover{background:var(--accent);color:#fff}
+
+/* SHIFT */
+.shift{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:40px;border:1px solid var(--border2);border-radius:2px;overflow:hidden;max-width:900px}
+.shift-side{padding:30px 32px;background:var(--surface)}
+.shift-side.after{background:var(--surface2)}
+.shift-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:16px;display:block}
+.shift-side.after .shift-label{color:var(--accent)}
+.shift-line{font-size:14px;font-weight:300;color:var(--text2);line-height:1.65;padding:9px 0;border-bottom:1px solid var(--border)}
+.shift-line:last-child{border-bottom:none}
+.shift-side.after .shift-line{color:var(--text);font-weight:400}
+.shift-mid{width:1px;background:var(--border2)}
+
+/* VISION */
+.vision-section{background:var(--text);color:var(--bg)}
+.vision-inner{max-width:820px;padding:96px 48px}
+.vision-section .case-section-tag{color:oklch(78% 0.14 280)}
+.vision-section .case-body p{color:rgba(255,255,255,0.68);font-size:18px}
+.vision-section .case-body strong{color:#fff}
+.vision-section .case-body em{color:oklch(80% 0.14 280)}
+
+.case-cta{text-align:center;padding:100px 48px 80px;border-top:2px solid var(--text)}
+.case-cta-title{font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.1;margin-bottom:24px}
+.case-cta-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:10px;padding:14px 32px;border:1px solid var(--border2);font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;background:var(--surface)}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer{text-align:center;padding:28px 48px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .nav{padding:16px 24px}
+  .nav-links{display:none}
+  .case-hero{padding:120px 24px 0}
+  .case-section{padding:56px 24px;max-width:none}
+  .metrics-strip{grid-template-columns:1fr}
+  .shape-row.two,.sym{grid-template-columns:1fr}
+  .shift{grid-template-columns:1fr}
+  .shift-mid{display:none}
+  .dec-item{grid-template-columns:1fr;gap:8px}
+  .vision-inner{padding:72px 24px}
+  .case-cta{padding:72px 24px 56px}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="root">
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Rayner<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/#projetos">Projetos</a></li>
+    <li><a href="/#lab">Lab</a></li>
+    <li><a href="/#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5521981132271" target="_blank" rel="noopener" class="nav-cta">Falar comigo</a>
+</nav>
+
+<main>
+
+<section class="case-hero">
+  <a href="/#projetos" class="back-link">← Voltar aos projetos</a>
+  <div class="case-meta-chips">
+    <span class="chip">DesignSystemOps</span>
+    <span class="chip">TIM</span>
+    <span class="chip">2026</span>
+  </div>
+  <h1 class="case-title">TIM DS Brain</h1>
+  <p class="case-subtitle">Transformei o conhecimento operacional de dois Design Systems em <strong>infraestrutura</strong> — uma memória persistente que máquinas conseguem operar, não apenas humanos ler.</p>
+  <p class="case-role"><b>Meu papel:</b> arquitetura, modelagem de informação e governança.</p>
+
+  <div class="metrics-strip">
+    <div class="metric-card">
+      <div class="metric-num">~90%</div>
+      <div class="metric-label">menos esforço por estória de handoff</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">Centenas de horas/ano</div>
+      <div class="metric-label">recuperadas de documentação manual e devolvidas ao trabalho de DS</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">1 fonte de verdade</div>
+      <div class="metric-label">para duas bibliotecas que antes evoluíam em paralelo, sem paridade auditável</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <span class="case-section-tag">A tensão</span>
+  <h2 class="case-section-title">O problema nunca foi falta de documentação.</h2>
+  <div class="case-body">
+    <p>A TIM opera dois Design Systems paralelos — um para produtos <strong>app-based</strong>, outro para <strong>web-based</strong>. Cada um com sua biblioteca, sua base de código e seu ritmo. Três fontes de verdade escorregando para fora de sincronia a cada evolução de componente: manter paridade contínua e auditável entre elas era um grande desafio de governança.</p>
+    <p>Mas o gargalo real era mais sutil. O contexto do DS existia — em conversas, threads e handoffs. Era <strong>legível por humanos, em momentos específicos, e invisível para qualquer automação</strong>. Toda vez que um desenvolvedor, uma automação ou eu mesmo precisávamos do histórico de um componente, o ponto de partida era o zero. Cada ciclo reconstruía o mesmo conhecimento, sem acúmulo.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-text">"Documentação que humanos leem não é a mesma coisa que memória que agentes operam."</div>
+  </div>
+</section>
+
+<section class="case-section divider-section" style="padding-top:80px">
+  <span class="case-section-tag">A tese</span>
+  <h2 class="case-section-title">Tratar o conhecimento do DS como infraestrutura, não como subproduto.</h2>
+  <div class="case-body">
+    <p>E se cada evolução de componente — sua intenção de design, suas mudanças, seu histórico — fosse registrada numa memória persistente, estruturada de forma que uma máquina entenda, e servida por protocolo aberto para qualquer agente que precise operar sobre o Design System?</p>
+    <p>Esse é o salto que define o Brain: de <em>documentação para humanos lerem</em> para <em>harness para agentes operarem</em>. Deixa de ser repositório passivo e passa a ser a camada de contexto de qualquer automação que toque o DS.</p>
+  </div>
+
+  <div class="shape">
+    <div class="shape-tier">
+      <div class="shape-box accent"><span class="shape-name">Camada de orquestração</span><span class="shape-sub">Conduz o ciclo de evolução de um componente de ponta a ponta.</span></div>
+      <div class="shape-link"></div>
+      <div class="shape-row two">
+        <div class="shape-box"><span class="shape-name">Leitura do design</span><span class="shape-sub">A mudança é lida na fonte, sem transcrição manual.</span></div>
+        <div class="shape-box"><span class="shape-name">Escrita da memória</span><span class="shape-sub">A evolução é registrada em forma estruturada e consultável.</span></div>
+      </div>
+      <div class="shape-link"></div>
+      <div class="shape-box solid"><span class="shape-name">Brain — memória persistente</span><span class="shape-sub">Servida por protocolo aberto. É daqui que qualquer automação de DS parte.</span></div>
+    </div>
+    <div class="shape-caption"><b>Loop fechado</b>o contexto gravado volta a alimentar o ciclo seguinte — cada evolução parte do acúmulo, não de uma folha em branco.</div>
+  </div>
+</section>
+
+<section class="case-section divider-section" style="padding-top:80px">
+  <span class="case-section-tag">As decisões</span>
+  <h2 class="case-section-title">Um harness vale o que valem suas decisões de modelagem.</h2>
+  <div class="case-body" style="margin-bottom:40px">
+    <p>Cinco escolhas sustentam o sistema. Nenhuma delas era óbvia no momento em que foi feita, e cada uma tinha uma alternativa mais fácil que teria custado caro depois.</p>
+  </div>
+
+  <div class="sym">
+    <div class="sym-col">
+      <span class="sym-name">Biblioteca A</span>
+      <span class="sym-sub">Domínio de primeira ordem.</span>
+      <div class="sym-bars"><div class="sym-bar"></div><div class="sym-bar"></div><div class="sym-bar"></div><div class="sym-bar"></div></div>
+    </div>
+    <div class="sym-col">
+      <span class="sym-name">Biblioteca B</span>
+      <span class="sym-sub">Domínio de primeira ordem, estrutura idêntica.</span>
+      <div class="sym-bars"><div class="sym-bar"></div><div class="sym-bar"></div><div class="sym-bar"></div><div class="sym-bar"></div></div>
+    </div>
+  </div>
+  <div class="sym-shared">
+    <span class="sym-name" style="display:block;margin-bottom:6px">Camada compartilhada</span>
+    <span class="sym-sub">O que é premissa comum vive uma única vez, acima das duas — sem duplicação e sem hierarquia entre elas.</span>
+  </div>
+
+  <div class="dec-list">
+    <div class="dec-item">
+      <div class="dec-num">01</div>
+      <div>
+        <div class="dec-title">Paridade real, não hierarquia</div>
+        <div class="dec-conseq">Modelei as duas bibliotecas como domínios simétricos de primeira ordem, em vez de tratar uma como derivada da outra. <b>Consequência:</b> nenhuma automação precisa de caminho especial, e a biblioteca menor nunca virou cidadã de segunda classe.</div>
+      </div>
+    </div>
+    <div class="dec-item">
+      <div class="dec-num">02</div>
+      <div>
+        <div class="dec-title">Um discriminador estrutural, não uma convenção de nome</div>
+        <div class="dec-conseq">O pertencimento de cada registro é dado explícito, não algo inferido do título ou da pasta — e foi retrofitado em toda a base existente. <b>Consequência:</b> o acervo inteiro virou consultável e filtrável por máquina, sem heurística de texto.</div>
+      </div>
+    </div>
+    <div class="dec-item">
+      <div class="dec-num">03</div>
+      <div>
+        <div class="dec-title">Conceito compartilhado, realização apartada</div>
+        <div class="dec-conseq">Fundamentos de design são premissa comum às duas bibliotecas, mas cada uma as materializa em assets próprios. Separei as duas coisas. <b>Consequência:</b> fonte de verdade única para cada premissa, zero duplicação entre bibliotecas.</div>
+      </div>
+    </div>
+    <div class="dec-item">
+      <div class="dec-num">04</div>
+      <div>
+        <div class="dec-title">Forma fixa para toda evolução</div>
+        <div class="dec-conseq">Qualquer evolução, de qualquer componente, é registrada com o mesmo conjunto de artefatos e a mesma estrutura. <b>Consequência:</b> governança reproduzível — a base é auditável e previsível o suficiente para uma máquina operar em cima dela.</div>
+      </div>
+    </div>
+    <div class="dec-item">
+      <div class="dec-num">05</div>
+      <div>
+        <div class="dec-title">Memória servível por protocolo</div>
+        <div class="dec-conseq">A memória não é um arquivo que alguém abre: é um sistema que responde a consultas por um protocolo aberto. <b>Consequência:</b> deixou de ser repositório e passou a ser a camada de contexto de qualquer automação de DS, presente ou futura.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hook">
+    <div class="hook-text">O mecanismo por trás de cada decisão é a parte que eu conto numa conversa.</div>
+    <div class="hook-sub">Como o discriminador foi modelado, como o ciclo lê o design e escreve a memória sem intervenção manual, e as decisões que quase deram errado no caminho — é aí que está o aprendizado que não cabe numa página.</div>
+    <a href="https://wa.me/5521981132271" target="_blank" rel="noopener" class="hook-cta">Falar sobre o projeto →</a>
+  </div>
+</section>
+
+<section class="case-section divider-section" style="padding-top:80px">
+  <span class="case-section-tag">O que mudou</span>
+  <h2 class="case-section-title">O handoff deixou de ser trabalho artesanal.</h2>
+  <div class="shift">
+    <div class="shift-side">
+      <span class="shift-label">Antes</span>
+      <div class="shift-line">Contexto do componente reconstruído do zero a cada ciclo.</div>
+      <div class="shift-line">Estória de handoff escrita à mão, a partir de leitura visual do design.</div>
+      <div class="shift-line">Paridade entre as duas bibliotecas verificada por memória humana.</div>
+      <div class="shift-line">Documentação como subproduto — a primeira coisa a atrasar.</div>
+    </div>
+    <div class="shift-mid"></div>
+    <div class="shift-side after">
+      <span class="shift-label">Depois</span>
+      <div class="shift-line">Histórico versionado e consultável por pessoa ou automação.</div>
+      <div class="shift-line">Estória gerada a partir da fonte de verdade do design.</div>
+      <div class="shift-line">Paridade garantida pela própria estrutura da memória.</div>
+      <div class="shift-line">Documentação como infraestrutura — condição para o ciclo rodar.</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section wide vision-section">
+  <div class="vision-inner">
+    <span class="case-section-tag">Visão</span>
+    <div class="case-body">
+      <p>O Brain começou como memória, mas seu destino é ser <strong>harness</strong>: a camada de contexto que qualquer automação de Design System consome — no design ou no código. Com o conhecimento finalmente estruturado e servível por máquina, cada novo agente que opera sobre o sistema parte de um contexto acumulado.</p>
+      <p>É a diferença entre um Design System que é documentado e um Design System que <em>se lembra de si mesmo</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case-cta">
+  <h2 class="case-cta-title">Quer conversar sobre<br>este projeto?</h2>
+  <div class="case-cta-links">
+    <a href="/#contato" class="contact-link">Ver contato</a>
+    <a href="/#projetos" class="contact-link">← Outros projetos</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">© 2026 Rayner Lemos Guimarães · UX Specialist · Rio de Janeiro</footer>
+
+</div>
+</body>
+</html>

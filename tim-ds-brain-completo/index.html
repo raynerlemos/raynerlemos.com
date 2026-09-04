@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIM DS Brain · Case Study completo (uso consultivo) · Rayner Lemos</title>
+<meta name="description" content="Case study: TIM DS Brain — uma camada de memória persistente e operacional para os Design Systems da TIM.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.raynerlemos.com.br/tim-ds-brain/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.raynerlemos.com.br/tim-ds-brain-completo/">
+<meta property="og:title" content="TIM DS Brain — versão completa · Rayner Lemos">
+<meta property="og:description" content="Versão detalhada do case TIM DS Brain: arquitetura, decisões de modelagem e o harness em operação.">
+<meta property="og:image" content="https://www.raynerlemos.com.br/public/img/og-tim-ds-brain.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TIM DS Brain — case de DesignSystemOps de Rayner Lemos">
+<meta name="twitter:image" content="https://www.raynerlemos.com.br/public/img/og-tim-ds-brain.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rayner Lemos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/public/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f9fb;--surface:#ffffff;--surface2:#f0f3f7;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.18);
+  --accent:oklch(50% 0.20 280);
+  --green:oklch(48% 0.22 158);
+  --text:#0d1117;--text2:#4a5868;--text3:#94a3b8;
+  --fd:'Unbounded',sans-serif;
+  --fb:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:oklch(50% 0.20 280 / 0.2)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--text3)}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:60px 60px}
+#root{position:relative;z-index:1}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-bottom .4s;background:rgba(248,249,251,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:11px;font-weight:600;background:transparent;border:1px solid var(--border2);color:var(--accent);padding:8px 20px;border-radius:2px;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:oklch(50% 0.20 280 / 0.08);border-color:var(--accent)}
+
+/* BACK LINK */
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;margin-bottom:32px}
+.back-link:hover{color:var(--accent)}
+
+/* HERO */
+.case-hero{padding:160px 48px 80px;border-bottom:2px solid var(--text)}
+.case-meta-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.chip{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);border:1px solid var(--border2);padding:6px 14px;border-radius:100px}
+.case-title{font-family:var(--fd);font-size:clamp(36px,6vw,88px);font-weight:900;line-height:1.0;letter-spacing:-.02em;margin-bottom:24px}
+.case-subtitle{font-size:19px;font-weight:300;color:var(--text2);max-width:760px;line-height:1.65}
+.case-hero-visual{margin-top:64px;border:1px solid var(--border);background:var(--surface2);border-radius:2px;overflow:hidden}
+.img-placeholder{aspect-ratio:16/8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--text3);padding:40px;text-align:center}
+.img-placeholder-icon{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px dashed var(--border2);padding:6px 16px;border-radius:100px}
+.img-placeholder-label{font-size:13px;font-weight:500;color:var(--text2);max-width:520px}
+.img-placeholder-alt{font-size:11px;font-weight:400;color:var(--text3);max-width:560px;font-style:italic;line-height:1.5}
+
+/* SECTIONS */
+.case-section{padding:80px 48px;max-width:960px}
+.case-section.wide{max-width:none}
+.case-section-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.case-section-title{font-family:var(--fd);font-size:clamp(26px,3vw,40px);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:32px;max-width:720px}
+.case-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--text2);margin-bottom:20px}
+.case-body p:last-child{margin-bottom:0}
+.case-body strong{color:var(--text);font-weight:500}
+.case-body em{font-style:normal;color:var(--accent)}
+.case-role{font-size:14px;font-weight:600;color:var(--text);margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+
+.divider-section{border-top:2px solid var(--text)}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--accent);padding:24px 32px;margin:32px 0;background:var(--surface2)}
+.callout-text{font-family:var(--fd);font-size:clamp(18px,2vw,26px);font-weight:700;line-height:1.4;color:var(--text)}
+
+/* METRICS STRIP */
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;border-top:2px solid var(--text);border-bottom:2px solid var(--text)}
+.metric-card{padding:32px 24px;background:var(--surface);text-align:left}
+.metric-num{font-family:var(--fd);font-size:clamp(24px,3vw,36px);font-weight:900;color:var(--accent);line-height:1.05;margin-bottom:10px}
+.metric-label{font-size:13px;font-weight:400;color:var(--text2);line-height:1.5}
+.metric-placeholder{padding:32px 24px;background:var(--surface2);display:flex;align-items:center;justify-content:center;text-align:center}
+.metric-placeholder-text{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--text3);text-transform:uppercase;font-style:italic}
+
+/* RESULTS LIST */
+.results-list{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:32px}
+.result-card{background:var(--surface);border:1px solid var(--border);padding:32px}
+.result-num{font-family:var(--fd);font-size:22px;font-weight:900;color:var(--accent);margin-bottom:12px}
+.result-desc{font-size:14px;font-weight:300;color:var(--text2);line-height:1.7}
+
+/* ACCORDION */
+.accordion-intro{margin-bottom:40px}
+.accordion-group{border-top:1px solid var(--border)}
+.accordion-item{border-bottom:1px solid var(--border)}
+.accordion-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--fb)}
+.accordion-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.accordion-num{font-family:var(--fd);font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.04em;margin-right:16px}
+.accordion-title{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);line-height:1.3;flex:1}
+.accordion-icon{width:28px;height:28px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:14px;flex-shrink:0;transition:transform .3s,border-color .2s}
+.accordion-item.open .accordion-icon{transform:rotate(45deg);border-color:var(--accent);color:var(--accent)}
+.accordion-panel{overflow:hidden;max-height:0;opacity:0;transition:max-height .4s ease,opacity .3s ease}
+.accordion-item.open .accordion-panel{max-height:400px;opacity:1}
+.accordion-panel-inner{padding:0 0 28px 0;padding-left:calc(11px + 16px);}
+.accordion-panel-inner p{font-size:14px;font-weight:300;line-height:1.75;color:var(--text2);max-width:680px}
+.accordion-panel-inner code,.step-desc code{font-family:'Space Grotesk',monospace;font-size:13px;background:var(--surface2);border:1px solid var(--border);padding:1px 6px;border-radius:2px;color:var(--text)}
+
+/* ARCH VISUALS ROW */
+.arch-visuals{display:grid;grid-template-columns:1fr;gap:32px;margin:48px 0}
+
+/* DIAGRAMS */
+.dg{background:var(--surface);padding:clamp(24px,3vw,44px);display:flex;flex-direction:column}
+.case-hero-visual .dg{background:var(--surface)}
+.dg-flow{display:flex;flex-direction:column}
+.dg-tier{display:flex;flex-direction:column;gap:12px}
+.dg-tier-label{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text3)}
+.dg-nodes{display:grid;gap:12px}
+.dg-nodes.one{grid-template-columns:1fr}
+.dg-nodes.two{grid-template-columns:repeat(2,1fr)}
+.dg-nodes.three{grid-template-columns:repeat(3,1fr)}
+.dg-node{border:1px solid var(--border2);border-radius:2px;padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:6px}
+.dg-node.accent{border-color:var(--accent);background:oklch(50% 0.20 280 / 0.05)}
+.dg-node.solid{background:var(--text);border-color:var(--text)}
+.dg-node.solid .dg-node-name{color:#fff}
+.dg-node.solid .dg-node-sub{color:rgba(255,255,255,.6)}
+.dg-node-name{font-family:var(--fd);font-size:12px;font-weight:700;line-height:1.25;color:var(--text);letter-spacing:-.01em}
+.dg-node-sub{font-size:11px;font-weight:300;line-height:1.5;color:var(--text2)}
+.dg-node-tag{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.dg-arrow{height:38px;position:relative;display:flex;align-items:center;justify-content:center}
+.dg-arrow::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border2)}
+.dg-arrow::after{content:'';position:absolute;left:50%;bottom:0;width:5px;height:5px;border-right:1px solid var(--border2);border-bottom:1px solid var(--border2);transform:translateX(-50%) rotate(45deg)}
+.dg-arrow-label{position:relative;z-index:1;background:var(--surface);padding:0 10px;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3)}
+.dg-return{margin-top:28px;padding-top:16px;border-top:1px dashed var(--border2);font-size:11px;font-weight:400;color:var(--text2);display:flex;align-items:center;gap:10px}
+.dg-return span{font-family:var(--fd);font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.06em}
+.dg-code{font-family:'Space Grotesk',monospace;font-size:10px;background:var(--surface2);border:1px solid var(--border);padding:1px 5px;border-radius:2px;color:var(--text)}
+
+/* TOPOLOGY */
+.tp-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.tp-pillar{border:1px solid var(--text);border-radius:2px;overflow:hidden}
+.tp-pillar-head{background:var(--text);padding:14px 18px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.tp-pillar-name{font-family:var(--fd);font-size:12px;font-weight:700;color:#fff}
+.tp-pillar-key{font-family:'Space Grotesk',monospace;font-size:10px;color:oklch(80% 0.13 280)}
+.tp-pillar-body{padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.tp-level{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);font-weight:300}
+.tp-level-idx{font-family:var(--fd);font-size:9px;font-weight:700;color:var(--text3);width:14px;flex-shrink:0}
+.tp-level strong{font-weight:600;color:var(--text)}
+.tp-shared{margin-top:16px;border:1px solid var(--accent);border-radius:2px;background:oklch(50% 0.20 280 / 0.05);padding:16px 18px}
+.tp-shared-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px}
+.tp-tokens{display:flex;flex-wrap:wrap;gap:6px}
+.tp-token{font-size:10px;font-weight:500;color:var(--text2);border:1px solid var(--border2);border-radius:100px;padding:4px 11px;background:var(--surface)}
+.tp-note{margin-top:12px;font-size:11px;font-weight:300;color:var(--text2);line-height:1.55}
+.tp-legend{margin-top:24px;padding-top:16px;border-top:1px dashed var(--border2);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:10px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* FIGURE */
+.case-figure{margin:0}
+.case-figure-frame{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--surface2)}
+.case-figure-frame img{display:block;width:100%;height:auto}
+.case-figcaption{margin-top:12px;font-size:12px;font-weight:300;color:var(--text2);line-height:1.6;max-width:720px}
+.case-figcaption b{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:8px}
+
+/* STEPS */
+.steps-list{display:flex;flex-direction:column;margin-top:40px}
+.step-item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border)}
+.step-item:last-child{border-bottom:none}
+.step-num{font-family:var(--fd);font-size:24px;font-weight:900;color:var(--accent);line-height:1}
+.step-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.step-desc{font-size:14px;font-weight:300;color:var(--text2);line-height:1.7}
+
+/* VISION / CLOSING */
+.vision-section{background:var(--text);color:var(--bg);text-align:left}
+.vision-section .case-section-tag{color:oklch(50% 0.20 280)}
+.vision-section .case-body p{color:rgba(255,255,255,0.65);font-size:17px}
+.vision-section .case-body strong{color:#ffffff}
+.vision-section .case-body em{color:oklch(78% 0.14 280)}
+
+/* CASE CTA FOOTER */
+.case-cta{text-align:center;padding:100px 48px 80px;border-top:2px solid var(--text)}
+.case-cta-title{font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.1;margin-bottom:24px}
+.case-cta-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:10px;padding:14px 32px;border:1px solid var(--border2);font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;background:var(--surface)}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+
+.footer{text-align:center;padding:28px 48px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .nav{padding:16px 24px}
+  .nav-links{display:none}
+  .case-hero{padding:120px 24px 56px}
+  .case-section{padding:56px 24px;max-width:none}
+  .metrics-strip,.results-list{grid-template-columns:1fr}
+  .dg-nodes.two,.dg-nodes.three,.tp-pillars{grid-template-columns:1fr}
+  .dg{padding:20px}
+  .accordion-panel-inner{padding-left:0}
+  .case-cta{padding:72px 24px 56px}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="root">
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Rayner<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/#projetos">Projetos</a></li>
+    <li><a href="/#lab">Lab</a></li>
+    <li><a href="/#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5521981132271" target="_blank" rel="noopener" class="nav-cta">Falar comigo</a>
+</nav>
+
+<main>
+
+<!-- SEÇÃO 1 — HERO -->
+<section class="case-hero">
+  <a href="/#projetos" class="back-link">← Voltar aos projetos</a>
+  <div class="case-meta-chips">
+    <span class="chip">DesignSystemOps</span>
+    <span class="chip">TIM</span>
+    <span class="chip">2026</span>
+    <span class="chip">Sistemas de Informação + Design</span>
+  </div>
+  <h1 class="case-title">TIM DS Brain</h1>
+  <p class="case-subtitle">Uma camada de memória persistente e operacional para os Design Systems da TIM — documentação que deixa de ser conhecimento tribal e vira infraestrutura que agentes conseguem operar.</p>
+
+  <div class="case-hero-visual">
+    <div class="dg" role="img" aria-label="Diagrama de arquitetura do harness do TIM DS Brain: um agente de IA invoca skills de DS Ops, que operam os sistemas de design através de uma camada MCP — lendo as bibliotecas do Figma, lendo e escrevendo no vault Obsidian do Brain e escrevendo estórias no Azure DevOps.">
+      <div class="dg-flow">
+        <div class="dg-tier">
+          <span class="dg-tier-label">Orquestração</span>
+          <div class="dg-nodes one">
+            <div class="dg-node accent"><span class="dg-node-name">Agente de IA</span><span class="dg-node-sub">Conduz o ciclo de evolução do componente de ponta a ponta.</span></div>
+          </div>
+        </div>
+        <div class="dg-arrow"><span class="dg-arrow-label">invoca</span></div>
+        <div class="dg-tier">
+          <span class="dg-tier-label">Skills de DS Ops</span>
+          <div class="dg-nodes two">
+            <div class="dg-node"><span class="dg-node-tag">Handoff</span><span class="dg-node-name">figma-to-jira-stories</span><span class="dg-node-sub">Lê a mudança real no componente e escreve a estória de usuário, o changelog e o squad release.</span></div>
+            <div class="dg-node"><span class="dg-node-tag">Memória</span><span class="dg-node-name">obsidian-ds-knowledge-base</span><span class="dg-node-sub">Cadastra a evolução no Brain com frontmatter e wikilinks, e mantém os índices e descritivos.</span></div>
+          </div>
+        </div>
+        <div class="dg-arrow"><span class="dg-arrow-label">chamam</span></div>
+        <div class="dg-tier">
+          <span class="dg-tier-label">Camada MCP</span>
+          <div class="dg-nodes two">
+            <div class="dg-node"><span class="dg-node-name">Figma MCP</span><span class="dg-node-sub">Protocolo de leitura do design — dados reais de Main e Branch, sem transcrição manual.</span></div>
+            <div class="dg-node"><span class="dg-node-name">mcpvault</span><span class="dg-node-sub">Protocolo de leitura e escrita da memória — o vault como sistema consultável.</span></div>
+          </div>
+        </div>
+        <div class="dg-arrow"><span class="dg-arrow-label">operam</span></div>
+        <div class="dg-tier">
+          <span class="dg-tier-label">Sistemas</span>
+          <div class="dg-nodes three">
+            <div class="dg-node"><span class="dg-node-tag">Lê</span><span class="dg-node-name">Figma</span><span class="dg-node-sub">Bibliotecas TIM DS App e TIM DS Web.</span></div>
+            <div class="dg-node solid"><span class="dg-node-tag">Lê + escreve</span><span class="dg-node-name">Brain · vault Obsidian</span><span class="dg-node-sub">TIM DS App · TIM DS Web · Foundations.</span></div>
+            <div class="dg-node"><span class="dg-node-tag">Escreve</span><span class="dg-node-name">Azure DevOps</span><span class="dg-node-sub">Estórias e releases rastreadas por ID.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dg-return"><span>Loop fechado</span>o contexto gravado no Brain volta a alimentar o agente no ciclo seguinte — cada evolução parte do acúmulo, não do zero.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 2 — RESUMO EXECUTIVO -->
+<section class="case-section wide" style="padding-top:80px">
+  <div style="max-width:760px">
+    <span class="case-section-tag">Resumo Executivo</span>
+    <div class="case-body">
+      <p>O TIM DS Brain nasceu de um problema silencioso: o conhecimento operacional de um Design System costuma viver na cabeça das pessoas e em handoffs pontuais — e, por isso, nenhuma automação consegue consumi-lo. Modelei esse conhecimento como uma memória persistente, estruturada e legível por máquina, servida via MCP, capaz de alimentar automações de DS tanto no Figma quanto no código. O resultado é um <em>harness</em>: uma base operacional viva que unifica as duas bibliotecas de DS da TIM (App e Web) sob uma mesma arquitetura de informação.</p>
+      <p class="case-role"><strong>Meu papel:</strong> DesignSystemOps — arquitetura, modelagem de informação e governança.</p>
+    </div>
+  </div>
+
+  <div class="metrics-strip">
+    <div class="metric-card">
+      <div class="metric-num">2 bibliotecas</div>
+      <div class="metric-label">de DS unificadas numa mesma memória (App e Web)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">~90%</div>
+      <div class="metric-label">de redução no esforço por estória de handoff</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">Centenas de horas/ano</div>
+      <div class="metric-label">economizadas em documentação e handoff</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">Ponta a ponta</div>
+      <div class="metric-label">Handoff Figma → dev automatizado de ponta a ponta</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 3 — O CONTEXTO -->
+<section class="case-section">
+  <span class="case-section-tag">O Contexto</span>
+  <div class="case-body">
+    <p>A TIM opera dois Design Systems distintos e paralelos: um voltado para produtos <strong>app-based</strong> e outro para produtos <strong>web-based</strong>. Cada um tem sua biblioteca no Figma, sua base de código e seu ritmo de evolução. Na prática, isso significa três fontes de verdade — design, código e documentação — que vivem escorregando para fora de sincronia a cada nova evolução de componente. Manter paridade entre elas, de forma contínua e auditável, era um grande desafio de governança.</p>
+  </div>
+</section>
+
+<!-- SEÇÃO 4 — O PROBLEMA -->
+<section class="case-section">
+  <span class="case-section-tag">O Problema</span>
+  <div class="case-body">
+    <p>O problema real nunca foi "falta de documentação". Era a natureza dela: <strong>efêmera e não-operacional</strong>. O contexto do DS existia em conversas, threads e handoffs — legível por humanos, em momentos específicos, e nunca de forma que uma máquina pudesse consumir. Toda vez que uma automação, um desenvolvedor ou eu mesmo precisávamos de contexto sobre um componente, o ponto de partida era o zero. Cada ciclo reconstruía o mesmo conhecimento do início, sem acúmulo.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-text">"Documentação que humanos leem não é a mesma coisa que memória que agentes operam."</div>
+  </div>
+</section>
+
+<!-- SEÇÃO 5 — O CONCEITO -->
+<section class="case-section">
+  <span class="case-section-tag">O Conceito — "Brain"</span>
+  <div class="case-body">
+    <p>A virada foi tratar o conhecimento do DS como <strong>infraestrutura</strong>, não como subproduto. E se cada evolução de componente — sua intenção de design, suas mudanças, seu histórico — fosse registrada numa memória persistente, estruturada com discriminadores que uma máquina entende, e servida por um protocolo aberto (MCP) para qualquer agente que precise operar sobre o DS? Esse é o salto que define o Brain: de <em>documentação para humanos lerem</em> para <em>harness para agentes operarem</em>. Deixa de ser um repositório passivo e passa a ser a camada de contexto de qualquer automação que toque o Design System.</p>
+  </div>
+</section>
+
+<!-- SEÇÃO 6 — DECISÕES DE ARQUITETURA -->
+<section class="case-section divider-section" style="padding-top:80px">
+  <span class="case-section-tag">Decisões de Arquitetura</span>
+  <h2 class="case-section-title">O coração do case.</h2>
+  <div class="case-body accordion-intro">
+    <p>A qualidade de um harness está nas suas decisões de modelagem. Cada escolha abaixo foi feita para que o conhecimento do DS fosse, ao mesmo tempo, legível por humanos e operável por máquina — e para que as duas bibliotecas tivessem paridade real, não hierarquia.</p>
+  </div>
+
+  <div class="arch-visuals">
+    <figure class="case-figure">
+      <div class="case-figure-frame">
+        <div class="dg" role="img" aria-label="Topologia de três namespaces do vault: TIM DS App e TIM DS Web como domínios simétricos de primeira ordem, e Foundations como conceito compartilhado, unificados pelo discriminador library com os valores app, web e shared.">
+          <div class="tp-pillars">
+            <div class="tp-pillar">
+              <div class="tp-pillar-head"><span class="tp-pillar-name">TIM DS App</span><span class="tp-pillar-key">library: app</span></div>
+              <div class="tp-pillar-body">
+                <div class="tp-level"><span class="tp-level-idx">01</span><strong>Components</strong></div>
+                <div class="tp-level"><span class="tp-level-idx">02</span>Categoria <span style="color:var(--text3)">— App Bar, Banner, Card…</span></div>
+                <div class="tp-level"><span class="tp-level-idx">03</span>Descritivo do componente <span style="color:var(--text3)">— snapshot vivo</span></div>
+                <div class="tp-level"><span class="tp-level-idx">04</span>Evolution Log <span style="color:var(--text3)">— histórico por evolução</span></div>
+              </div>
+            </div>
+            <div class="tp-pillar">
+              <div class="tp-pillar-head"><span class="tp-pillar-name">TIM DS Web</span><span class="tp-pillar-key">library: web</span></div>
+              <div class="tp-pillar-body">
+                <div class="tp-level"><span class="tp-level-idx">01</span><strong>Components</strong></div>
+                <div class="tp-level"><span class="tp-level-idx">02</span>Categoria <span style="color:var(--text3)">— mesma estrutura</span></div>
+                <div class="tp-level"><span class="tp-level-idx">03</span>Descritivo do componente <span style="color:var(--text3)">— snapshot vivo</span></div>
+                <div class="tp-level"><span class="tp-level-idx">04</span>Evolution Log <span style="color:var(--text3)">— histórico por evolução</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tp-shared">
+            <div class="tp-shared-head"><span class="tp-pillar-name" style="color:var(--text)">Foundations</span><span class="tp-pillar-key" style="color:var(--accent)">library: shared</span></div>
+            <div class="tp-tokens"><span class="tp-token">Cores</span><span class="tp-token">Spacing</span><span class="tp-token">Tipografia</span><span class="tp-token">Bordas</span></div>
+            <p class="tp-note">Conceito compartilhado, realização apartada: a premissa é documentada uma única vez aqui, e cada biblioteca registra a sua própria realização em assets.</p>
+          </div>
+          <div class="tp-legend">Discriminador <span class="dg-code">library</span> <span class="dg-code">app</span> <span class="dg-code">web</span> <span class="dg-code">shared</span> · torna todo o acervo consultável por biblioteca</div>
+        </div>
+      </div>
+      <figcaption class="case-figcaption"><b>Fig. 01</b>Topologia simétrica do vault. App e Web são domínios de primeira ordem com estrutura idêntica; Foundations existe como conceito único acima de ambos.</figcaption>
+    </figure>
+    <figure class="case-figure">
+      <div class="case-figure-frame">
+        <img src="/public/img/brain-vault-masked.png" alt="Nota do vault Obsidian mostrando o frontmatter estruturado de uma evolução — type, azure-id, foundation, library, date, branch, change-type, breaking e tags — ao lado da árvore de namespaces do Brain." loading="lazy">
+      </div>
+      <figcaption class="case-figcaption"><b>Fig. 02</b>Uma evolução real no Brain: o frontmatter carrega os discriminadores que tornam a nota operável por máquina, e a árvore à esquerda mostra os quatro artefatos gerados por evolução.</figcaption>
+    </figure>
+  </div>
+
+  <div class="accordion-group" id="accordion-group">
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <span style="display:flex;align-items:baseline"><span class="accordion-num">01</span><span class="accordion-title">Topologia simétrica de três namespaces</span></span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-panel-inner">
+          <p>Estruturei a memória em três domínios simétricos: <strong>TIM DS App</strong>, <strong>TIM DS Web</strong> e <strong>Foundations</strong>. A simetria é deliberada: em vez de tratar o Web como cidadão de segunda classe do App, cada biblioteca é um domínio de primeira ordem, com a mesma estrutura de componentes, categorias e evoluções. Isso garante paridade e torna a navegação previsível para qualquer agente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <span style="display:flex;align-items:baseline"><span class="accordion-num">02</span><span class="accordion-title">Discriminador <code>library</code> no frontmatter</span></span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-panel-inner">
+          <p>Introduzi um campo <code>library</code> (<code>app</code> | <code>web</code> | <code>shared</code>) no frontmatter de cada nota, retrofitado em toda a base existente. É uma decisão de <strong>modelagem de dados</strong>: um único campo transforma todo o acervo num conjunto consultável e filtrável por biblioteca — uma automação consegue perguntar "quais evoluções de Web aconteceram?" e obter resposta estruturada, sem heurística de texto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <span style="display:flex;align-items:baseline"><span class="accordion-num">03</span><span class="accordion-title">Foundations: conceito compartilhado, realização apartada</span></span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-panel-inner">
+          <p>Tokens de espaçamento, cor, borda e tipografia são <strong>conceitualmente compartilhados</strong> entre App e Web — mas cada biblioteca consome assets próprios. Modelei isso separando o conceito (documentado uma vez, em Foundations) da realização (registrada por biblioteca). Essa distinção "conceito compartilhado / asset apartado" evita duplicação e mantém a fonte de verdade única para cada premissa.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <span style="display:flex;align-items:baseline"><span class="accordion-num">04</span><span class="accordion-title">Modelo de quatro artefatos por evolução</span></span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-panel-inner">
+          <p>Cada evolução de componente é registrada com quatro artefatos padronizados — identificador da evolução, estória de usuário, changelog e squad release — mais o agregador que costura tudo. É governança reproduzível: qualquer evolução, de qualquer componente, tem a mesma forma, o que torna a base auditável e previsível para automações.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <span style="display:flex;align-items:baseline"><span class="accordion-num">05</span><span class="accordion-title">Camada de skills + MCP (o loop fechado)</span></span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-panel">
+        <div class="accordion-panel-inner">
+          <p>A memória sozinha seria estática. O que a torna um harness é a camada de automação servida por MCP: uma skill lê o design diretamente do Figma e produz as estórias de handoff; outra registra a evolução no Brain, com frontmatter e wikilinks corretos. O sistema <strong>lê do Figma e escreve no cérebro</strong> — fechando o ciclo entre design e memória sem intervenção manual de estruturação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 7 — O HARNESS EM OPERAÇÃO -->
+<section class="case-section divider-section" style="padding-top:80px">
+  <span class="case-section-tag">O Harness em Operação</span>
+  <h2 class="case-section-title">Um ciclo real de evolução mostra o loop fechado em funcionamento.</h2>
+
+  <div class="steps-list">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div><div class="step-title">Mudança no Figma</div><div class="step-desc">Um componente é evoluído na biblioteca do DS (App ou Web).</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div><div class="step-title">Coleta via MCP</div><div class="step-desc">O agente lê os dados reais do componente diretamente do Figma, sem transcrição manual.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div><div class="step-title">Geração da estória</div><div class="step-desc">A skill de handoff produz a estória de usuário com anatomia, intenção e mudanças, no padrão que o time de desenvolvimento consome.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <div><div class="step-title">Registro no Brain</div><div class="step-desc">A evolução é gravada na memória com os quatro artefatos, frontmatter (incluindo o discriminador <code>library</code>) e wikilinks que conectam componente, categoria e histórico.</div></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">05</div>
+      <div><div class="step-title">Contexto disponível</div><div class="step-desc">A partir daí, qualquer automação ou pessoa que precise do contexto daquele componente encontra a verdade estruturada, versionada e consultável — não recomeça do zero.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 8 — RESULTADOS -->
+<section class="case-section wide divider-section" style="padding-top:80px">
+  <div style="max-width:760px">
+    <span class="case-section-tag">Resultados</span>
+  </div>
+  <div class="results-list">
+    <div class="result-card">
+      <div class="result-num">Duas bibliotecas sob uma só memória</div>
+      <div class="result-desc">App e Web deixaram de ter documentação dispersa e passaram a compartilhar a mesma arquitetura de informação, com paridade real.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">~90% menos esforço por estória</div>
+      <div class="result-desc">O handoff que antes era manual e repetitivo passou a ser gerado a partir da fonte de verdade do design.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">Centenas de horas/ano recuperadas</div>
+      <div class="result-desc">Tempo antes gasto reescrevendo contexto e estruturando documentação voltou para o trabalho de DS.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">Handoff Figma → dev de ponta a ponta</div>
+      <div class="result-desc">O ciclo entre design e desenvolvimento deixou de depender de estruturação manual.</div>
+    </div>
+    <div class="metric-placeholder" style="grid-column:1/-1">
+      <span class="metric-placeholder-text">[Placeholder — custo evitado a confirmar internamente]</span>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 9 — VISÃO -->
+<section class="case-section wide vision-section">
+  <div style="max-width:760px;padding:80px 48px" class="inner-vision">
+    <span class="case-section-tag">Visão</span>
+    <div class="case-body">
+      <p>O TIM DS Brain começou como memória, mas seu destino é ser <strong>harness</strong>: a camada de contexto que qualquer automação de Design System consome — seja no Figma, seja no código. Com o conhecimento do DS finalmente estruturado e servível por máquina, cada novo agente que opera sobre o sistema parte de um contexto acumulado, não de uma folha em branco. É a diferença entre um Design System que é documentado e um Design System que <em>se lembra de si mesmo</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-cta">
+  <h2 class="case-cta-title">Quer conversar sobre<br>este projeto?</h2>
+  <div class="case-cta-links">
+    <a href="/#contato" class="contact-link">Ver contato</a>
+    <a href="/#projetos" class="contact-link">← Outros projetos</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">© 2026 Rayner Lemos Guimarães · UX Specialist · Rio de Janeiro</footer>
+
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('.accordion-item').forEach(function (item) {
+    var trigger = item.querySelector('.accordion-trigger');
+    trigger.addEventListener('click', function () {
+      var isOpen = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      var icon = item.querySelector('.accordion-icon');
+      icon.textContent = isOpen ? '×' : '+';
+    });
+  });
+})();
+</script>
+</body>
+</html>

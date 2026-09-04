@@ -21,6 +21,16 @@
     arrow.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
   });
 
+  // Collapsible sub-sections (Realizações/Contexto/Estratégia) — independent from card toggle
+  document.querySelectorAll('.expand-section').forEach(function (sec) {
+    var label = sec.querySelector('.expand-label');
+    if (!label) return;
+    label.addEventListener('click', function (e) {
+      e.stopPropagation();
+      sec.classList.toggle('expanded');
+    });
+  });
+
   // Reveal on scroll
   var revealObs = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
